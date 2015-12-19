@@ -184,8 +184,9 @@
 			<div class="chat-box-handle" onclick="$(this).closest('.chat-box').toggleClass('open')">
 				<span class="status status-on"></span>
 				<span class="handle-title">John Doe</span>
+				<span class="pull-right" style="margin-top:15px">X</span>
 			</div>
-			<div class="chat-box-content">
+			<div id="chat-msgs" class="chat-box-content">
 				<div class="media message">
 				  <div class="media-left">
 				      <img class="media-object img-rounded" src="http://placehold.it/40x40/00ffff/00ffff" alt="User">
@@ -217,7 +218,7 @@
 			</div>
 
 			<div class="input-cont">
-				<input type="text" class="input-mes" placeholder="Type Mess..." />
+				<input type="text" id="chat-msg" class="input-mes" placeholder="Type Mess..." />
 			</div>
 		</div>
 		<div class="chat-box open chat-userlist">
@@ -327,37 +328,7 @@
 	<script src="/js/socket.io.js"></script>
 	<script type="text/javascript" src="js/main_app.js"></script>
 
-	<script>
-
-      var socket = io();
-      var user = prompt("Enter your username");
-      $('form').submit(function(){
-        socket.emit('chat message', {'message':$('#msg').val(),'user':user});
-        $('#m').val('');
-        $('#msg').val("");
-        return false;
-      });
-
-      $('#msg').keydown(function(event) {
-      		if(event.which==13) {
-      			socket.emit('chat message', {'message':$('#msg').val(),'user':user});
-		        $('#m').val('');
-		        $('#msg').val("");
-		        $('#msg').text("");
-      		}
-
-      })
-
-      socket.on('chat message', function(msg){
-
-	      	if(msg.user!=user) {
-	        $('#msgs').append('<li class="recieved"><div class="message-item"><div class="messge">' + msg.message + '</div><div class="text-right"><span class="time">Sent '+msg.time+'</span></div></div></li>');
-	    	}
-	    	else {
-	    		$('#msgs').append('<li class="sent"><div class="message-item"><div class="messge">' + msg.message + '</div><div class="text-right"><span class="time">Sent '+msg.time+'</span></div></div></li>');
-	    	}
-      });
-    </script>
+	
 
 </body>
 </html>

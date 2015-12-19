@@ -85,7 +85,7 @@
 				</div>
 				<div class="col-md-8 no-padd">
 					<div class="chat-message-box">
-						<div class="message-list">
+						<div id="message-list" class="message-list">
 							<ul id="msgs" class="list-block">
 								<li class="recieved">
 									<div class="message-item">
@@ -151,3 +151,55 @@
 		</div>
 	</section>
 
+<script>
+
+      var socket = io();
+      var user = prompt("Enter your username");
+      $('form').submit(function(){
+        socket.emit('chat message', {'message':$('#msg').val(),'user':user});
+        $('#m').val('');
+        $('#msg').val("");
+        return false;
+      });
+
+      $('#msg').keydown(function(event) {
+      		if(event.which==13) {
+      			socket.emit('chat message', {'message':$('#msg').val(),'user':user});
+		        $('#m').val('');
+		        $('#msg').val("");
+		        $('#msg').text("");
+      		}
+
+      })
+      $('#chat-msg').keydown(function(event) {
+      		if(event.which==13) {
+      			socket.emit('chat message', {'message':$('#chat-msg').val(),'user':user});
+		        $('#m').val('');
+		        $('#chat-msg').val("");
+		        $('#chat-msg').text("");
+      		}
+
+      })
+
+      socket.on('chat message', function(msg){
+
+	      	if(msg.user!=user) {
+	        $('#msgs').append('<li class="recieved"><div class="message-item"><div class="messge">' + msg.message + '</div><div class="text-right"><span class="time">Sent '+msg.time+'</span></div></div></li>');
+	    	$('#chat-msgs').append("<div class='media message byme'><div class='media-body'><p>"+ msg.message +"</p></div><div class='media-right'><img class='media-object img-rounded' src='http://placehold.it/40x40/ff00ff/ff00ff' alt='User'></div></div>");
+	    		updateScroll();
+	    	}
+	    	else {
+	    		$('#msgs').append('<li class="sent"><div class="message-item"><div class="messge">' + msg.message + '</div><div class="text-right"><span class="time">Sent '+msg.time+'</span></div></div></li>');
+	    		$('#chat-msgs').append('<div class="media message"><div class="media-left"><img class="media-object img-rounded" src="http://placehold.it/40x40/00ffff/00ffff" alt="User"></div><div class="media-body"><p>' + msg.message + '</p></div></div>');
+	    		updateScroll();
+	    	}
+      });
+
+	function updateScroll(){
+	    var element = document.getElementById("message-list");
+	    element.scrollTop = element.scrollHeight;
+	    var element = document.getElementById("chat-msgs");
+	    element.scrollTop = element.scrollHeight;
+	}
+
+    </script>
