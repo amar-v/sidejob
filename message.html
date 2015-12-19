@@ -11,6 +11,8 @@
 	<link rel="stylesheet" href="css/navbar.css">
 	<link rel="stylesheet" href="css/navbar2.css">
 	<link rel="stylesheet" href="css/searchbox.css">
+
+	<link rel="stylesheet" href="css/chat-ui.css">
 	
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
@@ -110,10 +112,214 @@
 	
 
 </div><!--end container-->
-	<footer>
-		<div class="pull-right chat-list">
-			<span class="signal"></span>
-			<span>Chat</span>
+	<footer class="chat-footer">
+		<div class="chat-box chat-messages">
+			<div class="chat-box-handle" onclick="$(this).closest('.chat-box').toggleClass('open')">
+				<span class="status status-off"></span>
+				<span class="handle-title">Sarah Doe</span>
+			</div>
+			<div class="chat-box-content">
+				<div class="media message">
+				  <div class="media-left">
+				      <img class="media-object img-rounded" src="http://placehold.it/40x40/00ffff/00ffff" alt="User">
+				  </div>
+				  <div class="media-body">
+				    <p>Hi! How are you?</p>
+				  </div>
+				</div>
+
+
+				<div class="media message byme">
+				  <div class="media-body">
+				    <p>Hi! I felt better.</p>
+				  </div>
+				  <div class="media-right">
+				      <img class="media-object img-rounded" src="http://placehold.it/40x40/ff00ff/ff00ff"  alt="User">
+				  </div>
+				</div>
+
+
+				<div class="media message">
+				  <div class="media-left">
+				      <img class="media-object img-rounded" src="http://placehold.it/40x40/00ffff/00ffff" alt="User">
+				  </div>
+				  <div class="media-body">
+				    <p>Sorry to hear that!</p>
+				  </div>
+				</div>
+
+				<div class="media message byme">
+				  <div class="media-body">
+				    <p>Nah. I will be alright</p>
+				  </div>
+				  <div class="media-right">
+				      <img class="media-object img-rounded" src="http://placehold.it/40x40/ff00ff/ff00ff"  alt="User">
+				  </div>
+				</div>
+
+				<div class="media message byme">
+				  <div class="media-body">
+				    <p>So what are you up to?</p>
+				  </div>
+				  <div class="media-right">
+				      <img class="media-object img-rounded" src="http://placehold.it/40x40/ff00ff/ff00ff"  alt="User">
+				  </div>
+				</div>
+
+				<div class="media message byme"> 
+				  <div class="media-body">
+				    <p>You there?</p>
+				  </div>
+				  <div class="media-right">
+				      <img class="media-object img-rounded" src="http://placehold.it/40x40/ff00ff/ff00ff"  alt="User">
+				  </div>
+				</div>
+
+			</div>
+			<div class="input-cont">
+				<input type="text" class="input-mes" placeholder="Type Mess..." />
+			</div>
+		</div>
+		<div class="chat-box chat-messages">
+			<div class="chat-box-handle" onclick="$(this).closest('.chat-box').toggleClass('open')">
+				<span class="status status-on"></span>
+				<span class="handle-title">John Doe</span>
+			</div>
+			<div class="chat-box-content">
+				<div class="media message">
+				  <div class="media-left">
+				      <img class="media-object img-rounded" src="http://placehold.it/40x40/00ffff/00ffff" alt="User">
+				  </div>
+				  <div class="media-body">
+				    <p>Hi! How are you?</p>
+				  </div>
+				</div>
+
+
+				<div class="media message byme">
+				  <div class="media-body">
+				    <p>Hi! I am fine. You?</p>
+				  </div>
+				  <div class="media-right">
+				      <img class="media-object img-rounded" src="http://placehold.it/40x40/ff00ff/ff00ff"  alt="User">
+				  </div>
+				</div>
+
+
+				<div class="media message">
+				  <div class="media-left">
+				      <img class="media-object img-rounded" src="http://placehold.it/40x40/00ffff/00ffff" alt="User">
+				  </div>
+				  <div class="media-body">
+				    <p>Hi! As Awesome as ever!</p>
+				  </div>
+				</div>
+			</div>
+
+			<div class="input-cont">
+				<input type="text" class="input-mes" placeholder="Type Mess..." />
+			</div>
+		</div>
+		<div class="chat-box open chat-userlist">
+			<div class="chat-box-handle" onclick="$(this).closest('.chat-box').toggleClass('open')">
+				<span class="handle-title"><b>User List</b></span>
+			</div>
+			<div class="chat-box-content">
+
+				<div class="media userinfo">
+				  <div class="media-left">
+				      <img class="media-object img-rounded" src="http://placehold.it/30x30/458fce/458fce" alt="User">
+				  </div>
+				  <div class="media-body">
+				    <b>John Doe</b>
+				  </div>
+				</div>
+
+				<div class="media userinfo">
+				  <div class="media-left">
+				      <img class="media-object img-rounded" src="http://placehold.it/30x30/458fce/458fce" alt="User">
+				  </div>
+				  <div class="media-body">
+				    <b>Susan Doe</b>
+				  </div>
+				</div>
+
+				<div class="media userinfo">
+				  <div class="media-left">
+				      <img class="media-object img-rounded" src="http://placehold.it/30x30/458fce/458fce" alt="User">
+				  </div>
+				  <div class="media-body">
+				    <b>Sarah Doe</b>
+				  </div>
+				</div>
+
+				<div class="media userinfo">
+				  <div class="media-left">
+				      <img class="media-object img-rounded" src="http://placehold.it/30x30/458fce/458fce" alt="User">
+				  </div>
+				  <div class="media-body">
+				    <b>Susan Doe</b>
+				  </div>
+				</div>
+
+				<div class="media userinfo">
+				  <div class="media-left">
+				      <img class="media-object img-rounded" src="http://placehold.it/30x30/458fce/458fce" alt="User">
+				  </div>
+				  <div class="media-body">
+				    <b>Sarah Doe</b>
+				  </div>
+				</div>
+
+				<div class="media userinfo">
+				  <div class="media-left">
+				      <img class="media-object img-rounded" src="http://placehold.it/30x30/458fce/458fce" alt="User">
+				  </div>
+				  <div class="media-body">
+				    <b>James Doe</b>
+				  </div>
+				</div>
+
+				<div class="media userinfo">
+				  <div class="media-left">
+				      <img class="media-object img-rounded" src="http://placehold.it/30x30/458fce/458fce" alt="User">
+				  </div>
+				  <div class="media-body">
+				    <b>Sarah Doe</b>
+				  </div>
+				</div>
+
+				<div class="media userinfo">
+				  <div class="media-left">
+				      <img class="media-object img-rounded" src="http://placehold.it/30x30/458fce/458fce" alt="User">
+				  </div>
+				  <div class="media-body">
+				    <b>James Doe</b>
+				  </div>
+				</div>
+
+				<div class="media userinfo">
+				  <div class="media-left">
+				      <img class="media-object img-rounded" src="http://placehold.it/30x30/458fce/458fce" alt="User">
+				  </div>
+				  <div class="media-body">
+				    <b>Sarah Doe</b>
+				  </div>
+				</div>
+
+				<div class="media userinfo">
+				  <div class="media-left">
+				      <img class="media-object img-rounded" src="http://placehold.it/30x30/458fce/458fce" alt="User">
+				  </div>
+				  <div class="media-body">
+				    <b>James Doe</b>
+				  </div>
+				</div>
+
+			</div>
+			<div class="input-cont">
+				<input type="text" class="input-mes" placeholder="Search Users..." />
+			</div>
 		</div>
 	</footer>
 

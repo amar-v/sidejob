@@ -1,0 +1,167 @@
+/* Chat System - Facebook Look-a-like */
+
+.chat-footer {
+	position: fixed;
+	bottom:0;
+	right: 0;
+	z-index: 9999;
+	text-align: right;
+    height: 1px;
+    overflow: visible;
+}
+
+
+.chat-footer ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+ 
+.chat-footer ::-webkit-scrollbar-track {
+	background: transparent;
+    border-radius: 7px;
+}
+ 
+.chat-footer ::-webkit-scrollbar-thumb {
+    border-radius: 7px;
+    background: #dfdfdf;
+}
+
+.chat-box {
+	display: inline-block;
+	margin: 0 10px;
+    width: 300px;
+	border: 1px solid #bbb;
+    vertical-align: bottom;
+	text-align: left;
+	z-index: 9999;
+    margin-top: -40px;
+    position: relative;
+	height: 340px;
+}
+
+
+.chat-box .chat-box-content {
+    display: block;
+	margin: 0 10px;
+	width: 100%;
+	height: 260px;
+	overflow: auto;
+	background: #efefef; 
+	margin: 0;
+	position: relative;
+}
+
+.chat-box .chat-box-content .message  {
+	padding: 15px;
+}
+
+.chat-box .chat-box-content .userinfo {
+	padding: 7px 8px;
+	cursor: pointer;
+	margin: 0;
+}
+
+.chat-box .chat-box-content .userinfo b {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.chat-box .chat-box-content .userinfo .media-body {
+    padding: 5px 0;
+}
+.chat-box .chat-box-content .userinfo:hover {
+	color: #458fce;
+	background: #dfdfdf; 
+}
+
+.chat-box.open {
+    top: -300px;
+}
+
+.chat-box.open .input-cont {
+    display: block;
+    width: 100%;
+    height: 40px;
+}
+.chat-box.open .input-cont input {
+    display: block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    padding: 0 10px;
+    font-size: 13px;
+    border: 0;
+    border-top: 1px solid #f8f8f8;
+    outline: 0;
+    box-shadow: none;
+}
+
+.chat-box.open .input-cont input:hover,
+.chat-box.open .input-cont input:focus,
+.chat-box.open .input-cont input:active {
+    border: 0;
+    border-top: 1px solid #f8f8f8;
+    outline: 0;
+    box-shadow: none;
+}
+
+.chat-box.open .input-cont input:focus {
+    border-top: 1px solid #d5d5d5;
+}
+
+
+
+.chat-box .chat-box-content p {
+	font-size: 15px;
+	line-height: 24px;
+}
+
+.chat-box .chat-box-content .byme {
+	text-align: right;
+}
+
+
+.chat-box img.media-object {
+    max-width: 40px;
+}
+
+.chat-box .media-body {
+	padding-top: 7px;
+}
+
+
+.chat-box-handle {
+	width: 100%;
+	display: inline-block;
+	background: #f8f8f8;
+	height: 40px;
+	line-height: 40px;
+	padding: 0 10px;
+	border-bottom: 1px solid #ddd;
+	cursor: pointer;
+}
+
+.chat-box-handle:hover {
+	background: #e5e5e5;
+}
+
+.handle-title {
+	font-size: 13px;
+}
+
+.chat-box-handle .status {
+	width: 9px;
+	height: 9px;
+	display: inline-block;
+	border-radius: 4px;
+	margin-right: 5px;
+}
+
+.chat-box-handle .status-off {
+	background: #dfdfdf;
+}
+
+.chat-box-handle .status-on {
+	background: #4BE82C;
+}
