@@ -56,7 +56,7 @@
 }
 
 .chat-box .chat-box-content .userinfo {
-	padding: 7px 8px;
+	padding: 3px 8px;
 	cursor: pointer;
 	margin: 0;
 }
@@ -68,6 +68,12 @@
 
 .chat-box .chat-box-content .userinfo .media-body {
     padding: 5px 0;
+}
+
+.chat-box .chat-box-content .userinfo .media-left {
+    padding: 0 2px;
+    vertical-align: middle;
+
 }
 .chat-box .chat-box-content .userinfo:hover {
 	color: #458fce;
@@ -150,7 +156,7 @@
 	font-size: 13px;
 }
 
-.chat-box-handle .status {
+.chat-footer .status {
 	width: 9px;
 	height: 9px;
 	display: inline-block;
@@ -158,10 +164,10 @@
 	margin-right: 5px;
 }
 
-.chat-box-handle .status-off {
+.chat-footer .status-off {
 	background: #dfdfdf;
 }
 
-.chat-box-handle .status-on {
+.chat-footer .status-on {
 	background: #4BE82C;
 }
