@@ -10,6 +10,7 @@ var UserSchema = mongoose.Schema({
     jobs_completed: String,
     password: String,
     ZIP: String,
+    avatar: String,
     conversations: [],
     dob: {
         day: String,

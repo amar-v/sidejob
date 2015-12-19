@@ -97,7 +97,8 @@ angular.module("mainApp",['ngRoute'])
 	//messages tab
 	vm.messages = "all";
 
-	
+	vm.friends = [];	//Array for friends conversation management..friends,status,conversations
+
 
 })
 

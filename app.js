@@ -31,6 +31,7 @@ var io = require('socket.io')(http);
 
 io.on('connection', function(socket){
   socket.on('chat message', function(msg){
+    console.log(socket);
     //Get and format time
     var dt = new Date();
     var hours = 0;
