@@ -97,6 +97,8 @@ angular.module("mainApp",['ngRoute'])
 	//messages tab
 	vm.messages = "all";
 
+	
+
 })
 
 .controller("dashboardController",function(GetZIPs) {

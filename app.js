@@ -30,9 +30,24 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 io.on('connection', function(socket){
-  console.log('a user connected');
-  socket.on('disconnect', function(){
-    console.log('user disconnected');
+  socket.on('chat message', function(msg){
+    //Get and format time
+    var dt = new Date();
+    var hours = 0;
+    if(dt.getHours()<10) {
+        hours = '0'+dt.getHours()
+    } else {
+        hours = dt.getHours();
+    }
+    var minutes = 0;
+    if(dt.getMinutes()<10) {
+        minutes = '0'+dt.getHours()
+    } else {
+        minutes = dt.getMinutes();
+    }
+    var time = hours + ":" + minutes;
+    //Emit message to all users
+    io.emit('chat message', {'message':msg.message,'time':time,'user':msg.user});
   });
 });
 
