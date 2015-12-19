@@ -1,0 +1,163 @@
+.hub-header {
+  height: 80px;
+  -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+  background-color: white;
+}
+.hub-header li.nav-left {
+  height: auto;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  position: relative;
+}
+.hub-header li.nav-left a {
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.hub-header li.nav-hamburger {
+  top: 22px;
+  left: 20px;
+}
+.hub-header li.nav-hamburger a {
+  height: 19px;
+  width: 30px;
+  background-image: url('../images/nav-hamburger.png');
+}
+.hub-header .nav-logo {
+  top: 23px;
+  left: 40px;
+}
+.hub-header .nav-logo a {
+  height: 28px;
+  width: 135px;
+  background-image: url('../images/nav-logo.png');
+}
+.hub-header a {
+  margin: 0;
+}
+.hub-header a.profile-anchor img {
+  width: 53px;
+  height: auto;
+  border-radius:50px;
+}
+.hub-header a.profile-anchor span {
+  position: relative;
+  display: inline-block;
+  border-radius: 50%; /* Lorena: Circular notification */
+  background-color: #009CDE;
+  font-family: 'PayPalForward-Regular', Helvetica, Arial, sans-serif;
+  font-size: 0.7rem; /* Lorena: Changing font size */
+  height: 23px;  /* Lorena: Changing height */
+  width: 23px; /* Lorena: Changing width */
+  color: white;
+  text-align: center;
+  line-height: 2.0; /* Lorena: more line height */
+  margin: 0;
+  top: 15px;
+  left: -13px; /* Lorena: Little overlap */
+}
+@media (max-width: 768px) {
+  .hub-header a.profile-anchor img {
+    width: 40px;
+    height: auto;
+  }
+  .hub-header a.profile-anchor span {
+    position: relative;
+    display: inline-block;
+    background-color: #009CDE;
+    font-family: 'PayPalForward-Regular', Helvetica, Arial, sans-serif;
+    font-size: 0.8rem;
+    height: 20px;
+    width: 20px;
+    color: white;
+    text-align: center;
+    line-height: 1.7;
+    margin: 0;
+    top: 10px;
+    left: -2px;
+  }
+  .hub-overlay-nav-right-caret {
+    width: 0px;
+    height: 0px;
+    margin-left: 4px;
+    vertical-align: middle;
+    border-top: none;
+    border-bottom: 6px solid #52585d;
+    border-right: 6px solid transparent;
+    border-left: 6px solid transparent;
+    border-top-width: 0px;
+    border-top-style: dotted;
+    content: "";
+    right: 3.2em;
+  }
+}
+.navbar-collapse.collapse {
+  height: 80px !important;
+}
+.navbar-center {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  margin: auto;
+}
+.navbar {
+  height: 80px;
+  -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+  background-color: white;
+}
+.navbar li.nav-left {
+  height: auto;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  position: relative;
+}
+.navbar li.nav-left a {
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.navbar li.nav-hamburger {
+  top: 22px;
+  left: 20px;
+}
+.navbar li.nav-hamburger a {
+  height: 19px;
+  width: 30px;
+  background-image: url('../images/nav-hamburger.png');
+}
+.navbar a.profile-anchor {
+  position: relative;
+  top: 0;
+  right: 0;
+}
+.navbar a.profile-anchor img {
+  width: 53px;
+  height: auto;
+}
+.navbar a.profile-anchor span {
+  position: relative;
+  display: inline-block;
+  background-color: #e73b41;
+  font-family: 'PayPalForward-Regular', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  height: 26px;
+  width: 26px;
+  color: white;
+  text-align: center;
+  line-height: 1.7;
+  margin: 0;
+  top: 15px;
+  left: -2px;
+}
+.navbar-collapse.collapse {
+  height: 80px !important;
+}

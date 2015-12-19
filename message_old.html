@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Dashboard Page</title>
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+</head>
+<body ng-app="mainApp">
+	<header class="dashboard-header">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="menu-left">
+						<span class="brand"><i class="fa fa-bars"></i></span> 
+						<span class="title">SideJob</span>
+					</div>
+				</div>
+				<div class="col-sm-8 text-right">
+					<div class="menu-right">
+						<ul class="list-inline menus">
+							<li><a href="#"><i class="fa fa-money"></i></a></li>
+							<li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
+							<li><a href="#"><i class="fa fa-th-large"></i></a></li>
+							<li class="help"><a href="#">Help</a></li>
+							<li class="user-name">Claire</li>
+							<li class="user-img"><img src="images/user.png" alt="" width="35" height="35" class="img img-responsive"></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<section class="dashboard-subheader">
+		<div class="container-fluid">
+			<div class="menus">
+				<ul class="list-inline">
+					<li><a ng-href="/dashboard">DASHBOARD</span></li>
+					<li class="active"><a>INBOX</a></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="banner Banner">
+		<div class="banner-title text-center">
+			<h3 class="title-header">INBOX</h3>
+		</div>
+	</section>
+
+	<section class="message-box-section" ng-controller="messageController as main">
+		<div class="container-fluid">
+			<div class="message-box-wrapper">
+				<div class="col-md-4 col-seperator no-padd">
+					<div class="contact-list">
+						<h3 class="title">MESSAGES</h3>
+						<div class="message-category">
+							<div class="menu-tab">
+								<div class="seperator-tab active text-center">
+									<span ng-cloak class="tab-item cursor" ng-class="{'active':main.messages=='all'}" ng-click="main.messages='all'"><span class="bottom-border"></span>ALL</span>
+									<span ng-cloak class="tab-item cursor" ng-class="{'active':main.messages=='unread'}" ng-click="main.messages='unread'"><span class="bottom-border"></span>UNREAD</span>
+								</div>
+							</div>
+						</div>
+						<div class="search-box">
+							<div class="search-form">
+								<div class="input-group">
+									<input class="search-input" type="text" placeholder="How can we help?">
+									<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+								</div>
+							</div>
+						</div>
+						<ul class="list-block contacts" ng-if="main.messages=='all'">
+							<li class="active">
+								<div class="media">
+									<a class = "pull-left" href = "#">
+										<img class = "media-object" src = "images/user.png" width="44" height="44" alt = "USER">
+									</a>
+									<div class="media-body">
+										<h4 class="media-heading">Mark J</h4>
+										<p class="message">Deal! Let's meet tomorrow...</p>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="media">
+									<a class = "pull-left" href = "#">
+										<img class = "media-object" src = "images/user.png" width="44" height="44" alt = "USER">
+									</a>
+									<div class="media-body">
+										<h4 class="media-heading">John K</h4>
+										<p class="message">Deal! Let's meet tomorrow...</p>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="media">
+									<a class = "pull-left" href = "#">
+										<img class = "media-object" src = "images/user.png" width="44" height="44" alt = "USER">
+									</a>
+									<div class="media-body">
+										<h4 class="media-heading">Simon W</h4>
+										<p class="message">Deal! Let's meet tomorrow...</p>
+									</div>
+								</div>
+							</li>
+						</ul>
+
+						<ul class="list-block contacts" ng-if="main.messages=='unread'">
+							<li class="active">
+								<div class="media">
+									<a class = "pull-left" href = "#">
+										<img class = "media-object" src = "images/user.png" width="44" height="44" alt = "USER">
+									</a>
+									<div class="media-body">
+										<h4 class="media-heading">Joan J</h4>
+										<p class="message">Deal! Let's meet tomorrow...</p>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="media">
+									<a class = "pull-left" href = "#">
+										<img class = "media-object" src = "images/user.png" width="44" height="44" alt = "USER">
+									</a>
+									<div class="media-body">
+										<h4 class="media-heading">Cheryl C</h4>
+										<p class="message">Deal! Let's meet tomorrow...</p>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-8 no-padd">
+					<div class="chat-message-box">
+						<div class="message-list">
+							<ul class="list-block">
+								<li class="recieved">
+									<div class="message-item">
+										<div class="messge">
+											Dammn! i really needed that grill for that party! When are you coming.
+										</div>
+										<div class="text-right">
+											<span class="time">Sent 12:21 PM</span>
+										</div>
+									</div>
+								</li>
+								<li class="sent">
+									<div class="message-item">
+										<div class="messge">
+											Dammn! i really needed that grill for that party! When are you coming.
+										</div>
+										<div class="text-right">
+											<span class="time">Delivered</span>
+										</div>
+									</div>
+								</li>
+								<li class="recieved">
+									<div class="message-item">
+										<div class="messge">
+											Dammn! i really needed that grill for that party! When are you coming.
+										</div>
+										<div class="text-right">
+											<span class="time">Sent 12:21 PM</span>
+										</div>
+									</div>
+								</li>
+								<li class="sent">
+									<div class="message-item">
+										<div class="messge">
+											Dammn! i really needed that grill for that party! When are you coming.
+										</div>
+										<div class="text-right">
+											<span class="time">Delivered</span>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="clearfix"></div>
+						<div class="msg-input-wrapper">
+							<div class="input-toolbox">
+								<textarea name="" id="" cols="30" rows="2" placeholder="Write here..."></textarea>
+								<div class="option-box">
+									<ul class="list-inline pull-left">
+										<li><i class="fa fa-folder"></i> Add Files</li>
+										<li><i class="fa fa-camera"></i> Add Photos</li>
+										<li><i class="fa fa-camera"></i> Smiley Faces</li>
+									</ul>
+									<span class="check-send pull-right">
+										Press Enter to send <i class="icon fa fa-edit"></i>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer>
+		<div class="pull-right chat-list">
+			<span class="signal"></span>
+			<span>Chat</span>
+		</div>
+	</footer>
+
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/main_app.js"></script>
+</body>
+</html>

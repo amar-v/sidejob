@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Message Page</title>
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/base-styles.css">
+	<link rel="stylesheet" href="css/modules.css">
+	<link rel="stylesheet" href="css/navbar.css">
+	<link rel="stylesheet" href="css/navbar2.css">
+	<link rel="stylesheet" href="css/searchbox.css">
+	
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	<script type="text/javascript" src="css/js/navbar.js"></script>
+</head>
+<body>
+	
+	<div><!--wrapper-->
+	<header class="hub-header">      
+      <a class="hub-overlay-nav-left-trigger" href="#0" onclick="toggleFirstMenu()">
+         <span class="hub-menu-icon"></span>
+      </a> 
+      <div class="hub-logo">
+         <a href="index.html">
+            <img src="images/nav-logo.png" alt="Hub">
+         </a>
+      </div>			
+      
+      <!-- SEARCH BOX -->
+      <div id="morphsearch" class="morphsearch">
+         <form class="morphsearch-form">            
+            <input class="morphsearch-input" type="search" placeholder="Search for people, or anything else..."/>
+            <!--button class="morphsearch-submit" type="submit">Search</button-->
+         </form>
+         <!-- Auto complete search results -->
+         <div class="morphsearch-content">
+           
+         </div><!-- /morphsearch-content -->
+         <!-- End of Autocomplete search results -->
+         <span class="morphsearch-close"></span>
+      </div><!-- /morphsearch -->
+      <div class="morphsearch-overlay"></div>
+      <!-- End of SEARCH BOX -->     
+
+      <a class="hub-overlay-nav-right-trigger profile-anchor" href="#" onclick="toggleSecondMenu()">
+         <img src="images/temp-profile.jpg" alt="profile pic" />
+         <span>11</span>        
+      </a> <!-- hub-overlay-nav-right-trigger -->
+
+
+        <div class="sidebar-content" id="first-menu-content">
+     	  <ul class="sidebar-links">
+     	 	<li> <a href="#">Link One</a> </li>
+     	 	<li> <a href="#">Link Two</a> </li>
+     	 	<li> <a href="#">Link Three</a> </li>
+     	 	<li> <a href="#">Link Four</a> </li>
+     	 </ul>
+    	</div>
+
+    	 <div class="sidebar-content" id="second-menu-content">
+    	 	<!-- START CONTENT OF THE SECOND MENU -->
+     		<div class="hub-overlay-nav hub-overlay-nav-right">
+     			<!--
+		         <div class="hub-overlay-close-container clearfix">
+		   			<span class="hub-overlay-close"></span>
+		         </div>
+				-->
+
+		         <!-- ADD CONTAINER -->
+		         <div class="container">
+
+		   			<!-- ACTION REQUIRED: need to display First name and ID in the URL -->
+		   			<div class="hub-personal-welcome">
+		               <p>Welcome <span class="profile-first-name">[Name]</span><a href="profile.html">Edit Profile</a></p>
+		            </div>
+
+		   			<div class="hub-personal-approvals">
+		   				<h3>Approved <span class="badge">5</span></h3>
+		   				<!--p>You have no pending approvals.</p-->
+		               <div class="row"><!-- START PO CARD ROW -->
+
+		                  <div class="col-md-3 col-sm-6"> <!-- START COL -->
+		                     <div class="card po-approval"> <!-- START CARD -->
+		                        <div class="card-content">
+		                           <h4>Service Approval</h4>
+		                           <h2>dsd</h2>
+		                           <div class="po-details">
+		                              <span class="date">03/12/2015</span>
+		                              <div class="by-line">
+		                                 <span>by: </span><span class="author">Rds Buwdam</span>
+		                              </div>
+		                              <span class="amount">$10,910.00 USD</span>
+		                           </div>
+		                           <a href="#">View details...</a>
+		                           <div class="action-btns">
+		                              <button class="approve">Approve</button>
+		                              <button class="decline">Decline</button>
+		                           </div>
+		                        </div>
+		                     </div> <!-- END CARD --> 
+		                  </div> <!-- END COL -->
+
+		                  <div class="col-md-3 col-sm-6"> <!-- START COL -->
+		                     <div class="card po-approval"> <!-- START CARD -->
+		                        <div class="card-content">
+		                           <h4>Service Approval</h4>
+		                           <h2>Brodver</h2>
+		                           <div class="po-details">
+		                              <span class="date">03/12/2015</span>
+		                              <div class="by-line">
+		                                 <span>by: </span><span class="author">yadsd urnham</span>
+		                              </div>
+		                              <span class="amount">$10,910.00 USD</span>
+		                           </div>
+		                           <a href="#">View details...</a>
+		                           <div class="action-btns">
+		                              <button class="approve">Approve</button>
+		                              <button class="decline">Decline</button>
+		                           </div>
+		                        </div>
+		                     </div> <!-- END CARD --> 
+		                  </div> <!-- END COL -->
+
+		                  <div class="col-md-3 col-sm-6"> <!-- START COL -->
+		                     <div class="card po-approval"> <!-- START CARD -->
+		                        <div class="card-content">
+		                           <h4>Service Approval</h4>
+		                           <h2>Brwewever</h2>
+		                           <div class="po-details">
+		                              <span class="date">03/12/2015</span>
+		                              <div class="by-line">
+		                                 <span>by: </span><span class="author">Rwdwdn Budwm</span>
+		                              </div>
+		                              <span class="amount">$10,910.00 USD</span>
+		                           </div>
+		                           <a href="#">View details...</a>
+		                           <div class="action-btns">
+		                              <button class="approve">Approve</button>
+		                              <button class="decline">Decline</button>
+		                           </div>
+		                        </div>
+		                     </div> <!-- END CARD --> 
+		                  </div> <!-- END COL -->
+
+		                  <div class="col-md-3 col-sm-6"> <!-- START COL -->
+		                     <div class="card po-approval"> <!-- START CARD -->
+		                        <div class="card-content">
+		                           <h4>Service Approval</h4>
+		                           <h2>Broadcast Email DL Slicing Server</h2>
+		                           <div class="po-details">
+		                              <span class="date">03/12/2015</span>
+		                              <div class="by-line">
+		                                 <span>by: </span><span class="author">Rwdydw Bdwam</span>
+		                              </div>
+		                              <span class="amount">$10,910.00 USD</span>
+		                           </div>
+		                           <a href="#">View details...</a>
+		                           <div class="action-btns">
+		                              <button class="approve">Approve</button>
+		                              <button class="decline">Decline</button>
+		                           </div>
+		                        </div>
+		                     </div> <!-- END CARD --> 
+		                  </div> <!-- END COL -->
+
+		               </div> <!-- END PO CARD ROW -->
+
+		               <div class="row view-more-row">
+		                  <button class="more">View More</button>
+		               </div>
+
+		   			</div><!-- /hub-personal-approvals -->
+
+		   			<div class="hub-personal-announcements">
+		               <div class="ancmnt-header clearfix">
+		   				  <h3>Service Announcements <span class="badge">5</span></h3>
+		                 <div class="mark-as-read">
+		                     <!--<label>Mark all as read</label>
+		                     <input type="checkbox" name="read" value="read">
+		                     -->
+		                     <!-- Lorena: Create an event to mark as read on click -->
+		                     <a href="#">Mark all as read</a>
+		                  </div>
+		               </div>
+		   				<!--p>You have no announcements.</p-->
+
+		               <div class="row"><!-- START PO CARD ROW -->
+
+		                  <div class="col-md-3 col-sm-6"> <!-- START COL -->
+		                     <div class="card ancmnt outage"> <!-- START CARD -->
+		                        <div class="card-content">
+		                           <div class="mark-as-read">
+		                              <label>Mark as read</label>
+		                              <span class="dismiss-icon"></span>
+		                           </div>
+		                           <h4>Outage</h4>
+		                           <h2>System upgrade – Apr. 9 from 2am-6am</h2>
+		                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+		                           <span class="date">Mar, 23 2015</span>
+		                           <div class="action-btns">
+		                              <button class="decline">View Details</button>
+		                           </div>
+		                        </div>
+		                     </div> <!-- END CARD --> 
+		                  </div> <!-- END COL -->
+
+		                  <div class="col-md-3 col-sm-6"> <!-- START COL -->
+		                     <div class="card ancmnt countdown"> <!-- START CARD -->
+		                        <div class="card-content">
+		                           <div class="mark-as-read">
+		                              <label>Mark as read</label>
+		                              <span class="dismiss-icon"></span>
+		                           </div>
+		                           <h4>Countdown</h4>
+		                           <h2>First day</h2>
+		                           <div class="countdown-holder">
+		                              <div class="digit-holder">
+		                                 <span class="figure">71</span>
+		                                 <label>Days</label>
+		                              </div>
+		                              <div class="digit-holder">
+		                                 <span class="figure">15</span>
+		                                 <label>Hours</label>
+		                              </div>
+		                              <div class="digit-holder">
+		                                 <span class="figure">2</span>
+		                                 <label>Min</label>
+		                              </div>
+		                              <div class="digit-holder">
+		                                 <span class="figure">40</span>
+		                                 <label>Sec</label>
+		                              </div>
+		                           </div>
+		                           <div class="action-btns">
+		                              <button class="decline">View Details</button>
+		                           </div>
+		                        </div>
+		                     </div> <!-- END CARD --> 
+		                  </div> <!-- END COL -->
+
+		                  <div class="col-md-3 col-sm-6"> <!-- START COL -->
+		                     <div class="card ancmnt outage"> <!-- START CARD -->
+		                        <div class="card-content">
+		                           <div class="mark-as-read">
+		                              <label>Mark as read</label>
+		                              <span class="dismiss-icon"></span>
+		                           </div>
+		                           <h4>Outage</h4>
+		                           <h2>System upgrade – Apr. 9 from 2am-6am</h2>
+		                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+		                           <span class="date">Mar, 23 2015</span>
+		                           <div class="action-btns">
+		                              <button class="decline">View Details</button>
+		                           </div>
+		                        </div>
+		                     </div> <!-- END CARD --> 
+		                  </div> <!-- END COL -->
+
+		                  <div class="col-md-3 col-sm-6"> <!-- START COL -->
+		                     <div class="card ancmnt countdown"> <!-- START CARD -->
+		                        <div class="card-content">
+		                           <div class="mark-as-read">
+		                              <label>Mark as read</label>
+		                              <span class="dismiss-icon"></span>
+		                           </div>
+		                           <h4>Countdown</h4>
+		                           <h2>dssdg</h2>
+		                           <div class="countdown-holder">
+		                              <div class="digit-holder">
+		                                 <span class="figure">71</span>
+		                                 <label>Days</label>
+		                              </div>
+		                              <div class="digit-holder">
+		                                 <span class="figure">15</span>
+		                                 <label>Hours</label>
+		                              </div>
+		                              <div class="digit-holder">
+		                                 <span class="figure">2</span>
+		                                 <label>Min</label>
+		                              </div>
+		                              <div class="digit-holder">
+		                                 <span class="figure">40</span>
+		                                 <label>Sec</label>
+		                              </div>
+		                           </div>
+		                           <div class="action-btns">
+		                              <button class="decline">View Details</button>
+		                           </div>
+		                        </div>
+		                     </div> <!-- END CARD --> 
+		                  </div> <!-- END COL -->
+
+
+		               </div> <!-- END PO CARD ROW -->
+
+		               <div class="row view-more-row">
+		                  <button class="more">View More</button>
+		               </div>
+
+		   			</div><!-- /hub-personal-announcements -->
+
+		          </div>
+				</div>
+				<!-- END CONTENT OF THE SECOND MENU -->
+
+    	</div><!-- end #second-menu-content -->
+      
+	</header>
+
+	<section class="dashboard-subheader">
+		<div class="container-fluid">
+			<div class="menus">
+				<ul class="list-inline">
+					<li class="active"><span>DASHBOARD</span></li>
+					<li><span>INBOX</span></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="banner Banner">
+		<div class="banner-title text-center">
+			<h3 class="title-header">DASHBOARD</h3>
+		</div>
+	</section>
+</div><!--end wrapper-->
+
+	<section class="tab-menu-holder">
+		<div class="menu-tab">
+			<div class="seperator-tab active text-center">
+				<span class="tab-item active"><span class="bottom-border"></span>URGENT SIDEJOBS</span>
+				<span class="tab-item">SIDEJOBS</span>
+			</div>
+		</div>
+	</section>
+	<div class="clearfix"></div>
+
+	<section class="main-content">
+		<div class="container-fluid">
+			<div class="col-md-3">
+				<div class="filter-box">
+					<div class="filter-row">
+						<span class="filter-title">Filter</span>
+						<span class="filter-icon pull-right"><i class="fa fa-edit"></i></span>
+					</div>
+					<div class="clearfix"></div>
+					<div class="filter-content">
+						<div class="filter-content-section">
+							<h4 class="title">Service</h4>
+							<p><span class="col-b">+</span>Show categories</p>
+						</div>
+						<div class="filter-content-section">
+							<h4 class="title">Location</h4>
+							<p>
+								<span>Zip code</span><br>
+								<input type="text">
+							</p>
+							<p>
+								<span>Distance Range</span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="post-holder">
+					<div class="searchbox">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="What services are you looking for...">
+							<span class="input-group-btn">
+								<button class="btn" type="button">POST</button>
+							</span>
+						</div>
+					</div>
+					<div class="content">
+						<div class="row">
+							<div class="col-md-4 col-sm-6">
+								<div class="dashboard-info-box">
+									<div class="media">
+										<a class="pull-left" href="#">
+											<img class="media-object" src="images/avatar_01_tn.png" width="34" height="34" alt="">
+										</a>
+										<div class="media-body">
+											<h4 class="media-heading">Sam Jones</h4>
+											<p class="description">
+												How to get inspire the right way Design modo <a href="#">bilt/modo/test</a> Good stuff from here <a href="#">@design modo</a>
+											</p>
+										</div>
+									</div>
+									<div class="featured-img">
+										<img class="img img-responsive" src="images/b3.jpg" height="100" alt="">
+									</div>
+									<div class="meta-info">
+										<div class="pull-left dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+											<span>Exapnd</span><span class="caret"></span>
+											<ul class="dropdown-menu" aria-labelledby="dropdownMenu1"></ul>
+										</div>
+										<ul class="pull-right list-inline">
+											<li><a href="#"><i class="fa fa-reply"></i></a></li>
+											<li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+											<li><a href="#">54 m</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="dashboard-info-box">
+									<div class="media">
+										<a class="pull-left" href="#">
+											<img class="media-object" src="images/avatar_10_tn.png" width="34" height="34" alt="">
+										</a>
+										<div class="media-body">
+											<h4 class="media-heading">Sam Jones</h4>
+											<p class="description">
+												How to get inspire the right way Design modo <a href="#">bilt/modo/test</a> Good stuff from here <a href="#">@design modo</a>
+											</p>
+										</div>
+									</div>
+									<div class="meta-info">
+										<div class="pull-left dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+											<span>Exapnd</span><span class="caret"></span>
+											<ul class="dropdown-menu" aria-labelledby="dropdownMenu1"></ul>
+										</div>
+										<ul class="pull-right list-inline">
+											<li><a href="#"><i class="fa fa-reply"></i></a></li>
+											<li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+											<li><a href="#">54 m</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="dashboard-info-box">
+									<div class="media">
+										<a class="pull-left" href="#">
+											<img class="media-object" src="images/avatar_08_tn.png" width="34" height="34" alt="">
+										</a>
+										<div class="media-body">
+											<h4 class="media-heading">Sam Jones</h4>
+											<p class="description">
+												How to get inspire the right way Design modo <a href="#">bilt/modo/test</a> Good stuff from here <a href="#">@design modo</a>
+											</p>
+										</div>
+									</div>
+									<div class="featured-img">
+										<img class="img img-responsive" src="images/b2.jpg" height="100" alt="">
+									</div>
+									<div class="meta-info">
+										<div class="pull-left dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+											<span>Exapnd</span><span class="caret"></span>
+											<ul class="dropdown-menu" aria-labelledby="dropdownMenu1"></ul>
+										</div>
+										<ul class="pull-right list-inline">
+											<li><a href="#"><i class="fa fa-reply"></i></a></li>
+											<li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+											<li><a href="#">54 m</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-6">
+								<div class="dashboard-info-box">
+									<div class="media">
+										<a class="pull-left" href="#">
+											<img class="media-object" src="images/avatar_02_tn.png" width="34" height="34" alt="">
+										</a>
+										<div class="media-body">
+											<h4 class="media-heading">Sam Jones</h4>
+											<p class="description">
+												How to get inspire the right way Design modo <a href="#">bilt/modo/test</a> Good stuff from here <a href="#">@design modo</a>
+											</p>
+										</div>
+									</div>
+									<div class="featured-img">
+										<img class="img img-responsive" src="images/b1.jpg" height="100" alt="">
+									</div>
+									<div class="meta-info">
+										<div class="pull-left dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+											<span>Exapnd</span><span class="caret"></span>
+											<ul class="dropdown-menu" aria-labelledby="dropdownMenu1"></ul>
+										</div>
+										<ul class="pull-right list-inline">
+											<li><a href="#"><i class="fa fa-reply"></i></a></li>
+											<li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+											<li><a href="#">54 m</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="dashboard-info-box">
+									<div class="media">
+										<a class="pull-left" href="#">
+											<img class="media-object" src="images/avatar_03_tn.png" width="34" height="34" alt="">
+										</a>
+										<div class="media-body">
+											<h4 class="media-heading">Sam Jones</h4>
+											<p class="description">
+												How to get inspire the right way Design modo <a href="#">bilt/modo/test</a> Good stuff from here <a href="#">@design modo</a>
+											</p>
+										</div>
+									</div>
+									<div class="meta-info">
+										<div class="pull-left dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+											<span>Exapnd</span><span class="caret"></span>
+											<ul class="dropdown-menu" aria-labelledby="dropdownMenu1"></ul>
+										</div>
+										<ul class="pull-right list-inline">
+											<li><a href="#"><i class="fa fa-reply"></i></a></li>
+											<li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+											<li><a href="#">54 m</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="dashboard-info-box">
+									<div class="media">
+										<a class="pull-left" href="#">
+											<img class="media-object" src="images/avatar_04_tn.png" width="34" height="34" alt="">
+										</a>
+										<div class="media-body">
+											<h4 class="media-heading">Sam Jones</h4>
+											<p class="description">
+												How to get inspire the right way Design modo <a href="#">bilt/modo/test</a> Good stuff from here <a href="#">@design modo</a>
+											</p>
+										</div>
+									</div>
+									<div class="featured-img">
+										<img class="img img-responsive" src="images/b1.jpg" height="100" alt="" style="height: 185px;">
+									</div>
+									<div class="meta-info">
+										<div class="pull-left dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+											<span>Exapnd</span><span class="caret"></span>
+											<ul class="dropdown-menu" aria-labelledby="dropdownMenu1"></ul>
+										</div>
+										<ul class="pull-right list-inline">
+											<li><a href="#"><i class="fa fa-reply"></i></a></li>
+											<li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+											<li><a href="#">54 m</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-6">
+								<div class="dashboard-info-box">
+									<div class="media">
+										<a class="pull-left" href="#">
+											<img class="media-object" src="images/avatar_07_tn.png" width="34" height="34" alt="">
+										</a>
+										<div class="media-body">
+											<h4 class="media-heading">Sam Jones</h4>
+											<p class="description">
+												How to get inspire the right way Design modo <a href="#">bilt/modo/test</a> Good stuff from here <a href="#">@design modo</a>
+											</p>
+										</div>
+									</div>
+									<div class="featured-img">
+										<img class="img img-responsive" src="images/b2.jpg" height="100" alt="">
+									</div>
+									<div class="meta-info">
+										<div class="pull-left dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+											<span>Exapnd</span><span class="caret"></span>
+											<ul class="dropdown-menu" aria-labelledby="dropdownMenu1"></ul>
+										</div>
+										<ul class="pull-right list-inline">
+											<li><a href="#"><i class="fa fa-reply"></i></a></li>
+											<li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+											<li><a href="#">54 m</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="dashboard-info-box">
+									<div class="media">
+										<a class="pull-left" href="#">
+											<img class="media-object" src="images/avatar_05_tn.png" width="34" height="34" alt="">
+										</a>
+										<div class="media-body">
+											<h4 class="media-heading">Sam Jones</h4>
+											<p class="description">
+												How to get inspire the right way Design modo <a href="#">bilt/modo/test</a> Good stuff from here <a href="#">@design modo</a>
+											</p>
+										</div>
+									</div>
+									<div class="meta-info">
+										<div class="pull-left dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+											<span>Exapnd</span><span class="caret"></span>
+											<ul class="dropdown-menu" aria-labelledby="dropdownMenu1"></ul>
+										</div>
+										<ul class="pull-right list-inline">
+											<li><a href="#"><i class="fa fa-reply"></i></a></li>
+											<li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+											<li><a href="#">54 m</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="dashboard-info-box">
+									<div class="media">
+										<a class="pull-left" href="#">
+											<img class="media-object" src="images/avatar_11_tn.png" width="34" height="34" alt="">
+										</a>
+										<div class="media-body">
+											<h4 class="media-heading">Sam Jones</h4>
+											<p class="description">
+												How to get inspire the right way Design modo <a href="#">bilt/modo/test</a> Good stuff from here <a href="#">@design modo</a>
+											</p>
+										</div>
+									</div>
+									<div class="featured-img">
+										<img class="img img-responsive" src="images/b3.jpg" height="100" alt="">
+									</div>
+									<div class="meta-info">
+										<div class="pull-left dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+											<span>Exapnd</span><span class="caret"></span>
+											<ul class="dropdown-menu" aria-labelledby="dropdownMenu1"></ul>
+										</div>
+										<ul class="pull-right list-inline">
+											<li><a href="#"><i class="fa fa-reply"></i></a></li>
+											<li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+											<li><a href="#">54 m</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							
+							
+						</div>
+						<div class="text-center mt30">
+							<p><a class="more-jobs" href="#">Load More</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</body>
+</html>

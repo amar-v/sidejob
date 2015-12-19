@@ -1,0 +1,33 @@
+<div class="row" style="padding:5%;">
+<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+                      
+                      <form  role="form" action="/account" method="post">
+                    <div class="form-group">
+                        <label for="username" >User name</label>
+                        <input type="email" class="form-control" id="username" value="{{ user.firstName }}" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="username" >User name</label>
+                        <input type="email" class="form-control" id="username" value="{{ user.lastName }}" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" >Email</label>
+                        <input type="email" class="form-control" id="email" value="{{ user.email }}" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" >Current password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="newPassword" >New password</label>
+                        <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="New password (Enter if you want to change)">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmNewPassword" >Confirm new password</label>
+                        <input type="password" class="form-control" id="confirmNewPassword" name="confirmNewPassword" placeholder="Confirm new password">
+                    </div>
+                    <div class="form-group text-center">
+                        <button type="submit" class="center-block btn btn-info btn-lg"><i class="fa fa-check"></i>Update Details</button>
+                    </div>
+                </form>
+                </div>

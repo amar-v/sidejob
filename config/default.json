@@ -1,0 +1,5 @@
+{
+    "sidejob": {
+        "db": "mongodb://localhost/sidejob"
+    }
+}

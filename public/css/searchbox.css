@@ -1,0 +1,412 @@
+/* Search box with overlay effect */
+.morphsearch {
+  width: 100%;
+  margin: 10px auto;
+  z-index: -1;
+  color: #9d9d9f;
+}
+.morphsearch .morphsearch-form {
+  width: 40%;
+  height: 40px;
+  margin: 18px auto 0;
+  position: relative;
+  color: #9d9d9f;
+}
+.morphsearch .morphsearch-form .morphsearch-input {
+  width: 100%;
+  padding: 0.5rem 1rem 0.5rem 2rem;
+  font-family: 'PayPalForward-Regular', Helvetica, Arial, sans-serif;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: url('../images/nav-search-icon.png') no-repeat;
+  background-position: 0 44%;
+  background-size: 22px 22px;
+  font-size: 1.25rem;
+  color: #9d9d9f;
+  transition: transform .5s;
+  overflow: visible;
+}
+.morphsearch .morphsearch-form .morphsearch-input::-ms-clear {
+  /* remove cross in IE */
+  display: none;
+}
+.morphsearch .morphsearch-form .morphsearch-input::-webkit-input-placeholder {
+  color: #9d9d9f;
+}
+.morphsearch .morphsearch-form .morphsearch-input:-moz-placeholder {
+  color: #9d9d9f;
+}
+.morphsearch .morphsearch-form .morphsearch-input::-moz-placeholder {
+  color: #9d9d9f;
+}
+.morphsearch .morphsearch-form .morphsearch-input:-ms-input-placeholder {
+  color: #9d9d9f;
+}
+.morphsearch.menu-is-open {
+  min-height: 200%;
+  width: 100%;
+  top: 0px;
+  right: 0px;
+  background: #ffffff;
+}
+.morphsearch.menu-is-open .morphsearch-input {
+  transform: scale(1.5) translateY(2.5rem);
+  padding-left: 2rem;
+}
+.morphsearch.hideInput .morphsearch-input {
+  color: transparent;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+@media (max-width: 768px) {
+  .morphsearch .morphsearch-form {
+    width: 30px;
+    margin: 10px auto 0;
+  }
+  .morphsearch .morphsearch-form .morphsearch-input {
+    width: 30px;
+    border-bottom: none;
+  }
+  .morphsearch.menu-is-open .morphsearch-form {
+    width: 60%;
+    font-size: 6px;
+  }
+  .morphsearch.menu-is-open .morphsearch-form .morphsearch-input {
+    width: 80%;
+    border-bottom: 1px solid #9d9d9f;
+  }
+}
+/* hide placeholder when active in Chrome */
+.gn-search:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+input[type="search"] {
+  /* reset normalize */
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.morphsearch-input:focus,
+.morphsearch-submit:focus {
+  outline: none;
+}
+.morphsearch-submit {
+  position: relative;
+  background: blue;
+  background-size: 100%;
+  border: none;
+  pointer-events: none;
+  border: 1px dashed red;
+}
+.morphsearch.menu-is-open .morphsearch-submit {
+  pointer-events: auto;
+  opacity: 1;
+  -webkit-transform: translate3d(-30px, -50%, 0) scale3d(1, 1, 1);
+  transform: translate3d(-30px, -50%, 0) scale3d(1, 1, 1);
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
+  -webkit-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+.morphsearch-close {
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  right: 1em;
+  top: 90px;
+  overflow: hidden;
+  text-indent: 100%;
+  cursor: pointer;
+  pointer-events: none;
+  opacity: 0;
+  -webkit-transform: scale3d(0, 0, 1);
+  transform: scale3d(0, 0, 1);
+}
+.morphsearch.menu-is-open .morphsearch-close {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
+  -webkit-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+.morphsearch-close::before,
+.morphsearch-close::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  border-radius: 3px;
+  /*opacity: 0.2;*/
+  background: #777; /* Lorena: changed the color, and also I changed the color of the svg file */
+}
+.morphsearch-close:hover.morphsearch-close::before,
+.morphsearch-close:hover.morphsearch-close::after {
+  opacity: 1;
+}
+.morphsearch-close::before {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.morphsearch-close::after {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.morphsearch-content {
+  position: relative;
+  top: 11rem; /* Lorena: Little bit more padding bottom */
+  color: #333;
+  margin: 0;
+  padding-top: 5em;
+  padding-bottom: 60px;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  padding: 0 10.5%;
+  background: #ffffff;
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+}
+.morphsearch-content .results-col .col-header {
+  text-align: left;
+  margin-bottom: .5rem;
+  padding-left: .5rem;
+}
+.morphsearch-content .results-col .col-header h3 {
+  display: inline;
+  color: #444;
+  font-weight: normal; /* Lorena: change to font-weight normal */
+  letter-spacing: 0;
+  font-size: 20px;
+  float: left;
+  margin-left: 1rem;
+  margin-bottom: 0;
+}
+.morphsearch-content .results-col .col-header a {
+  float: left;
+  margin-left: 1rem;
+  color: #0079ad;
+}
+/* Lorena: Removing little arrow */
+/*.morphsearch-content .results-col .col-header a::after {
+  content: "";
+  background: url('../images/icon-double-arrow-blue.png') no-repeat center center;
+  background-size: contain;
+  height: 8px;
+  width: 8px;
+  display: inline-block;
+  margin-left: .5rem;
+  -webkit-transition: transform 0.2s;
+  -moz-transition: transform 0.2s;
+  -ms-transition: transform 0.2s;
+  -o-transition: transform 0.2s;
+}*/
+.morphsearch-content a.row {
+  display: block;
+  background: transparent;
+  border-radius: 0;
+  border-bottom: 1px solid #f7f7f7;
+  margin: 0;
+  -webkit-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+  -ms-transition: background-color 0.2s;
+  -o-transition: background-color 0.2s;
+}
+.morphsearch-content a.row .people-thumb,
+.morphsearch-content a.row .people-details {
+  float: left;
+}
+.morphsearch-content a.row .people-thumb {
+  width: 20%;
+  padding-right: 5%;
+}
+.morphsearch-content a.row .people-thumb img {
+  padding: 0;
+  max-width: 100%;
+  margin: 0;
+}
+.morphsearch-content a.row .people-details {
+  width: 80%;
+}
+.morphsearch-content a.row .people-details span {
+  display: block;
+  padding: 0;
+  margin: 0 0 .5rem 0;
+  font-size: 1rem;
+}
+.morphsearch-content a.row .people-details span.location,
+.morphsearch-content a.row .people-details span.title {
+  font-size: .9rem;
+  margin-bottom: .4rem;
+  line-height: 1;
+}
+.morphsearch-content a.row .people-details span.location {
+  font-family: 'PayPalForward-Bold', Helvetica, Arial, sans-serif;
+  color: #b3b3b3;
+}
+.morphsearch-content a.row span {
+  padding: 0;
+  text-align: left;
+  display: block;
+  font-family: 'PayPalForward-Regular', Helvetica, Arial, sans-serif;
+}
+.morphsearch-content a.row span.date {
+  color: #b3b3b3;
+}
+
+/* Lorena: More padding bottom in profiles*/
+.morphsearch-content #search-people {
+  padding-bottom: 60px;
+}
+
+.morphsearch-content #search-sites a.row,
+.morphsearch-content #search-news a.row {
+  text-align: left;
+}
+.morphsearch-content #search-sites a.row span,
+.morphsearch-content #search-news a.row span {
+  font-size: 1rem;
+  line-height: 1.2;
+}
+.morphsearch-content #search-sites a.row span.date,
+.morphsearch-content #search-news a.row span.date {
+  font-size: .85rem;
+}
+.morphsearch-content #search-news a.row span {
+  margin-bottom: .3rem;
+}
+.morphsearch-content #search-news a.row span + span {
+  margin: 0;
+}
+.morphsearch.menu-is-open .morphsearch-content {
+  opacity: 1;
+  height: auto;
+  overflow: visible;
+  /* this breaks the transition of the children in FF: https://bugzilla.mozilla.org/show_bug.cgi?id=625289 */
+  pointer-events: auto;
+  -webkit-transition: opacity 0.3s 0.5s;
+  transition: opacity 0.3s 0.5s;
+}
+.dummy-column {
+  width: 20%;
+  padding: 0 0 6em;
+  float: left;
+  opacity: 0;
+  -webkit-transform: translate3d(0, 100px, 0);
+  transform: translateY(100px);
+  -webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
+  transition: transform 0.5s, opacity 0.5s;
+}
+.morphsearch.menu-is-open .dummy-column:first-child {
+  -webkit-transition-delay: 0.4s;
+  transition-delay: 0.4s;
+}
+.morphsearch.menu-is-open .dummy-column:nth-child(2) {
+  -webkit-transition-delay: 0.45s;
+  transition-delay: 0.45s;
+}
+.morphsearch.menu-is-open .dummy-column:nth-child(3) {
+  -webkit-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+.morphsearch.menu-is-open .dummy-column {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.dummy-column:nth-child(2) {
+  margin: 0 5%;
+}
+.dummy-column h2 {
+  font-size: 1em;
+  letter-spacing: 1px;
+  font-weight: 400;
+  color: #c2c2c2;
+  padding: 0.5em 0;
+}
+.round {
+  border-radius: 50%;
+}
+.dummy-media-object {
+  padding: 0.75em;
+  display: block;
+  margin: 0.3em 0;
+  cursor: pointer;
+  border-radius: 5px;
+  background: rgba(118, 117, 128, 0.05);
+}
+.dummy-media-object:hover,
+.dummy-media-object:focus {
+  background: rgba(118, 117, 128, 0.1);
+}
+.dummy-media-object img {
+  display: inline-block;
+  width: 50px;
+  margin: 0 10px 0 0;
+  vertical-align: middle;
+}
+.dummy-media-object h3 {
+  vertical-align: middle;
+  font-size: 0.85em;
+  display: inline-block;
+  font-weight: 700;
+  margin: 0 0 0 0;
+  width: calc(30%);
+  color: rgba(145, 145, 145, 0.7);
+}
+.dummy-media-object:hover h3 {
+  color: #0F57B7;
+}
+/* Overlay */
+.morphsearch-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+  transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+  z-index: -1;
+}
+.morphsearch.menu-is-open ~ .morphsearch-overlay {
+  opacity: 1;
+}
+@media screen and (max-width: 53.125em) {
+  .morphsearch-input {
+    padding: 0 25% 0 10px;
+  }
+  .morphsearch.menu-is-open .morphsearch-input {
+    font-size: 2em;
+  }
+  .dummy-column {
+    float: none;
+    width: auto;
+    padding: 0 0 2em;
+  }
+  .dummy-column:nth-child(2) {
+    margin: 0;
+  }
+  .morphsearch.menu-is-open .morphsearch-submit {
+    -webkit-transform: translate3d(0, -50%, 0) scale3d(0.5, 0.5, 1);
+    transform: translate3d(0, -50%, 0) scale3d(0.5, 0.5, 1);
+  }
+  .morphsearch-close {
+    top: 70px;
+  }
+}
+@media screen and (max-width: 60.625em) {
+  .morphsearch {
+    width: 80%;
+    top: 10%;
+    right: 10%;
+  }
+}

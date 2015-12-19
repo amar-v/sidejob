@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sidejob</title>
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/base-styles.css">
+	<link rel="stylesheet" href="css/modules.css">
+	<link rel="stylesheet" href="css/navbar.css">
+	<link rel="stylesheet" href="css/navbar2.css">
+	<link rel="stylesheet" href="css/searchbox.css">
+	
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	<script type="text/javascript" src="css/js/navbar.js"></script>
+</head>
+<body ng-app="mainApp" ng-controller="mainController as main">
+	<div><!--wrapper-->
+	<header class="hub-header">      
+      <a class="hub-overlay-nav-left-trigger" href="#0" onclick="toggleFirstMenu()">
+         <span class="hub-menu-icon"></span>
+      </a> 
+      <div class="hub-logo">
+         <a href="index.html">
+            <img src="images/nav-logo.png" alt="Hub">
+         </a>
+      </div>			
+      
+      <!-- SEARCH BOX -->
+      <div id="morphsearch" class="morphsearch">
+         <form class="morphsearch-form">            
+            <input class="morphsearch-input" type="search" placeholder="Search for people, or anything else..."/>
+            <!--button class="morphsearch-submit" type="submit">Search</button-->
+         </form>
+         <!-- Auto complete search results -->
+         <div class="morphsearch-content">
+           
+         </div><!-- /morphsearch-content -->
+         <!-- End of Autocomplete search results -->
+         <span class="morphsearch-close"></span>
+      </div><!-- /morphsearch -->
+      <div class="morphsearch-overlay"></div>
+      <!-- End of SEARCH BOX -->     
+
+      <a class="hub-overlay-nav-right-trigger profile-anchor" href="#" onclick="toggleSecondMenu()">
+         <img src="images/temp-profile.jpg" alt="profile pic" />
+         <span>11</span>        
+      </a> <!-- hub-overlay-nav-right-trigger -->
+
+
+        <div class="sidebar-content" id="first-menu-content">
+     	  <ul class="sidebar-links">
+     	 	<li> <a href="#">Link One</a> </li>
+     	 	<li> <a href="#">Link Two</a> </li>
+     	 	<li> <a href="#">Link Three</a> </li>
+     	 	<li> <a href="#">Link Four</a> </li>
+     	 </ul>
+    	</div>
+
+    	 <div class="sidebar-content" id="second-menu-content">
+    	 	<!-- START CONTENT OF THE SECOND MENU -->
+     		<div class="hub-overlay-nav hub-overlay-nav-right">
+     			<!--
+		         <div class="hub-overlay-close-container clearfix">
+		   			<span class="hub-overlay-close"></span>
+		         </div>
+				-->
+
+		         <!-- ADD CONTAINER -->
+		         <div class="container">
+
+		   			<!-- ACTION REQUIRED: need to display First name and ID in the URL -->
+		   			<div class="hub-personal-welcome">
+		               <p>Welcome <span class="profile-first-name">[Name]</span><a href="profile.html">Edit Profile</a></p>
+		            </div>
+
+		   			<div class="hub-personal-approvals">
+		   				<h3>Approved <span class="badge">5</span></h3>
+		   				<!--p>You have no pending approvals.</p-->
+		               <div class="row"><!-- START PO CARD ROW -->
+
+		                  <div class="col-md-3 col-sm-6"> <!-- START COL -->
+		                     <div class="card po-approval"> <!-- START CARD -->
+		                        <div class="card-content">
+		                           <h4>Service Approval</h4>
+		                           <h2>dsd</h2>
+		                           <div class="po-details">
+		                              <span class="date">03/12/2015</span>
+		                              <div class="by-line">
+		                                 <span>by: </span><span class="author">Rds Buwdam</span>
+		                              </div>
+		                              <span class="amount">$10,910.00 USD</span>
+		                           </div>
+		                           <a href="#">View details...</a>
+		                           <div class="action-btns">
+		                              <button class="approve">Approve</button>
+		                              <button class="decline">Decline</button>
+		                           </div>
+		                        </div>
+		                     </div> <!-- END CARD --> 
+		                  </div> <!-- END COL -->
+
+		                  <div class="col-md-3 col-sm-6"> <!-- START COL -->
+		                     <div class="card po-approval"> <!-- START CARD -->
+		                        <div class="card-content">
+		                           <h4>Service Approval</h4>
+		                           <h2>Brodver</h2>
+		                           <div class="po-details">
+		                              <span class="date">03/12/2015</span>
+		                              <div class="by-line">
+		                                 <span>by: </span><span class="author">yadsd urnham</span>
+		                              </div>
+		                              <span class="amount">$10,910.00 USD</span>
+		                           </div>
+		                           <a href="#">View details...</a>
+		                           <div class="action-btns">
+		                              <button class="approve">Approve</button>
+		                              <button class="decline">Decline</button>
+		                           </div>
+		                        </div>
+		                     </div> <!-- END CARD --> 
+		                  </div> <!-- END COL -->
+
+		                  <div class="col-md-3 col-sm-6"> <!-- START COL -->
+		                     <div class="card po-approval"> <!-- START CARD -->
+		                        <div class="card-content">
+		                           <h4>Service Approval</h4>
+		                           <h2>Brwewever</h2>
+		                           <div class="po-details">
+		                              <span class="date">03/12/2015</span>
+		                              <div class="by-line">
+		                                 <span>by: </span><span class="author">Rwdwdn Budwm</span>
+		                              </div>
+		                              <span class="amount">$10,910.00 USD</span>
+		                           </div>
+		                           <a href="#">View details...</a>
+		                           <div class="action-btns">
+		                              <button class="approve">Approve</button>
+		                              <button class="decline">Decline</button>
+		                           </div>
+		                        </div>
+		                     </div> <!-- END CARD --> 
+		                  </div> <!-- END COL -->
+
+		                  <div class="col-md-3 col-sm-6"> <!-- START COL -->
+		                     <div class="card po-approval"> <!-- START CARD -->
+		                        <div class="card-content">
+		                           <h4>Service Approval</h4>
+		                           <h2>Broadcast Email DL Slicing Server</h2>
+		                           <div class="po-details">
+		                              <span class="date">03/12/2015</span>
+		                              <div class="by-line">
+		                                 <span>by: </span><span class="author">Rwdydw Bdwam</span>
+		                              </div>
+		                              <span class="amount">$10,910.00 USD</span>
+		                           </div>
+		                           <a href="#">View details...</a>
+		                           <div class="action-btns">
+		                              <button class="approve">Approve</button>
+		                              <button class="decline">Decline</button>
+		                           </div>
+		                        </div>
+		                     </div> <!-- END CARD --> 
+		                  </div> <!-- END COL -->
+
+		               </div> <!-- END PO CARD ROW -->
+
+		               <div class="row view-more-row">
+		                  <button class="more">View More</button>
+		               </div>
+
+		   			</div><!-- /hub-personal-approvals -->
+
+		   			<div class="hub-personal-announcements">
+		               <div class="ancmnt-header clearfix">
+		   				  <h3>Service Announcements <span class="badge">5</span></h3>
+		                 <div class="mark-as-read">
+		                     <!--<label>Mark all as read</label>
+		                     <input type="checkbox" name="read" value="read">
+		                     -->
+		                     <!-- Lorena: Create an event to mark as read on click -->
+		                     <a href="#">Mark all as read</a>
+		                  </div>
+		               </div>
+		   				<!--p>You have no announcements.</p-->
+
+		               <div class="row"><!-- START PO CARD ROW -->
+
+		                  <div class="col-md-3 col-sm-6"> <!-- START COL -->
+		                     <div class="card ancmnt outage"> <!-- START CARD -->
+		                        <div class="card-content">
+		                           <div class="mark-as-read">
+		                              <label>Mark as read</label>
+		                              <span class="dismiss-icon"></span>
+		                           </div>
+		                           <h4>Outage</h4>
+		                           <h2>System upgrade – Apr. 9 from 2am-6am</h2>
+		                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+		                           <span class="date">Mar, 23 2015</span>
+		                           <div class="action-btns">
+		                              <button class="decline">View Details</button>
+		                           </div>
+		                        </div>
+		                     </div> <!-- END CARD --> 
+		                  </div> <!-- END COL -->
+
+		                  <div class="col-md-3 col-sm-6"> <!-- START COL -->
+		                     <div class="card ancmnt countdown"> <!-- START CARD -->
+		                        <div class="card-content">
+		                           <div class="mark-as-read">
+		                              <label>Mark as read</label>
+		                              <span class="dismiss-icon"></span>
+		                           </div>
+		                           <h4>Countdown</h4>
+		                           <h2>First day</h2>
+		                           <div class="countdown-holder">
+		                              <div class="digit-holder">
+		                                 <span class="figure">71</span>
+		                                 <label>Days</label>
+		                              </div>
+		                              <div class="digit-holder">
+		                                 <span class="figure">15</span>
+		                                 <label>Hours</label>
+		                              </div>
+		                              <div class="digit-holder">
+		                                 <span class="figure">2</span>
+		                                 <label>Min</label>
+		                              </div>
+		                              <div class="digit-holder">
+		                                 <span class="figure">40</span>
+		                                 <label>Sec</label>
+		                              </div>
+		                           </div>
+		                           <div class="action-btns">
+		                              <button class="decline">View Details</button>
+		                           </div>
+		                        </div>
+		                     </div> <!-- END CARD --> 
+		                  </div> <!-- END COL -->
+
+		                  <div class="col-md-3 col-sm-6"> <!-- START COL -->
+		                     <div class="card ancmnt outage"> <!-- START CARD -->
+		                        <div class="card-content">
+		                           <div class="mark-as-read">
+		                              <label>Mark as read</label>
+		                              <span class="dismiss-icon"></span>
+		                           </div>
+		                           <h4>Outage</h4>
+		                           <h2>System upgrade – Apr. 9 from 2am-6am</h2>
+		                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+		                           <span class="date">Mar, 23 2015</span>
+		                           <div class="action-btns">
+		                              <button class="decline">View Details</button>
+		                           </div>
+		                        </div>
+		                     </div> <!-- END CARD --> 
+		                  </div> <!-- END COL -->
+
+		                  <div class="col-md-3 col-sm-6"> <!-- START COL -->
+		                     <div class="card ancmnt countdown"> <!-- START CARD -->
+		                        <div class="card-content">
+		                           <div class="mark-as-read">
+		                              <label>Mark as read</label>
+		                              <span class="dismiss-icon"></span>
+		                           </div>
+		                           <h4>Countdown</h4>
+		                           <h2>dssdg</h2>
+		                           <div class="countdown-holder">
+		                              <div class="digit-holder">
+		                                 <span class="figure">71</span>
+		                                 <label>Days</label>
+		                              </div>
+		                              <div class="digit-holder">
+		                                 <span class="figure">15</span>
+		                                 <label>Hours</label>
+		                              </div>
+		                              <div class="digit-holder">
+		                                 <span class="figure">2</span>
+		                                 <label>Min</label>
+		                              </div>
+		                              <div class="digit-holder">
+		                                 <span class="figure">40</span>
+		                                 <label>Sec</label>
+		                              </div>
+		                           </div>
+		                           <div class="action-btns">
+		                              <button class="decline">View Details</button>
+		                           </div>
+		                        </div>
+		                     </div> <!-- END CARD --> 
+		                  </div> <!-- END COL -->
+
+
+		               </div> <!-- END PO CARD ROW -->
+
+		               <div class="row view-more-row">
+		                  <button class="more">View More</button>
+		               </div>
+
+		   			</div><!-- /hub-personal-announcements -->
+
+		          </div>
+				</div>
+				<!-- END CONTENT OF THE SECOND MENU -->
+
+    	</div><!-- end #second-menu-content -->
+      
+	</header>
+
+	<section class="dashboard-subheader">
+		<div class="container-fluid">
+			<div class="menus">
+				<ul class="list-inline">
+					<li class="cursor" ng-cloak ng-class="{'active':main.page=='dashboard'}"><span>{{main.page | uppercase}}</span></li>
+					<li class="cursor" ng-cloak ng-class="{'active':main.page=='inbox'}"><span>{{main.page | uppercase}}</span></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="banner Banner">
+		<div class="banner-title text-center">
+			<h3 class="title-header">{{main.page | uppercase}}</h3>
+		</div>
+	</section>
+</div><!--end wrapper-->
+
+<div><!--container-->
+	<section class="message-box-section">
+		<div class="container-fluid">
+			<div class="message-box-wrapper">
+				<div class="col-md-4 col-seperator no-padd">
+					<div class="contact-list">
+						<h3 class="title">MESSAGES</h3>
+						<div class="message-category">
+							<div class="menu-tab">
+								<div class="seperator-tab active text-center">
+									<span class="tab-item active"><span class="bottom-border"></span>ALL</span>
+									<span class="tab-item">UNREAD</span>
+								</div>
+							</div>
+						</div>
+						<div class="search-box">
+							<div class="search-form">
+								<div class="input-group">
+									<input class="search-input" type="text" placeholder="How can we help?">
+									<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+								</div>
+							</div>
+						</div>
+						<ul class="list-block contacts">
+							<li class="active">
+								<div class="media">
+									<a class = "pull-left" href = "#">
+										<img class = "media-object" src = "images/user.png" width="44" height="44" alt = "USER">
+									</a>
+									<div class="media-body">
+										<h4 class="media-heading">Mark J</h4>
+										<p class="message">Deal! Let's meet tomorrow...</p>
+									</div>
+								</div>
+							</li>
+							<li class="active">
+								<div class="media">
+									<a class = "pull-left" href = "#">
+										<img class = "media-object" src = "images/user.png" width="44" height="44" alt = "USER">
+									</a>
+									<div class="media-body">
+										<h4 class="media-heading">Mark J</h4>
+										<p class="message">Deal! Let's meet tomorrow...</p>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="media">
+									<a class = "pull-left" href = "#">
+										<img class = "media-object" src = "images/user.png" width="44" height="44" alt = "USER">
+									</a>
+									<div class="media-body">
+										<h4 class="media-heading">Mark J</h4>
+										<p class="message">Deal! Let's meet tomorrow...</p>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="media">
+									<a class = "pull-left" href = "#">
+										<img class = "media-object" src = "images/user.png" width="44" height="44" alt = "USER">
+									</a>
+									<div class="media-body">
+										<h4 class="media-heading">Mark J</h4>
+										<p class="message">Deal! Let's meet tomorrow...</p>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="media">
+									<a class = "pull-left" href = "#">
+										<img class = "media-object" src = "images/user.png" width="44" height="44" alt = "USER">
+									</a>
+									<div class="media-body">
+										<h4 class="media-heading">Mark J</h4>
+										<p class="message">Deal! Let's meet tomorrow...</p>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="media">
+									<a class = "pull-left" href = "#">
+										<img class = "media-object" src = "images/user.png" width="44" height="44" alt = "USER">
+									</a>
+									<div class="media-body">
+										<h4 class="media-heading">Mark J</h4>
+										<p class="message">Deal! Let's meet tomorrow...</p>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="media">
+									<a class = "pull-left" href = "#">
+										<img class = "media-object" src = "images/user.png" width="44" height="44" alt = "USER">
+									</a>
+									<div class="media-body">
+										<h4 class="media-heading">Mark J</h4>
+										<p class="message">Deal! Let's meet tomorrow...</p>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="media">
+									<a class = "pull-left" href = "#">
+										<img class = "media-object" src = "images/user.png" width="44" height="44" alt = "USER">
+									</a>
+									<div class="media-body">
+										<h4 class="media-heading">Mark J</h4>
+										<p class="message">Deal! Let's meet tomorrow...</p>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="media">
+									<a class = "pull-left" href = "#">
+										<img class = "media-object" src = "images/user.png" width="44" height="44" alt = "USER">
+									</a>
+									<div class="media-body">
+										<h4 class="media-heading">Mark J</h4>
+										<p class="message">Deal! Let's meet tomorrow...</p>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="media">
+									<a class = "pull-left" href = "#">
+										<img class = "media-object" src = "images/user.png" width="44" height="44" alt = "USER">
+									</a>
+									<div class="media-body">
+										<h4 class="media-heading">Mark J</h4>
+										<p class="message">Deal! Let's meet tomorrow...</p>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-8 no-padd">
+					<div class="chat-message-box">
+						<div class="message-list">
+							<ul class="list-block">
+								<li class="recieved">
+									<div class="message-item">
+										<div class="messge">
+											Dammn! i really needed that grill for that party! When are you coming.
+										</div>
+										<div class="text-right">
+											<span class="time">Sent 12:21 PM</span>
+										</div>
+									</div>
+								</li>
+								<li class="sent">
+									<div class="message-item">
+										<div class="messge">
+											Dammn! i really needed that grill for that party! When are you coming.
+										</div>
+										<div class="text-right">
+											<span class="time">Delivered</span>
+										</div>
+									</div>
+								</li>
+								<li class="recieved">
+									<div class="message-item">
+										<div class="messge">
+											Dammn! i really needed that grill for that party! When are you coming.
+										</div>
+										<div class="text-right">
+											<span class="time">Sent 12:21 PM</span>
+										</div>
+									</div>
+								</li>
+								<li class="sent">
+									<div class="message-item">
+										<div class="messge">
+											Dammn! i really needed that grill for that party! When are you coming.
+										</div>
+										<div class="text-right">
+											<span class="time">Delivered</span>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="clearfix"></div>
+						<div class="msg-input-wrapper">
+							<div class="input-toolbox">
+								<textarea name="" id="" cols="30" rows="2" placeholder="Write here..."></textarea>
+								<div class="option-box">
+									<ul class="list-inline pull-left">
+										<li><i class="fa fa-folder"></i> Add Files</li>
+										<li><i class="fa fa-camera"></i> Add Photos</li>
+										<li><i class="fa fa-camera"></i> Smiley Faces</li>
+									</ul>
+									<span class="check-send pull-right">
+										Press Enter to send <i class="icon fa fa-edit"></i>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div><!--end container-->
+	<footer>
+		<div class="pull-right chat-list">
+			<span class="signal"></span>
+			<span>Chat</span>
+		</div>
+	</footer>
+
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/main_app.js"></script>
+</body>
+</html>

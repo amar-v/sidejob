@@ -1,0 +1,253 @@
+@font-face {
+  font-family: 'PayPalForward-Light';
+  src:  url('../fonts/PayPalForwardW01-Light.eot');
+  src:  url('../fonts/PayPalForwardW01-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/PayPalForwardW01-Light.woff') format('woff'),
+        url('../fonts/PayPalForwardW01-Light.ttf') format('truetype'),
+        url('../fonts/PayPalForwardW01-Light.svg') format('svg');
+  font-weight: 100;
+  font-style: normal;
+  
+  /* IE9 Compat Modes */
+  /* Legacy iOS */
+}
+@font-face {
+  font-family: 'PayPalForward-Regular';
+  src:  url('../fonts/PayPalForwardW04-Regular.eot');
+  src:  url('../fonts/PayPalForwardW04-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/PayPalForwardW04-Regular.woff') format('woff'),
+        url('../fonts/PayPalForwardW04-Regular.ttf') format('truetype'),
+        url('../fonts/PayPalForwardW04-Regular.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  
+  /* IE9 Compat Modes */
+  /* Legacy iOS */
+}
+@font-face {
+  font-family: 'PayPalForward-Bold';
+  src:  url('../fonts/PayPalForwardW04-Bold.eot');
+  src:  url('../fonts/PayPalForwardW04-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/PayPalForwardW04-Bold.woff') format('woff'),
+        url('../fonts/PayPalForwardW04-Bold.ttf') format('truetype'),
+        url('../fonts/PayPalForwardW04-Bold.svg') format('svg');
+  font-weight: 900;
+  font-style: normal;
+  /* IE9 Compat Modes */
+  /* Legacy iOS */
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+html,
+body,
+p,
+span {
+  font-family: 'PayPalForward-Light', Helvetica, Arial, sans-serif;
+  color: #777;
+}
+html {
+  font-size: 16px;
+}
+body {
+  background-color: #f7f7f7;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 2rem;
+  padding-top: 80px;
+}
+body.overflow-hidden {
+  /* when primary navigation is visible, the content in the background won't scroll */
+  overflow: hidden;
+  /* fix body scrolling for devices */
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+  word-wrap: break-word;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'PayPalForward-Light', Helvetica, Arial, sans-serif;
+  letter-spacing: -1px;
+  margin: 0;
+  color: #777;
+}
+h1 span,
+h2 span,
+h3 span,
+h4 span,
+h5 span,
+h6 span {
+  font-size: inherit;
+}
+h1 {
+  font-size: 1.9375rem;
+  margin-bottom: 1rem;
+  color: #000000;
+}
+h2 {
+  font-size: 1.625rem;
+  margin-bottom: 1rem;
+  color: #444;
+}
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #444;
+}
+h4 {
+  font-size: 1.325rem;
+  margin-bottom: 1rem;
+  color: #444;
+}
+h5 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0;
+  color: #444;
+  font-family: 'PayPalForward-Regular', Helvetica, Arial, sans-serif;
+}
+h6 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0;
+  color: #777777;
+  font-family: 'PayPalForward-Regular', Helvetica, Arial, sans-serif;
+}
+p {
+  font-family: 'PayPalForward-Regular', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  letter-spacing: -0.5px;
+  color: #777777;
+  line-height: 1.5;
+}
+p.lead {
+  font-size: 1.35rem;
+}
+p.caption {
+  font-family: 'PayPalForward-Regular', Helvetica, Arial, sans-serif;
+  font-size: .875rem;
+  letter-spacing: 0;
+  line-height: 1.35;
+}
+p a {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+}
+span {
+  font-size: 1rem;
+  line-height: .8;
+  font-family: inherit;
+}
+em {
+  font-style: italic;
+}
+strong {
+  font-family: 'PayPalForward-Bold', Helvetica, Arial, sans-serif;
+}
+a {
+  display: block;
+  font-size: inherit;
+  margin: 1rem 0;
+  color: #0ca0cb;
+  font-family: 'PayPalForward-Bold', Helvetica, Arial, sans-serif;
+}
+a span {
+  font-size: inherit;
+}
+ul,
+ol {
+  list-style-position: inside;
+  margin: 0 0 1rem 0;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+}
+ul span,
+ol span {
+  font-size: inherit;
+}
+ul li,
+ol li {
+  margin-bottom: .2rem;
+}
+ul li span,
+ol li span {
+  font-size: inherit;
+}
+ul {
+  list-style-type: disc;
+}
+ol {
+  list-style-type: decimal;
+}
+blockquote {
+  font-size: 1.4rem;
+  font-family: 'PayPalForward-Light', Helvetica, Arial, sans-serif;
+  color: #009CDE
+;
+  border-color: #009CDE
+;
+  padding: 0 4rem;
+  margin: 2rem 0;
+}
+blockquote span {
+  font-size: inherit;
+}
+pre {
+  margin: 2rem 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  background-color: #ffffff;
+  color: #aaaaaa;
+  padding: 1rem;
+  border-color: #dddddd;
+}
+pre span {
+  font-size: inherit;
+}
+button {
+  font-family: 'PayPalForward-Regular', Helvetica, Arial, sans-serif;
+  font-size: 1.125rem;
+  outline: 0;
+  border-radius: 5px; /* Lorena: Added roundness to buttons */;
+  background: transparent;
+  border: 1px solid white;
+  padding: .375rem 1.5rem; /* Lorena: Changed the padding a little bit */
+  color: white;
+  -webkit-transition: background-color 0.2s, color 0.2s;
+  -moz-transition: background-color 0.2s, color 0.2s;
+  -ms-transition: background-color 0.2s, color 0.2s;
+  -o-transition: background-color 0.2s, color 0.2s;
+
+}
+textarea {
+  resize: none;
+  outline: 0;
+}

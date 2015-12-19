@@ -1,0 +1,473 @@
+span.category {
+  margin-bottom: 1.25rem;
+  height: 1.1875rem;
+  line-height: 1.2;
+  border-left: 2px solid transparent;
+  padding-left: .75rem;
+  display: block;
+  font-size: 1.rem;
+  font-family: 'PayPalForward-Regular', Helvetica, Arial, sans-serif;
+}
+span.category.topic {
+  border-color: #003087;
+}
+span.category.geo {
+  border-color: #009CDE;
+}
+span.category.brand {
+  border-color: #7AE1BF;
+}
+.feature-group {
+  position: relative;
+  height: auto;
+  z-index: 1;
+}
+.feature-group .feature {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  color: #ffffff;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url('../images/temp-hero.jpg') no-repeat center center;
+  background-size: cover;
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin-bottom: 3.125rem;
+}
+.feature-group .feature-content {
+  position: absolute;
+  bottom: 10rem; /* Lorena: Vertical Align Middle */
+  left: 0;
+  right: 0;
+  text-align: left;
+  padding: 0;
+  height: auto;
+}
+.feature-group .feature-content h1,
+.feature-group .feature-content span,
+.feature-group .feature-content p {
+  color: white;
+  width: 50%;
+}
+.feature-group .feature-content h1 {
+  font-family: 'PayPalForward-Light', Helvetica, Arial, sans-serif;
+  font-size: 3rem;
+  line-height: .9;
+  margin-bottom: .75rem;
+ 
+}
+.feature-group .feature-content p {
+  font-size: 1.125rem; /* Lorena: 18px p */
+  margin-bottom: 1.5rem;
+  line-height: 1;
+}
+.feature-group .feature-content span.category {
+  margin-bottom: .7rem;
+}
+.card {
+  background-color: #ffffff;
+  height: 500px;
+  -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+  margin: 0 -8px 14px -8px;
+  -webkit-transition: box-shadow 0.15s ease-in-out, transform 0.15s ease-in-out;
+  -moz-transition: box-shadow 0.15s ease-in-out, transform 0.15s ease-in-out;
+  -ms-transition: box-shadow 0.15s ease-in-out, transform 0.15s ease-in-out;
+  -o-transition: box-shadow 0.15s ease-in-out, transform 0.15s ease-in-out;
+}
+.card .card-thumbnail {
+  height: 168px;
+  overflow: hidden;
+  position: relative;
+}
+.card .card-thumbnail img {
+  -webkit-transition: transform .5s ease-in-out; /* Lorena: Made animation faster*/
+  -moz-transition: transform .5s ease-in-out;
+  -ms-transition: transform .5s ease-in-out;
+  -o-transition: transform .5s ease-in-out;
+}
+.card .card-thumbnail.video::after {
+  content: "";
+  background: url('../images/play-btn-icon.png') no-repeat center center, rgba(51, 153, 255, 0.8) no-repeat center center;
+  background-size: 14px 22px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  height: 44px;
+  width: 44px;
+}
+.card .card-content {
+  padding: 1.75rem;
+}
+.card .card-content p,
+.card .card-content h2 {
+  overflow: hidden;
+}
+.card .card-content p {
+  font-size: 1rem; /* Lorena: 16px p */
+  margin-bottom: 1rem;
+  max-height: 6.25rem;
+  line-height: 1.25rem; /* Lorena: 1.25 */
+}
+.card .card-content h2 {
+  margin-bottom: 1rem;
+  max-height: 5.625rem;
+}
+.card .card-content span.date {
+  font-style: normal; /* Lorena: Font-weight normal*/
+}
+.card .card-content span.category {
+  margin-bottom: 1rem;
+}
+.card.secondary {
+  height: 595px;
+}
+.card.secondary .card-thumbnail {
+  height: 341px;
+}
+.card.secondary .card-content p {
+  max-height: 2.9rem;
+}
+/*Lorena: Removing little icon */
+/*.card.secondary .card-content p::after {
+  content: "";
+  background: url('../images/icon-double-arrow-blue.png') no-repeat center center;
+  background-size: contain;
+  display: inline-block;
+  position: relative;
+  width: 11px;
+  height: 10px;
+  margin-left: .35rem;
+}*/
+.card.secondary .card-content h2 {
+  font-size: 2rem;
+  margin-bottom: .8rem;
+  max-height: 4rem;
+}
+.card.ad h2,
+.card.ad p,
+.card.ad span {
+  color: white;
+}
+.card.ad .card-content h2,
+.card.ad .card-content p {
+  max-height: 100%;
+}
+.card.ad p,
+.card.ad span {
+  font-family: 'PayPalForward-Regular', Helvetica, Arial, sans-serif;
+}
+.card.ad h2 {
+  font-family: 'PayPalForward-Light', Helvetica, Arial, sans-serif;
+  font-size: 2.9375rem;
+  line-height: 1;
+}
+.card.ad p {
+  font-size: 1.5rem;
+}
+.card.ad span {
+  font-size: 1.25rem;
+}
+.card.ad.green {
+  background-color: #009CDE
+;
+}
+.card.ad.blue {
+  background-color: #003087;
+}
+.card.ad.fuchsia {
+  background-color: #B0008E;
+}
+.card.ad.sun {
+  background-color: #FF8F1C;
+}
+.card.ad .ad-graphic {
+  text-align: right;
+  padding-top: 2rem;
+}
+.card.ad .ad-graphic img {
+  max-width: 126px;
+  height: auto;
+}
+.card.ad.no-graphic {
+  padding-top: 4rem;
+}
+.card.ad.no-graphic .ad-graphic {
+  display: none;
+}
+.card.po-approval,
+.card.ancmnt {
+  height: 320px;
+  border-top: 4px solid #009CDE
+;
+  position: relative;
+}
+.card.po-approval .card-content,
+.card.ancmnt .card-content {
+  padding-top: 1.75rem;
+}
+
+.card.ancmnt .card-content span,
+.card.po-approval .card-content h2,
+.card.ancmnt .card-content h2,
+.card.po-approval .card-content p,
+.card.po-approval .card-content h4,
+.card.ancmnt .card-content h4 {
+  display: block;
+  color: #444; /* Lorena: Changing colors */
+}
+
+/* Lorena: Removed paragraph from previous rules
+  to follow their own
+*/
+.card.po-approval .card-content span,
+.card.ancmnt .card-content p {
+  font-family:"PayPalForward-Regular";
+  color:#777;
+  font-size: 1rem;
+}
+
+.card.po-approval .card-content .po-details,
+.card.ancmnt .card-content .po-details {
+  margin-bottom: 1rem;
+}
+
+.card.ancmnt .card-content span,
+.card.po-approval .card-content h4,
+.card.ancmnt .card-content h4 {
+  color: #444444;
+}
+
+.card.po-approval .card-content span,
+.card.ancmnt .card-content p {
+  font-family:"PayPalForward-Regular";
+  color:#777;
+  font-size: 1rem;
+}
+
+.card.po-approval .card-content span,
+.card.ancmnt .card-content span {
+  font-size: .9375rem;
+  margin: 0 0 .25rem 0;
+  padding: 0;
+}
+.card.po-approval .card-content .by-line,
+.card.ancmnt .card-content .by-line {
+  display: block;
+  margin: 0 0 .25rem 0;
+  padding: 0;
+}
+.card.po-approval .card-content .by-line span,
+.card.ancmnt .card-content .by-line span {
+  display: inline;
+  margin: 0;
+}
+.card.po-approval .card-content a,
+.card.ancmnt .card-content a {
+  font-size: .75rem;
+  font-family: 'PayPalForward-Bold', Helvetica, Arial, sans-serif;
+  color: #7e8080;
+  display: inline-block;
+}
+.card.po-approval .card-content h4,
+.card.ancmnt .card-content h4 {
+  border-bottom: 1px solid #ccc; /* Lorena: Changing color or border bottom */
+  font-size: .875rem;
+  /*text-transform: uppercase;*/ /* Lorena: Removing uppercase */
+  margin-bottom: .9rem;
+  padding: 0 0 .4rem 0;
+}
+.card.po-approval .card-content .action-btns,
+.card.ancmnt .card-content .action-btns {
+  position: absolute;
+  bottom: 1.75rem;
+  left: 1.75rem;
+}
+.card.ancmnt {
+  height: 440px;
+  border: none;
+  padding-top: .9rem;
+}
+.card.ancmnt .mark-as-read {
+  text-align: right;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+.card.ancmnt .mark-as-read span.dismiss-icon {
+  display: inline-block;
+  height: 13px;
+  width: 13px;
+  background: url('../images/icon-dismiss.png') no-repeat center center;
+  background-size: cover;
+}
+.card.ancmnt .mark-as-read label {
+  display: none;
+}
+.card.ancmnt.countdown .countdown-holder {
+  padding: 0;
+  margin: 2rem -0.75rem 0;
+}
+.card.ancmnt.countdown .countdown-holder .digit-holder {
+  display: inline-block;
+  width: 23%;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  height: auto;
+}
+.card.ancmnt.countdown .countdown-holder .digit-holder span {
+  color: #0ca0cb;
+  font-size: 1.875rem;
+}
+.card.ancmnt.countdown .countdown-holder .digit-holder label {
+  color: #5a5a5a;
+  font-family: 'PayPalForward-Light', Helvetica, Arial, sans-serif;
+  font-size: 1.1rem;
+}
+/* Large devices (large desktops, 1200px and up) */
+@media (max-width: 1200px) and (min-width: 992px) {
+  html {
+    font-size: 14px;
+  }
+  .feature-group .feature-content h1,
+  .feature-group .feature-content span,
+  .feature-group .feature-content p {
+    width: 75%;
+  }
+  .card {
+    height: 440px;
+  }
+  .card.secondary {
+    height: 530px;
+  }
+  .card .card-thumbnail {
+    height: 155px;
+  }
+  .card .card-content {
+    padding: 1rem;
+  }
+  .card.secondary .card-thumbnail {
+    height: 317px;
+  }
+  .card.ad .ad-graphic img {
+    max-width: 100px;
+  }
+}
+/* Medium devices (desktops, 992px and up) */
+@media (max-width: 992px) {
+  .feature-group .feature-content h1,
+  .feature-group .feature-content span,
+  .feature-group .feature-content p {
+    width: 90%;
+  }
+  .card,
+  .card.secondary {
+    height: 510px;
+  }
+  .card .card-thumbnail,
+  .card.secondary .card-thumbnail {
+    height: 225px;
+  }
+  .card .card-content p,
+  .card.secondary .card-content p {
+    max-height: 6.25rem;
+    font-size: 1.125rem; /* Lorena: 16px p; */
+    margin-bottom: 1rem;
+  }
+  .card .card-content h2,
+  .card.secondary .card-content h2 {
+    max-height: 5.625rem;
+    font-size: 1.6875rem;
+  }
+  .card.ad .ad-graphic img {
+    max-width: 105px;
+  }
+  .card.ad .card-content {
+    padding: 3rem;
+  }
+  .card.ad .card-content h2 {
+    font-size: 3rem;
+  }
+}
+/* Small devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+  body {
+    padding-top: 60px;
+  }
+  button {
+    padding: .6rem 1.2rem;
+  }
+  .navbar {
+    height: 50px;
+  }
+  .feature-group {
+    position: relative;
+    height: auto;
+    margin: 0 0 1.5rem 0;
+    padding: 0;
+  }
+  .feature-group .feature {
+    height: 260px;
+    background-image: url('../images/temp-hero.jpg');
+    background-position: center center;
+    margin-bottom: 0;
+  }
+  .feature-group .feature-content {
+    position: relative;
+    background-color: white;
+    padding: 1.5rem;
+    width: 100%;
+    margin: -4px 0 0 0;
+    height: auto;
+    bottom: 0;
+    -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+  }
+  .feature-group .feature-content h1,
+  .feature-group .feature-content span,
+  .feature-group .feature-content p {
+    width: 100%;
+  }
+  .feature-group .feature-content h1 {
+    font-size: 2.2rem;
+    font-family: 'PayPalForward-Regular', Helvetica, Arial, sans-serif;
+    color: #030303;
+  }
+  .feature-group .feature-content p {
+    font-size: 1.48rem;
+    color: #5a5a5a;
+  }
+  .feature-group .feature-content span {
+    color: #5a5a5a;
+  }
+  .feature-group .feature-content button {
+    border-color: #5a5a5a;
+    color: #5a5a5a;
+  }
+  .card,
+  .card.secondary {
+    height: auto;
+  }
+  .card .card-thumbnail,
+  .card.secondary .card-thumbnail {
+    max-height: 200px;
+  }
+}
+/* Small devices landscape image width */
+@media (max-width: 768px) and (orientation: landscape) {
+  .card .card-thumbnail,
+  .card.secondary .card-thumbnail {
+    height: auto;
+    max-height: none;
+  }
+  .card .card-thumbnail img,
+  .card.secondary .card-thumbnail img {
+    width: 100%;
+    height: auto;
+  }
+}

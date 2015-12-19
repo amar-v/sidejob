@@ -1,0 +1,82 @@
+<div class="row">
+    <div class="col-md-6 col-md-offset-3 formpages">
+    {{#if msg}}
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <i>{{ msg }}</i>
+    </div>
+    {{/if}}
+     <form role="form" enctype="multipart/form-data" method="post" action="/register">
+            <h2>Sign Up <small>Enjoy Real Game Features of Chess64.me</small></h2>
+        <hr class="colorgraph">
+        <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <input type="text" name="userName" id="userName" class="form-control input-lg" placeholder="Enter Username *" tabindex="1"  autofocus required>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Enter Email *" tabindex="2"  autofocus required>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="date" name="dob" id="dob" class="form-control input-lg" placeholder="Your Datae of Birth *" tabindex="3"  autofocus>
+            </div>
+            <div class="form-group">
+                <input type="number" name="mobile" id="number" class="form-control input-lg" placeholder="Your Mobile Number (Optional)" tabindex="3"  min="10000" max="999999999999" autofocus>
+            </div>
+            <div class="form-group">
+                <input type="text" name="address" id="address" class="form-control input-lg" placeholder="Your Address (Optional)" tabindex="4"  autofocus>
+            </div>
+    <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password *" tabindex="5"  autofocus required>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <input type="password" name="confirmPassword" id="confirmPassword" class="form-control input-lg" placeholder="Confirm Password *" tabindex="6"  autofocus required>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="file" name="image" id="image" class="form-control input-lg filestyle" data-placeholder="Profile Image (Optional)" tabindex="7"  autofocus>
+            </div>
+            <div class="row">
+                <div class="col-xs-4 col-sm-3 col-md-3">
+                    <span class="button-checkbox">
+                        <button type="button" class="btn" data-color="info" tabindex="7">I Agree</button>
+                        <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1" required=>
+                    </span>
+                </div>
+                <div class="col-xs-8 col-sm-9 col-md-9">
+                     By clicking <strong class="label label-primary">Register</strong>, you agree to the <a href="#" data-toggle="modal" data-target="#termsModal">Terms and Conditions</a> set out by this site, including our Cookie Use.
+                </div>
+            </div>
+                <hr class="colorgraph">
+            <div class="row">
+                <div class="col-xs-12 col-md-6"><input type="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
+                <div class="col-xs-12 col-md-6"><a href="/login" class="btn btn-success btn-block btn-lg">Sign In</a></div>
+            </div>
+            </form>
+        <div id="registerError" hidden="hidden">{{ error }}</div>
+    </div>
+</div>
+<div class="modal fade" id="termsModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Terms of Service</h4>
+            </div>
+            <div class="modal-body">
+                Chess64.me Terms of service and game conditions
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

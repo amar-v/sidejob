@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sidejob</title>
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/base-styles.css">
+	<link rel="stylesheet" href="css/modules.css">
+	<link rel="stylesheet" href="css/navbar.css">
+	<link rel="stylesheet" href="css/navbar2.css">
+	<link rel="stylesheet" href="css/searchbox.css">
+	
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-route.js"></script>
+	<script type="text/javascript" src="css/js/navbar.js"></script>
+	<script src="/js/bootstrap-slider.js"></script>
+
+	<!-- <base href="/"> -->
+</head>
+<body ng-app="mainApp" ng-controller="mainController as main">
+	<div><!--wrapper-->
+	<header class="hub-header">      
+      <a class="hub-overlay-nav-left-trigger" href="" onclick="toggleFirstMenu()">
+         <span class="hub-menu-icon"></span>
+      </a> 
+      <div class="hub-logo">
+         <a href="index.html">
+            <img src="images/nav-logo.png" alt="Hub">
+         </a>
+      </div>			
+      
+      <!-- SEARCH BOX -->
+      <div id="morphsearch" class="morphsearch">
+         <form class="morphsearch-form">            
+            <input class="morphsearch-input" type="search" placeholder="Search for people, or anything else..."/>
+            <!--button class="morphsearch-submit" type="submit">Search</button-->
+
+         </form>
+         <!-- Auto complete search results -->
+         <div class="morphsearch-content">
+           
+         </div><!-- /morphsearch-content -->
+         <!-- End of Autocomplete search results -->
+         <span class="morphsearch-close"></span>
+	 
+
+      </div><!-- /morphsearch -->
+      <div class="morphsearch-overlay">
+
+      </div>
+      <!-- End of SEARCH BOX -->     
+
+
+      <ul class="top-head-list">
+      	<li><a href="">Hello {{main.userName}}</a></li>
+      	<li><a href="/logout">Logout</a></li>
+      </ul>
+
+      <a class="hub-overlay-nav-right-trigger profile-anchor" href="" onclick="toggleSecondMenu()">
+         <img src="images/temp-profile.jpg" alt="profile pic" />
+         <span>11</span>        
+      </a> <!-- hub-overlay-nav-right-trigger -->
+
+
+        <div class="sidebar-content" id="first-menu-content">
+     	  <ul class="sidebar-links">
+     	 	<li> <a href="">Link One</a> </li>
+     	 	<li> <a href="">Link Two</a> </li>
+     	 	<li> <a href="">Link Three</a> </li>
+     	 	<li> <a href="">Link Four</a> </li>
+     	 </ul>
+    	</div>
+
+    	 <div class="sidebar-content" id="second-menu-content">
+    	 	<ul class="sidebar-links">
+     	 	<li> <a href="">Link Five</a> </li>
+     	 	<li> <a href="">Link Six</a> </li>
+     	 	<li> <a href="">Link Seven</a> </li>
+     	 	<li> <a href="">Link Eight</a> </li>
+     	 </ul>
+
+    	</div><!-- end #second-menu-content -->
+      
+	</header>
+
+	<section class="dashboard-subheader">
+		<div class="container-fluid">
+			<div class="menus">
+				<ul class="list-inline">
+					<li class="cursor" ng-cloak ng-class="{'active':main.page=='dashboard'}"><a href="#/dashboard" class="tab-line" ng-click="main.page='dashboard'">DASHBOARD</a></li>
+					<li class="cursor" ng-cloak ng-class="{'active':main.page=='inbox'}"><a href="#/message" class="tab-line" ng-click="main.page='inbox'">INBOX</a></li>
+					<li class="cursor" ng-cloak ng-class="{'active':main.page=='explore'}"><a href="#/explore" class="tab-line" ng-click="main.page='explore'">EXPLORE</a></li>
+					<li class="cursor" ng-cloak ng-class="{'active':main.page=='profile'}"><a href="#/profile" class="tab-line" ng-click="main.page='profile'">PROFILE</a></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="banner Banner">
+		<div class="banner-title text-center">
+			<h3 class="title-header">{{main.page | uppercase}}</h3>
+		</div>
+	</section>
+</div><!--end wrapper-->
+
+<div ng-view><!--container-->
+	
+
+</div><!--end container-->
+	<footer>
+		<div class="pull-right chat-list">
+			<span class="signal"></span>
+			<span>Chat</span>
+		</div>
+	</footer>
+
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script src="/js/socket.io.js"></script>
+	<script type="text/javascript" src="js/main_app.js"></script>
+	<!--<script src="/js/chat.js" type="text/javascript"></script>	-->
+
+
+	<script type="text/javascript">
+	//$(document).ready(function(){setupReverb({developer_id:'2ca5c0af',theme_id:2});});
+		var socket = io();
+		
+	</script>
+
+</body>
+</html>

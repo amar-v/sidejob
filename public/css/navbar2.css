@@ -1,0 +1,521 @@
+/* -------------------------------- 
+
+Primary style
+
+-------------------------------- */
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* -------------------------------- 
+
+Main components 
+
+-------------------------------- */
+.hub-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #ffffff;
+  height: 50px;
+  width: 100%;
+  z-index: 9999;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@media only screen and (min-width: 720px) and (max-width: 959px), only screen and (min-width: 960px) and (max-width: 1199px), only screen and (min-width: 1129px) {
+  .hub-header {
+    height: 80px;
+    background: #ffffff;
+  }
+}
+@media only screen and (min-width: 960px) and (max-width: 1199px), only screen and (min-width: 1129px) {
+  .hub-header {
+    position: absolute;
+    -webkit-transition: background-color 0.3s;
+    -moz-transition: background-color 0.3s;
+    transition: background-color 0.3s;
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  .hub-header.is-fixed {
+    /* when the user scrolls down, we hide the header right above the viewport */
+    position: fixed;
+    top: -80px;
+    background-color: #ffffff;
+    -webkit-transition: -webkit-transform 0.3s;
+    -moz-transition: -moz-transform 0.3s;
+    transition: transform 0.3s;
+  }
+  .hub-header.is-visible {
+    /* if the user changes the scrolling direction, we show the header */
+    -webkit-transform: translate3d(0, 100%, 0);
+    -moz-transform: translate3d(0, 100%, 0);
+    -ms-transform: translate3d(0, 100%, 0);
+    -o-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+  .hub-header.menu-is-open {
+    /* add a background color to the header when the navigation is open */
+    background-color: #ffffff;
+  }
+}
+.hub-header .hub-logo {
+  display: block;
+  position: absolute;
+  top: 50%;
+  bottom: auto;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 4.5em;
+}
+
+/* Lorena: Looked weird on mobile */
+@media (max-width: 480px) {
+  .hub-header .hub-logo {
+    left: 2.5em;
+  }
+}
+/* Lorena: Changed logo size */
+.hub-header .hub-logo img {
+  height: 38px;
+  width: 126px;
+}
+@media only screen and (min-width: 768px) {
+  .hub-logo {
+    left: 5.6em;
+  }
+  .hub-logo img {
+    display: block;
+    height: 28px;
+    width: 135px;
+  }
+}
+.hub-secondary-nav {
+  position: absolute;
+  top: 50%;
+  bottom: auto;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 10em;
+  /* hidden on small devices */
+  display: none;
+}
+.hub-secondary-nav li {
+  display: inline-block;
+  margin-left: 2.2em;
+}
+.hub-secondary-nav a {
+  display: inline-block;
+  color: #6B6B6B;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+@media only screen and (min-width: 768px) {
+  .hub-secondary-nav {
+    display: block;
+  }
+}
+/* start left-trigger */
+.hub-overlay-nav-left-trigger {
+  position: absolute;
+  left: 10px;
+  top: 0;
+  height: 100%;
+  width: 50px;
+  background-color: #ffffff;
+}
+.hub-overlay-nav-left-trigger .hub-menu-icon {
+  /* this span is the central line of the menu icon */
+  display: inline-block;
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  bottom: auto;
+  left: auto;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  width: 18px;
+  height: 2px;
+  background-color: #6B6B6B;
+  -webkit-transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  /* these are the upper and lower lines in the menu icon */
+}
+.hub-overlay-nav-left-trigger .hub-menu-icon::before,
+.hub-overlay-nav-left-trigger .hub-menu-icon:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #6B6B6B;
+  left: 0;
+  -webkit-transition: -webkit-transform 0.3s, top 0.3s, background-color 0s;
+  -moz-transition: -moz-transform 0.3s, top 0.3s, background-color 0s;
+  transition: transform 0.3s, top 0.3s, background-color 0s;
+}
+.hub-overlay-nav-left-trigger .hub-menu-icon::before {
+  top: -5px;
+}
+.hub-overlay-nav-left-trigger .hub-menu-icon::after {
+  top: 5px;
+}
+.leftnav-is-open .hub-overlay-nav-left-trigger .hub-menu-icon {
+  background-color: rgba(255, 255, 255, 0);
+}
+.leftnav-is-open .hub-overlay-nav-left-trigger .hub-menu-icon::before,
+.leftnav-is-open .hub-overlay-nav-left-trigger .hub-menu-icon::after {
+  background-color: #6B6B6B;
+}
+.leftnav-is-open .hub-overlay-nav-left-trigger .hub-menu-icon::before {
+  top: 0;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+.leftnav-is-open .hub-overlay-nav-left-trigger .hub-menu-icon::after {
+  top: 0;
+  -webkit-transform: rotate(225deg);
+  -moz-transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  -o-transform: rotate(225deg);
+  transform: rotate(225deg);
+}
+@media only screen and (min-width: 768px) {
+  .hub-overlay-nav-left-trigger {
+    width: 100px;
+    padding-left: 1em;
+    background-color: transparent;
+    height: 30px;
+    line-height: 30px;
+    left: 2.2em;
+    top: 50%;
+    bottom: auto;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  .hub-overlay-nav-left-trigger .hub-menu-icon {
+    right: auto;
+    left: 0;
+    -webkit-transform: translateX(0) translateY(-50%);
+    -moz-transform: translateX(0) translateY(-50%);
+    -ms-transform: translateX(0) translateY(-50%);
+    -o-transform: translateX(0) translateY(-50%);
+    transform: translateX(0) translateY(-50%);
+  }
+}
+/* end left-trigger */
+/* start right-trigger */
+.hub-overlay-nav-right-trigger {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  padding: 5px;
+}
+.hub-overlay-nav-right-trigger .hub-menu-icon {
+  /* this span is the central line of the menu icon */
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  right: auto;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  -webkit-transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  /* these are the upper and lower lines in the menu icon */
+}
+.rightnav-is-open .hub-overlay-nav-right-trigger .hub-menu-icon {
+  background-color: rgba(255, 255, 255, 0);
+}
+.rightnav-is-open .hub-overlay-nav-right-trigger .hub-menu-icon::before,
+.rightnav-is-open .hub-overlay-nav-right-trigger .hub-menu-icon::after {
+  background-color: #6B6B6B;
+}
+.rightnav-is-open .hub-overlay-nav-right-trigger .hub-menu-icon::before {
+  top: 0;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+.rightnav-is-open .hub-overlay-nav-right-trigger .hub-menu-icon::after {
+  top: 0;
+  -webkit-transform: rotate(225deg);
+  -moz-transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  -o-transform: rotate(225deg);
+  transform: rotate(225deg);
+}
+@media only screen and (min-width: 768px) {
+  .hub-overlay-nav-right-trigger {
+    width: 100px;
+    padding-left: 1em;
+    background-color: transparent;
+    height: auto;
+    line-height: 30px;
+    right: .75rem;
+    top: 50%;
+    bottom: auto;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  .hub-overlay-nav-right-trigger .hub-menu-text {
+    display: inline-block;
+  }
+  .hub-overlay-nav-right-trigger .hub-menu-icon {
+    left: auto;
+    right: 1em;
+    -webkit-transform: translateX(0) translateY(-50%);
+    -moz-transform: translateX(0) translateY(-50%);
+    -ms-transform: translateX(0) translateY(-50%);
+    -o-transform: translateX(0) translateY(-50%);
+    transform: translateX(0) translateY(-50%);
+  }
+}
+/* end of right-trigger */
+/*
+.hub-overlay-nav-left, .hub-overlay-nav-right {
+  
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 110%;
+  width: 100%;
+  background: rgba(53, 58, 58, 1);
+  z-index: 2;
+  color: #ccc;
+  text-align: left;
+  padding: 70px 30px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  overflow: auto;
+  this fixes the buggy scrolling on webkit browsers - mobile devices only - when overflow property is applied
+  -webkit-overflow-scrolling: touch;
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%);
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+*/
+.hub-overlay-nav-left li,
+.hub-overlay-nav-right li {
+  font-size: 1rem;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: .2em 0;
+  padding: .4em 1em;
+}
+.hub-overlay-nav-left a,
+.hub-overlay-nav-right a {
+  display: inline-block;
+  border-radius: 0.25em;
+  -webkit-transition: background 0.2s;
+  -moz-transition: background 0.2s;
+  transition: background 0.2s;
+}
+/*
+.no-touch .hub-overlay-nav-left a:hover, .no-touch .hub-overlay-nav-right a:hover {
+  background-color: #e36767;
+}
+*/
+.hub-overlay-nav-left .hub-label,
+.hub-overlay-nav-right .hub-label {
+  color: #E8E8EA;
+
+  font-weight: 700;
+  font-size: 14px;
+  font-size: 0.875rem;
+  margin: 2.4em 0 .8em;
+}
+.hub-overlay-nav-left h2,
+.hub-overlay-nav-left h3,
+.hub-overlay-nav-left h4,
+.hub-overlay-nav-left span,
+.hub-overlay-nav-right h2,
+.hub-overlay-nav-right h3,
+.hub-overlay-nav-right h4,
+.hub-overlay-nav-right span {
+  color: #444444;
+}
+.hub-overlay-nav-left a,
+.hub-overlay-nav-right a {
+  /*color: #A4A9AD;*/
+}
+.hub-overlay-nav-right .badge {
+  background-color: #E60808;
+  border-radius: 50%; /* Lorena: making badge circular */
+  padding: 4px 8px 3px 7px;
+    color: white;
+}
+.hub-personal-welcome {
+  font-size: 16px;
+  border-bottom: 1px solid #ccc; /* Lorena: same light gray in all borders */
+  padding-bottom: 1em;
+}
+.hub-personal-welcome span {
+  font-size: 16px;
+}
+.hub-personal-approvals h3,
+.hub-personal-announcements h3 {
+  padding: 15px 0 5px 0;
+}
+.hub-personal-approvals p,
+.hub-personal-announcements p {
+  color: #ccc;
+}
+.hub-overlay-nav-left.is-visible,
+.hub-overlay-nav-right.is-visible {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+}
+/* Medium devices (tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .hub-overlay-nav-left,
+  .hub-overlay-nav-right {
+    /*padding: 120px 40px;*/
+  }
+  .hub-overlay-nav-right-trigger {
+    padding: 0;
+  }
+}
+@media only screen and (min-width: 1170px) {
+  .hub-overlay-nav-left,
+  .hub-overlay-nav-right li {
+    font-size: 30px;
+    font-size: 1.875rem;
+  }
+  .hub-overlay-nav-left,
+  .hub-overlay-nav-right .hub-label {
+    font-size: 16px;
+    font-size: 1rem;
+  }
+}
+.hub-overlay-close-container {
+  position: relative;
+  width: 96.5%;
+}
+.hub-overlay-close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  background: url("../images/icon-close-x.svg") no-repeat center center;
+  background-size: cover;
+  height: 26px;
+  width: 26px;
+}
+/*
+.hub-overlay-close {
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+  text-indent: 100%;
+  cursor: pointer;
+  pointer-events: none;
+  opacity: 0;
+  -webkit-transform: scale3d(0,0,1);
+  transform: scale3d(0,0,1);
+}
+
+.is-visible .hub-overlay-close {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: scale3d(1,1,1);
+  transform: scale3d(1,1,1);
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
+  -webkit-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+
+
+.hub-overlay-close::before,
+.hub-overlay-close::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  border-radius: 3px;
+  opacity: 0.2;
+  background: #fff;
+}
+
+.hub-overlay-close:hover.hub-overlay-close::before,
+.hub-overlay-close:hover.hub-overlay-close::after {
+  opacity: 1;
+}
+
+.hub-overlay-close::before {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.hub-overlay-close::after {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+*/
+.hub-main-content {
+  position: relative;
+  z-index: 1;
+}
+/* Mega menu for left overlay 
+.hub-mega-menu {
+  -webkit-columns: 4 200px;
+     -moz-columns: 4 200px;
+          columns: 4 200px;
+}
+*/
