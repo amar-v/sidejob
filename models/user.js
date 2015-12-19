@@ -9,6 +9,8 @@ var UserSchema = mongoose.Schema({
     jobs_created: String,
     jobs_completed: String,
     password: String,
+    ZIP: String,
+    conversations: [],
     dob: {
         day: String,
         month: String,

@@ -124,6 +124,13 @@ app.get('/auth/google/callback',
 
 //ADDED CODE ********************************************************************
 
+//MODELS
+var User = mongoose.model('User');
+var Job = mongoose.model('Job');
+var Message = mongoose.model('Message');
+var Conversation = mongoose.model('Conversation');
+
+
 app.get('/message',function(req,res) {
     res.sendFile(__dirname+"/message.html");
 });
@@ -131,9 +138,6 @@ app.get('/message',function(req,res) {
 app.get('/dashboard',function(req,res) {
     res.sendFile(__dirname+"/message.html");
 });
-
-
-var Message = mongoose.model('Message');
 
 /*var message = new Message({
     sender: 'Mark J',
@@ -163,7 +167,6 @@ app.get('/test_messages', require('connect-ensure-login').ensureLoggedIn(),
     }
 );
 
-var User = mongoose.model('User');
 
 app.get('/test_users',function(req,res) {
     
@@ -195,8 +198,6 @@ app.get('/',function(req,res) {
 app.get('/explore',function(req,res) {
     res.sendFile(__dirname+"/views/partial_explore.html");
 });
-
-var Job = mongoose.model('Job');
 
 /*var job1 = new Job({
     user: 'test__12345@gmail.com',
