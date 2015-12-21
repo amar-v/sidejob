@@ -68,6 +68,8 @@ angular.module("mainApp",['ngRoute'])
 
 	var vm = this;
 
+	var socket = io();
+    var user = Math.random();//prompt("Enter your username");
 	//page tab
 	vm.page = "dashboard";
 
@@ -78,8 +80,96 @@ angular.module("mainApp",['ngRoute'])
 		vm.userName = data.user;
 		console.log(vm.userName)
 	})
-	
 
+	vm.closeChatWindow = function(id) {
+		$(id).hide();
+	}
+
+	vm.openChatWindow = function(id) {
+		$(id).show();
+	}
+
+	vm.users = [
+		{
+			id: 1,
+			name: "Johan",
+			messages: [
+				{
+					sender:"Zack",
+					msg: "Hello man!"
+				},
+				{
+					sender:"Zack",
+					msg: "What's wrong!"
+				}
+			]
+		},
+		{
+			id: 2,
+			name: "Zack",
+			messages: [
+				{
+					sender:"Tito",
+					msg: "You too!"
+				}
+			]
+		},
+		{
+			id: 3,
+			name: "Sarah",
+			messages: []
+		}
+	];
+
+	vm.sendMessage = function(e,id,identifier) {
+		if(e.keyCode==13) {
+
+			console.log($(id).val())
+			if($(id).val()!="") {
+				$(id).val="this is it"
+				socket.emit('chat message', {'message':$(id).val(),'user':user, 'id':id, 'identifier':identifier});
+		        $('#m').val('');
+		        $(id).val("");
+		        $(id).text("");
+			}
+			
+		}
+	}
+
+	vm.sendPrivate = function(e,id) {
+		if(e.keyCode==13) {
+
+		}
+	}
+
+	socket.on('chat message', function(msg){
+		console.log(msg.user==user)
+		if(msg.user!=user) {
+	        /*$('#msgs').append('<li class="recieved"><div class="message-item"><div class="messge">' + msg.message + '</div><div class="text-right"><span class="time">Sent '+msg.time+'</span></div></div></li>');
+	    	$(msg.id).append("<div class='media message byme'><div class='media-body'><p>"+ msg.message +"</p></div><div class='media-right'><img class='media-object img-rounded' src='http://placehold.it/40x40/ff00ff/ff00ff' alt='User'></div></div>");
+	    		updateScroll();*/
+	    		console.log("it should be appended in if")
+	    	}
+    	else {
+    		for(i=0;i<vm.users.length;i++) {
+    			if(vm.users[i].id==msg.identifier) {
+    				var push_data = {sender:msg.user, msg: msg.message};
+    				vm.users[i].messages.push(push_data);
+    				console.log("pushed")
+    			}
+    		}
+    		//updateScroll();
+    	}
+
+	});
+	
+	/*function updateScroll(id){
+	    var element = document.getElementById(id);
+	    element.scrollTop = element.scrollHeight;
+	    var element = document.getElementById("chat-msgs");
+	    element.scrollTop = element.scrollHeight;
+	}
+*/
 })
 
 .controller("exploreController",function() {

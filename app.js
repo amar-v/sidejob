@@ -29,6 +29,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 io.on('connection', function(socket){
+    console.log(socket.request.session);
   socket.on('chat message', function(msg){
     //Get and format time
     var dt = new Date();
@@ -46,7 +47,7 @@ io.on('connection', function(socket){
     }
     var time = hours + ":" + minutes;
     //Emit message to all users
-    io.emit('chat message', {'message':msg.message,'time':time,'user':msg.user});
+    io.emit('chat message', {'message':msg.message,'time':time,'user':msg.user,'id':msg.id, 'identifier':msg.identifier});
   });
 });
 

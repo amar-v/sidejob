@@ -37,7 +37,7 @@
       <!-- SEARCH BOX -->
       <div id="morphsearch" class="morphsearch">
          <form class="morphsearch-form">            
-            <input class="morphsearch-input" type="search" placeholder="Search for people, or anything else..."/>
+            <input class="morphsearch-input" type="search" placeholder="Search..."/>
             <!--button class="morphsearch-submit" type="submit">Search</button-->
 
          </form>
@@ -113,112 +113,48 @@
 
 </div><!--end container-->
 	<footer class="chat-footer">
-		<div class="chat-box chat-messages">
-			<div class="chat-box-handle" onclick="$(this).closest('.chat-box').toggleClass('open')">
-				<span class="status status-off"></span>
-				<span class="handle-title">Sarah Doe</span>
-			</div>
-			<div class="chat-box-content">
-				<div class="media message">
-				  <div class="media-left">
-				      <img class="media-object img-rounded" src="http://placehold.it/40x40/00ffff/00ffff" alt="User">
-				  </div>
-				  <div class="media-body">
-				    <p>Hi! How are you?</p>
-				  </div>
-				</div>
-
-
-				<div class="media message byme">
-				  <div class="media-body">
-				    <p>Hi! I felt better.</p>
-				  </div>
-				  <div class="media-right">
-				      <img class="media-object img-rounded" src="http://placehold.it/40x40/ff00ff/ff00ff"  alt="User">
-				  </div>
-				</div>
-
-
-				<div class="media message">
-				  <div class="media-left">
-				      <img class="media-object img-rounded" src="http://placehold.it/40x40/00ffff/00ffff" alt="User">
-				  </div>
-				  <div class="media-body">
-				    <p>Sorry to hear that!</p>
-				  </div>
-				</div>
-
-				<div class="media message byme">
-				  <div class="media-body">
-				    <p>Nah. I will be alright</p>
-				  </div>
-				  <div class="media-right">
-				      <img class="media-object img-rounded" src="http://placehold.it/40x40/ff00ff/ff00ff"  alt="User">
-				  </div>
-				</div>
-
-				<div class="media message byme">
-				  <div class="media-body">
-				    <p>So what are you up to?</p>
-				  </div>
-				  <div class="media-right">
-				      <img class="media-object img-rounded" src="http://placehold.it/40x40/ff00ff/ff00ff"  alt="User">
-				  </div>
-				</div>
-
-				<div class="media message byme"> 
-				  <div class="media-body">
-				    <p>You there?</p>
-				  </div>
-				  <div class="media-right">
-				      <img class="media-object img-rounded" src="http://placehold.it/40x40/ff00ff/ff00ff"  alt="User">
-				  </div>
-				</div>
-
-			</div>
-			<div class="input-cont">
-				<input type="text" class="input-mes" placeholder="Type Mess..." />
-			</div>
-		</div>
-		<div class="chat-box chat-messages">
+		
+		<div ng-repeat="user in main.users" id="{{user.name + user.id}}" class="chat-box chat-messages">
 			<div class="chat-box-handle" onclick="$(this).closest('.chat-box').toggleClass('open')">
 				<span class="status status-on"></span>
-				<span class="handle-title">John Doe</span>
-				<span class="pull-right" style="margin-top:15px">X</span>
+				<span class="handle-title">{{user.name}}</span>
+				<span class="pull-right" style="margin-top:15px" ng-click="main.closeChatWindow('#' + user.name + user.id)">X</span>
 			</div>
-			<div id="chat-msgs" class="chat-box-content">
-				
+			<div id="chat-msgs{{user.name+user.id}}" class="chat-box-content">
+				<div ng-repeat="message in user.messages" class="media message">
+					<div class="media-left">
+						<img class="media-object img-rounded" src="http://placehold.it/40x40/00ffff/00ffff" alt="User">
+					</div>
+					<div class="media-body">
+						<p>{{message.msg}}</p>
+					</div>
+					<div class='media-right' ng-if="1==0">
+						<img class='media-object img-rounded' src='http://placehold.it/40x40/ff00ff/ff00ff' alt='User'>
+					</div>
+				</div>
 			</div>
 
+			
+
 			<div class="input-cont">
-				<input type="text" id="chat-msg" class="input-mes" placeholder="Type a message..." />
+				<input type="text" id="chat-msg{{user.name+user.id}}" class="input-mes" placeholder="Type a message..." ng-keypress="main.sendMessage($event,'#chat-msg'+user.name+user.id,user.id)"/>
 			</div>
 		</div>
+		
 		<div class="chat-box open chat-userlist">
 			<div class="chat-box-handle" onclick="$(this).closest('.chat-box').toggleClass('open')">
 				<span class="handle-title"><b>User List</b></span>
 			</div>
 			<div class="chat-box-content">
 
-				<div class="media userinfo">
+				<div ng-repeat="user in main.users" class="media userinfo">
 				  <div class="media-left">
 						<span class="status status-on"></span>
 				  </div>
-				  <div class="media-body">
-				    <b>John Doe</b>
+				  <div class="media-body" ng-click="main.openChatWindow('#' + user.name + user.id)">
+				    <b>{{user.name}}</b>
 				  </div>
 				</div>
-
-				<div class="media userinfo">
-				  <div class="media-left">
-					<span class="status status-off"></span>
-				  </div>
-				  <div class="media-body">
-				    <b>Susan Doe</b>
-				  </div>
-				</div>
-
-				
 
 			</div>
 			<div class="input-cont">
@@ -232,6 +168,5 @@
 	<script type="text/javascript" src="js/main_app.js"></script>
 
 	
-
 </body>
 </html>
