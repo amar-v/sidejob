@@ -113,7 +113,7 @@
 						<div class="clearfix"></div>
 						<div class="msg-input-wrapper">
 							<div class="input-toolbox">
-								<textarea name="" id="msg" cols="30" rows="2" placeholder="Write here..." ng-keypress="main.sendPrivate($event,'#msgs',user.id)"></textarea>
+								<textarea name="" id="msg" cols="30" rows="2" placeholder="Write here..." ng-keypress="main.sendPrivate($event,'#msg',user.id)"></textarea>
 								<div class="option-box">
 									<ul class="list-inline pull-left">
 										<li><i class="fa fa-folder"></i> Add Files</li>
@@ -163,7 +163,7 @@
 			        $('#chat-msg').val("");
 			        $('#chat-msg').text("");
       			}
-      		}*/
+      		}
 
       })
 
@@ -179,7 +179,7 @@
 	    		$(msg.id).append('<div class="media message"><div class="media-left"><img class="media-object img-rounded" src="http://placehold.it/40x40/00ffff/00ffff" alt="User"></div><div class="media-body"><p>' + msg.message + '</p></div></div>');
 	    		updateScroll();
 	    	}
-      });
+      });*/
 
     </script>
     <script>

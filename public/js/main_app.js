@@ -158,11 +158,12 @@ angular.module("mainApp",['ngRoute'])
     				console.log("pushed")
     				$scope.$apply();
     			}
-    			
+    		
     		//updateScroll(msg.id);
 
 
     	}
+		$('#msgs').append('<li class="recieved"><div class="message-item"><div class="messge">' + msg.message + '</div><div class="text-right"><span class="time">Sent '+msg.time+'</span></div></div></li>');
 
 	});
 	
