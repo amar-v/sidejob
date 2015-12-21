@@ -25,6 +25,11 @@ angular.module("mainApp",['ngRoute'])
 		controller:'profileController',
 		controllerAs: 'profile'
 	})
+	.when('/explore-item', {
+		templateUrl:'/explore-item',
+		controller:'itemExploreController',
+		controllerAs:"itemExplore"
+	})
 
 	.otherwise({
 		templateUrl:'/partial2',

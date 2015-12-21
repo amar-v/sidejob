@@ -255,6 +255,9 @@ app.get('/explore',function(req,res) {
 app.get('/profile',function(req,res) {
     res.sendFile(__dirname+"/views/partial_profile.html");
 });
+app.get('/explore-item',function(req,res) {
+    res.sendFile(__dirname+"/views/partial_explore_item.html");
+});
 
 require('./config/errorHandlers.js')(app);
 
