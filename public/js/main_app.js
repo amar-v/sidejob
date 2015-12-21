@@ -64,12 +64,13 @@ angular.module("mainApp",['ngRoute'])
 
 
 
-.controller("mainController",function(GetUserName,$scope) {
+.controller("mainController",function(GetUserName,$scope,$anchorScroll) {
 
 	var vm = this;
 
 	var socket = io();
     var user = Math.random();//prompt("Enter your username");
+    vm.user_ = user;
 	//page tab
 	vm.page = "dashboard";
 
@@ -136,21 +137,20 @@ angular.module("mainApp",['ngRoute'])
 		}
 	}
 
-	vm.sendPrivate = function(e,id) {
+	vm.sendPrivate = function(e,id,identifier) {
 		if(e.keyCode==13) {
-
+			if($(id).val()!="") {
+				$(id).val="this is it"
+				socket.emit('chat message', {'message':$(id).val(),'user':user, 'id':id, 'identifier':identifier});
+		        $('#m').val('');
+		        $(id).val("");
+		        $(id).text("");
+			}
 		}
 	}
 
 	socket.on('chat message', function(msg){
-		console.log(msg.user==user)
-		if(msg.user!=user) {
-	        /*$('#msgs').append('<li class="recieved"><div class="message-item"><div class="messge">' + msg.message + '</div><div class="text-right"><span class="time">Sent '+msg.time+'</span></div></div></li>');
-	    	$(msg.id).append("<div class='media message byme'><div class='media-body'><p>"+ msg.message +"</p></div><div class='media-right'><img class='media-object img-rounded' src='http://placehold.it/40x40/ff00ff/ff00ff' alt='User'></div></div>");
-	    		updateScroll();*/
-	    		console.log("it should be appended in if")
-	    	}
-    	else {
+		
     		for(i=0;i<vm.users.length;i++) {
     			if(vm.users[i].id==msg.identifier) {
     				var push_data = {sender:msg.user, msg: msg.message};
@@ -158,19 +158,21 @@ angular.module("mainApp",['ngRoute'])
     				console.log("pushed")
     				$scope.$apply();
     			}
-    		}
-    		//updateScroll();
+    			
+    		//updateScroll(msg.id);
+
+
     	}
 
 	});
 	
-	/*function updateScroll(id){
-	    var element = document.getElementById(id);
+	function updateScroll(id){
+	    var element = $(id);
 	    element.scrollTop = element.scrollHeight;
-	    var element = document.getElementById("chat-msgs");
-	    element.scrollTop = element.scrollHeight;
+	    /*var element = document.getElementById("chat-msgs");
+	    element.scrollTop = element.scrollHeight;*/
 	}
-*/
+
 })
 
 .controller("exploreController",function() {
