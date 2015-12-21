@@ -64,7 +64,7 @@ angular.module("mainApp",['ngRoute'])
 
 
 
-.controller("mainController",function(GetUserName) {
+.controller("mainController",function(GetUserName,$scope) {
 
 	var vm = this;
 
@@ -156,6 +156,7 @@ angular.module("mainApp",['ngRoute'])
     				var push_data = {sender:msg.user, msg: msg.message};
     				vm.users[i].messages.push(push_data);
     				console.log("pushed")
+    				$scope.$apply();
     			}
     		}
     		//updateScroll();
