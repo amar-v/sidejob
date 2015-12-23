@@ -8,13 +8,13 @@
 .morphsearch .morphsearch-form {
   width: 40%;
   height: 40px;
-  margin: 18px auto 0;
+  margin: 13px auto 0;
   position: relative;
   color: #9d9d9f;
 }
 .morphsearch .morphsearch-form .morphsearch-input {
   width: 100%;
-  padding: 0.5rem 1rem 0.5rem 2rem;
+  /*padding: 0.5rem 1rem 0.5rem 2rem;*/
   font-family: 'PayPalForward-Regular', Helvetica, Arial, sans-serif;
   border: none;
   border-bottom: 1px solid #ccc;

@@ -20,7 +20,7 @@ Main components
   top: 0;
   left: 0;
   background: #ffffff;
-  height: 20px;
+  height: 50px;
   width: 100%;
   z-index: 9999;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
@@ -29,7 +29,7 @@ Main components
 }
 @media only screen and (min-width: 720px) and (max-width: 959px), only screen and (min-width: 960px) and (max-width: 1199px), only screen and (min-width: 1129px) {
   .hub-header {
-    height: 80px;
+    height: 50px;
     background: #ffffff;
   }
 }
