@@ -49,7 +49,7 @@ html,
 body,
 p,
 span {
-  font-family: 'PayPalForward-Light', Helvetica, Arial, sans-serif;
+  font-family: 'PayPalForward-Light', Montserrat, Arial, sans-serif;
   color: #777;
 }
 html {
@@ -87,7 +87,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'PayPalForward-Light', Helvetica, Arial, sans-serif;
+  font-family: 'PayPalForward-Light', Montserrat, Arial, sans-serif;
   letter-spacing: -1px;
   margin: 0;
   color: #777;
@@ -125,17 +125,17 @@ h5 {
   margin-bottom: 1rem;
   letter-spacing: 0;
   color: #444;
-  font-family: 'PayPalForward-Regular', Helvetica, Arial, sans-serif;
+  font-family: 'PayPalForward-Regular', Montserrat, Arial, sans-serif;
 }
 h6 {
   font-size: 1rem;
   margin-bottom: 1rem;
   letter-spacing: 0;
   color: #777777;
-  font-family: 'PayPalForward-Regular', Helvetica, Arial, sans-serif;
+  font-family: 'PayPalForward-Regular', Montserrat, Arial, sans-serif;
 }
 p {
-  font-family: 'PayPalForward-Regular', Helvetica, Arial, sans-serif;
+  font-family: 'PayPalForward-Regular', Montserrat, Arial, sans-serif;
   font-size: 1rem;
   letter-spacing: -0.5px;
   color: #777777;
@@ -145,7 +145,7 @@ p.lead {
   font-size: 1.35rem;
 }
 p.caption {
-  font-family: 'PayPalForward-Regular', Helvetica, Arial, sans-serif;
+  font-family: 'PayPalForward-Regular', Montserrat, Arial, sans-serif;
   font-size: .875rem;
   letter-spacing: 0;
   line-height: 1.35;
@@ -165,14 +165,14 @@ em {
   font-style: italic;
 }
 strong {
-  font-family: 'PayPalForward-Bold', Helvetica, Arial, sans-serif;
+  font-family: 'PayPalForward-Bold', Montserrat, Arial, sans-serif;
 }
 a {
   display: block;
   font-size: inherit;
   margin: 1rem 0;
   color: #0ca0cb;
-  font-family: 'PayPalForward-Bold', Helvetica, Arial, sans-serif;
+  font-family: 'PayPalForward-Bold', Montserrat, Arial, sans-serif;
 }
 a span {
   font-size: inherit;
@@ -205,7 +205,7 @@ ol {
 }
 blockquote {
   font-size: 1.4rem;
-  font-family: 'PayPalForward-Light', Helvetica, Arial, sans-serif;
+  font-family: 'PayPalForward-Light', Montserrat, Arial, sans-serif;
   color: #009CDE
 ;
   border-color: #009CDE
@@ -233,7 +233,7 @@ pre span {
   font-size: inherit;
 }
 button {
-  font-family: 'PayPalForward-Regular', Helvetica, Arial, sans-serif;
+  font-family: 'PayPalForward-Regular', Montserrat, Arial, sans-serif;
   font-size: 1.125rem;
   outline: 0;
   border-radius: 5px; /* Lorena: Added roundness to buttons */;

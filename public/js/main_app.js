@@ -221,7 +221,7 @@ angular.module("mainApp",['ngRoute'])
 		{
 			title: "Sidejob",
 			owner: "John Lenon",
-			description: "How to finish the job in time",
+			description: "How to finish the job in time,starting today",
 			categories: ["Household","Legal","Lessons"],
 			ZIP: 10001
 		},

@@ -1817,3 +1817,7 @@ a:hover, a:focus {
 .bottom70{
     margin-bottom: 70px;
 }
+
+.fonting {
+    font-size: 14px;
+}
