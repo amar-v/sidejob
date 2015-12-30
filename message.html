@@ -18,6 +18,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-route.js"></script>
 	<script type="text/javascript" src="css/js/navbar.js"></script>
 	<script src="/js/bootstrap-slider.js"></script>
+	<script type="text/javascript" src="/js/ng-file-upload/ng-file-upload.js"></script>
+	<script type="text/javascript" src="/js/ng-file-upload/ng-file-upload-shim.js"></script>
 
 	<!-- <base href="/"> -->
 </head>
@@ -56,10 +58,13 @@
       <!-- End of SEARCH BOX -->     
 
 
-      <ul class="top-head-list">
+      <ul class="top-head-list fonting">
       	<li><a href="">Hello {{main.userName}}</a></li>
       	<li><a href="/logout">Logout</a></li>
       </ul>
+<button type="file" ngf-select="main.uploadFiles($file, $invalidFiles)"
+          accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
+      Select File</button>
 
       <a class="hub-overlay-nav-right-trigger profile-anchor" href="" onclick="toggleSecondMenu()">
          <img src="images/temp-profile.jpg" alt="profile pic" />
@@ -162,6 +167,7 @@
 			</div>
 		</div>
 	</footer>
+
 
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script src="/js/socket.io.js"></script>

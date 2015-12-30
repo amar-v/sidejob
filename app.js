@@ -109,6 +109,27 @@ app.use('/signin', signin);
 app.use('/signup', signup);
 
 
+
+
+// Requires multiparty 
+multiparty = require('connect-multiparty'),
+multipartyMiddleware = multiparty(),
+
+// Requires controller
+UserController = require('./UserController');
+
+// Example endpoint 
+app.post('/uploadprofile', multipartyMiddleware, UserController.uploadFile);
+
+
+
+/*var multer  = require('multer')
+var upload = multer({ dest: 'upload_pictures/' })
+
+app.post('/uploadprofile', multer({ dest: 'upload_pictures/'}).single('avatar'), function (req, res) {
+    console.log(req.file)
+})*/
+
 // GET /auth/google
 //   Use passport.authenticate() as route middleware to authenticate the
 //   request.  The first step in Google authentication will involve

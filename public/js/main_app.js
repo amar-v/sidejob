@@ -3,7 +3,7 @@ var transform = function(data){
         return $.param(data);
 };
 
-angular.module("mainApp",['ngRoute'])
+angular.module("mainApp",['ngRoute','ngFileUpload'])
 
 .config(function($routeProvider,$httpProvider) {
 	$routeProvider.when('/message',{
@@ -69,7 +69,7 @@ angular.module("mainApp",['ngRoute'])
 
 
 
-.controller("mainController",function(GetUserName,$scope,$anchorScroll) {
+.controller("mainController",function(GetUserName,$scope,$anchorScroll,Upload,$timeout) {
 
 	var vm = this;
 
@@ -179,6 +179,31 @@ angular.module("mainApp",['ngRoute'])
 	    element.scrollTop = element.scrollHeight;*/
 	}
 
+	vm.uploadFiles = function(file, errFiles) {
+        vm.f = file;
+        vm.errFile = errFiles && errFiles[0];
+        if (file) {
+            file.upload = Upload.upload({
+                url: '/uploadprofile',
+                data: {file: file}
+            });
+
+            file.upload.then(function (response) {
+                $timeout(function () {
+                    file.result = response.data;
+                });
+            }, function (response) {
+                if (response.status > 0)
+                    vm.errorMsg = response.status + ': ' + response.data;
+            }, function (evt) {
+                file.progress = Math.min(100, parseInt(100.0 * 
+                                         evt.loaded / evt.total));
+            });
+        }   
+    }
+
+
+
 })
 
 .controller("exploreController",function() {
@@ -212,6 +237,7 @@ angular.module("mainApp",['ngRoute'])
 
 	vm.jobs = [
 		{
+			id:1,
 			title: "Sidejob",
 			owner: "Sam Jones",
 			description: "How to get inspire the right way Design modo",
@@ -219,6 +245,7 @@ angular.module("mainApp",['ngRoute'])
 			ZIP: 10000
 		},
 		{
+			id:2,
 			title: "Sidejob",
 			owner: "John Lenon",
 			description: "How to finish the job in time,starting today",
@@ -226,6 +253,7 @@ angular.module("mainApp",['ngRoute'])
 			ZIP: 10001
 		},
 		{
+			id:3,
 			title: "Sidejob",
 			owner: "Simon Tower",
 			description: "How to give inspiration the right way Design modo",
@@ -233,6 +261,7 @@ angular.module("mainApp",['ngRoute'])
 			ZIP: 10002
 		},
 		{
+			id:4,
 			title: "Sidejob",
 			owner: "Simon Tower 3",
 			description: "How to give inspiration the right way Design modo 2",
@@ -240,6 +269,7 @@ angular.module("mainApp",['ngRoute'])
 			ZIP: 10002
 		},
 		{
+			id:5,
 			title: "Sidejob",
 			owner: "Simon Tower 2",
 			description: "How to give inspiration the right way Design modo 3",
@@ -247,6 +277,12 @@ angular.module("mainApp",['ngRoute'])
 			ZIP: 10002
 		}
 	];
+
+	vm.applied = [];
+	vm.rejected = [];
+
+	vm.applied_jobs = [];
+	vm.rejected_jobs = [];
 
 	vm.zip_filter=0;
 
@@ -299,5 +335,85 @@ angular.module("mainApp",['ngRoute'])
 			console.log(data);
 		})
 	}
+
+	vm.filter_applied_jobs = function() {
+		vm.applied_jobs = [];
+		for(i=0;i<vm.jobs.length;i++) {
+			for(j=0;j<vm.applied.length;j++) {
+				if(vm.jobs[i].id==vm.applied[j].id) {
+					console.log("Adding element " + vm.jobs[i].id + " " + vm.applied[j].id)
+					vm.applied_jobs.push(vm.jobs[i]);
+
+					break
+				}
+			}
+			
+		}
+		console.log(vm.applied_jobs);
+	}
+
+	vm.filter_applied_jobs();
+
+	vm.apply = function(id) {
+		var found = false;
+		vm.applied.some(function(element) {
+			if(element.id==id) {
+				found=true;
+			}
+			
+		})
+		if(!found) {
+			vm.applied.push({id:id});
+			console.log("applied")
+			vm.filter_applied_jobs();
+		}
+		else {
+			console.log("already exists!");
+		}
+		
+	}
+	vm.reject = function(id) {
+		var found = false;
+		vm.rejected.some(function(element) {
+			if(element.id==id) {
+				found=true;
+			}
+			
+		})
+		if(!found) {
+			vm.rejected.push({id:id});
+			console.log("rejected")
+			//vm.filter_rejected_jobs();
+		}
+		else {
+			console.log("already exists!");
+		}
+	}
+
+	vm.unsubscribe = function(id) {
+		vm.applied.some(function(element,i,arr) {
+			if(element.id==id) {
+				vm.applied.splice(i,1);
+			}
+		})
+		console.log(vm.applied)
+		vm.filter_applied_jobs();
+	}
+
+	vm.isAppliedOrRejected = function(id) {
+		var found = false;
+		vm.applied.some(function(element) {
+			if(element.id==id) {
+				found = true;
+			}
+		})
+		vm.rejected.some(function(element) {
+			if(element.id==id) {
+				found = true;
+			}
+		})
+		return found;
+	}
+
 
 })
