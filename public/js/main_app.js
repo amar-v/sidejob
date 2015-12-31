@@ -30,6 +30,11 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 		controller:'itemExploreController',
 		controllerAs:"itemExplore"
 	})
+	.when('/appliedjobs', {
+		templateUrl:'/appliedjobs',
+		controller:'dashboardController',
+		controllerAs:"dashboard"
+	})
 
 	.otherwise({
 		templateUrl:'/partial2',
@@ -179,7 +184,7 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 	    element.scrollTop = element.scrollHeight;*/
 	}
 
-	vm.uploadFiles = function(file, errFiles) {
+	/*vm.uploadFiles = function(file, errFiles) {
         vm.f = file;
         vm.errFile = errFiles && errFiles[0];
         if (file) {
@@ -200,9 +205,12 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
                                          evt.loaded / evt.total));
             });
         }   
+    }*/
+
+    vm.applied_jobs1 = [];
+    vm.num_of_applied_jobs = function() {
+    	return vm.applied_jobs1.length;
     }
-
-
 
 })
 
@@ -210,8 +218,39 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 	var vm = this;
 })
 
-.controller("profileController",function() {
+.controller("profileController",function($timeout,$window,$scope,Upload) {
 	var vm = this;
+	vm.profile_image = $window.location.origin + "/images/avatar_01_tn.png";
+	console.log($window.location.origin)
+
+	vm.uploadFiles = function(file, errFiles) {
+		console.log("Upload")
+        vm.f = file;
+        vm.errFile = errFiles && errFiles[0];
+        if (file) {
+            file.upload = Upload.upload({
+                url: '/uploadprofile',
+                data: {file: file}
+            });
+
+            file.upload.then(function (response) {
+                $timeout(function () {
+                    file.result = response.data;
+                    console.log(file.result)
+                    vm.profile_image = $window.location.origin + file.result.url;
+                    console.log(vm.profile_image)
+                    $scope.$apply();
+                });
+            }, function (response) {
+                if (response.status > 0)
+                    vm.errorMsg = response.status + ': ' + response.data;
+            }, function (evt) {
+                file.progress = Math.min(100, parseInt(100.0 * 
+                                         evt.loaded / evt.total));
+            });
+        }   
+    }
+
 })
 
 .controller("messageController",function() {
@@ -226,7 +265,7 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 
 })
 
-.controller("dashboardController",function(GetZIPs) {
+.controller("dashboardController",function(GetZIPs,$scope) {
 
 	var vm = this;
 
@@ -256,7 +295,7 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 			id:3,
 			title: "Sidejob",
 			owner: "Simon Tower",
-			description: "How to give inspiration the right way Design modo",
+			description: "How to give inspiration the right way Design",
 			categories: ["Creative","Event","Financial"],
 			ZIP: 10002
 		},
@@ -264,7 +303,7 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 			id:4,
 			title: "Sidejob",
 			owner: "Simon Tower 3",
-			description: "How to give inspiration the right way Design modo 2",
+			description: "How to give inspiration the right way Design",
 			categories: ["Creative","Event","Financial"],
 			ZIP: 10002
 		},
@@ -272,7 +311,7 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 			id:5,
 			title: "Sidejob",
 			owner: "Simon Tower 2",
-			description: "How to give inspiration the right way Design modo 3",
+			description: "How to give inspiration the right way Design",
 			categories: ["Creative","Event","Financial"],
 			ZIP: 10002
 		}
@@ -338,20 +377,25 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 
 	vm.filter_applied_jobs = function() {
 		vm.applied_jobs = [];
+		var found = false;
+		//$scope.$parent.main.applied_jobs1 = [];
 		for(i=0;i<vm.jobs.length;i++) {
 			for(j=0;j<vm.applied.length;j++) {
 				if(vm.jobs[i].id==vm.applied[j].id) {
 					console.log("Adding element " + vm.jobs[i].id + " " + vm.applied[j].id)
 					vm.applied_jobs.push(vm.jobs[i]);
-
+					$scope.$parent.main.applied_jobs1 = vm.applied_jobs;
 					break
+
 				}
 			}
-			
+	
 		}
+		
 		console.log(vm.applied_jobs);
+		console.log($scope.$parent.main)
 	}
-
+console.log($scope.$parent.main)
 	vm.filter_applied_jobs();
 
 	vm.apply = function(id) {
@@ -398,6 +442,8 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 		})
 		console.log(vm.applied)
 		vm.filter_applied_jobs();
+
+		
 	}
 
 	vm.isAppliedOrRejected = function(id) {

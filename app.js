@@ -113,11 +113,12 @@ app.use('/signup', signup);
 
 // Requires multiparty 
 multiparty = require('connect-multiparty'),
-multipartyMiddleware = multiparty(),
+multipartyMiddleware = multiparty({autoFiles:true,uploadDir:path.join(__dirname + '/public/profileimages')});
 
 // Requires controller
 UserController = require('./UserController');
 
+console.log("This is object " + multipartyMiddleware)
 // Example endpoint 
 app.post('/uploadprofile', multipartyMiddleware, UserController.uploadFile);
 
@@ -233,6 +234,10 @@ app.get('/',function(req,res) {
 
 app.get('/explore',function(req,res) {
     res.sendFile(__dirname+"/views/partial_explore.html");
+});
+
+app.get('/appliedjobs',function(req,res) {
+    res.sendFile(__dirname+"/views/partial_jobs.html");
 });
 
 /*var job1 = new Job({

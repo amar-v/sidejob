@@ -1,0 +1,101 @@
+	<link rel="stylesheet" href="/css/slider.css">
+	
+	<script src="/js/bootstrap-slider.js"></script>
+
+	<div class="clearfix"></div>
+
+	<section class="main-content">
+		<div class="container-fluid">
+			<div class="col-md-3">
+				<div class="filter-box">
+					<div class="filter-row">
+						<span class="filter-title">Filter</span>
+						<span class="filter-icon pull-right"><i class="fa fa-edit"></i></span>
+					</div>
+					<div class="clearfix"></div>
+					<div class="filter-content">
+						<div class="filter-content-section">
+							<h4 class="title">Service</h4>
+							<p class="cursor" > <a href="" onclick="toggleFilters()">+ Show categories</a> </p>
+							<ul class="categories filter-list" id="first-filter">
+								<li class="cursor" ng-repeat="category in dashboard.categories" ng-click="dashboard.category_filter=category;dashboard.type(category);">{{category}}</li>
+							</ul>
+						</div>
+						<div class="filter-content-section">
+							<h4 class="title">Location</h4>
+							<p>
+								<span>Zip code</span><br>
+								<input type="text" ng-model="dashboard.zip_filter">
+							</p>
+							<p>
+								<span>Distance Range</span>
+							</p>
+
+							<div class="slider slider-horizontal" style="width: 140px;">
+								<!-- <div class="slider-track"><div class="slider-selection" style="left: 0%; width: 20%;"></div>
+								<div class="slider-handle round" style="left: 20%;"></div>
+								<div class="slider-handle round hide" style="left: 0%;"></div>
+								</div>
+								<div class="tooltip top" style="top: -40px; left: -19px;">
+									<div class="tooltip-arrow"></div><div class="tooltip-inner">Current value: 2</div>
+								</div>
+								<input type="text" class="span2" value="4" id="sl1"> -->
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-9">
+				
+
+
+				<div class="post-holder">
+					<div class="searchbox">
+						<div class="input-group custom-search-holder">
+							<input type="text" class="form-control custom-search" placeholder="What services are you looking for...">
+							<span class="input-group-btn">
+								<button class="btn btn-post" type="button">SEARCH</button>
+							</span>
+						</div>
+					</div>
+					
+					<div class="content">
+						<div class="row">
+							<div class="col-md-4 col-sm-6 cursor" ng-repeat="job in main.applied_jobs1" ng-show="dashboard.zip_filtering(job.ZIP) && dashboard.category_filtering(job.categories)">
+
+								
+								<div class="dashboard-info-box">
+									<div class="media">
+										<a class="pull-left" href="#">
+											<img class="media-object media-avatar" src="images/avatar_01_tn.png" width="34" height="34" alt="">
+										</a>
+										<div class="media-body">
+											<h4 class="media-heading">{{job.owner}}</h4>
+											<p class="description">
+												{{job.description}}
+											</p>
+										</div>
+									</div>
+									<div class="featured-img">
+										<img class="img img-responsive" src="images/b3.jpg" height="100" alt="">
+									</div>
+									<div class="meta-info">
+										<ul class="pull-right list-inline">
+											<li><a href=""><i class="fa fa-reply"></i></a></li>
+											<li><a href=""><i class="fa fa-heart-o"></i></a></li>
+											<li><a href="">54 m</a></li>
+											<!-- <li><a href=""><i class="fa fa-close" ng-click="dashboard.unsubscribe(job.id)"></i></a></li> -->
+										</ul>
+									</div>
+								</div><!-- end .dashboard-info-box -->
+							</div>							
+							
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>

@@ -1821,3 +1821,22 @@ a:hover, a:focus {
 .fonting {
     font-size: 17px;
 }
+
+.horizontal-ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+}
+
+.horizontal-ul li {
+    display: inline;  
+
+}
+
+.get_inline {
+    display: inline;
+    margin-left: 20px;
+}
+
+.pic{ width:190px; height:190px; opacity: 1; filter: alpha(opacity=100); background: url(http://www.corelangs.com/css/box/img/duck.png) no-repeat; } 
+.pic:hover { opacity: 0.3; filter: alpha(opacity=30); }

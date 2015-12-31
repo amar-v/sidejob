@@ -5,8 +5,10 @@
 			<ul class="single-profile">
             	<li class="col-md-3 no-padd img-avatar">
             		<span class="avatar-profile">
-            			<img alt="" src="images/avatar_01_tn.png" class="avatar avatar-70 photo avatar-default" height="200" width="200">
-            		</span>
+            			<img id="profile_img" class="cursor pic" alt="" ng-src="{{profile.profile_image}}" class="avatar avatar-70 photo avatar-default" height="200" width="200" type="file" ngf-select="profile.uploadFiles($file, $invalidFiles)"
+				          accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
+            			</span>
+            			
             	</li>
             
 	            <li class=" col-md-9 info-profile">
@@ -22,7 +24,14 @@
 	                		<i data-alt="5" class="fa fa-star-o off star-off-png" title="Not rated yet!"></i><input name="score" type="hidden" readonly="">
 	                	</div>
 	                </span>
-	                <span class="job-profile">JOBS POSTED: 24 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   JOBS COMPLETED: 3</span>
+	                <ul class="horizontal-ul">
+	                	<li><span class="get_inline">JOBS POSTED: 24</span></li>
+	                	<li><span class="get_inline">JOBS COMPLETED: 3 </span></li>
+	                	<li><span class="get_inline"><a href="#appliedjobs" class="get_inline">JOBS APPLIED: {{main.num_of_applied_jobs()}}</a> </span></li>
+	                </ul>
+	                
+	                
+	                
 	            </li>
             
         	</ul>  

@@ -52,7 +52,7 @@
 						<div class="seperator-tab active text-center">
 							<span class="tab-item cursor" ng-class="{'active':dashboard.tab=='urgent'}" ng-click="dashboard.tab='urgent'"><span ng-class="{'bottom-border':dashboard.tab=='urgent'}"></span>URGENT SIDEJOBS</span>
 							<span class="tab-item cursor" ng-class="{'active':dashboard.tab=='sidejob'}" ng-click="dashboard.tab='sidejob'"><span ng-class="{'bottom-border':dashboard.tab=='sidejob'}"></span>SIDEJOBS</span>
-							<span class="tab-item cursor" ng-class="{'active':dashboard.tab=='applied'}" ng-click="dashboard.tab='applied'"><span ng-class="{'bottom-border':dashboard.tab=='applied'}"></span>APPLIED JOBS</span>
+	
 						</div>
 					</div>
 				</section>
@@ -209,42 +209,7 @@
 						</div>
 					</div>
 
-					<div class="content" ng-if="dashboard.tab=='applied'">
-						<div class="row">
-							<div class="col-md-4 col-sm-6 cursor" ng-repeat="job in dashboard.applied_jobs" ng-show="dashboard.zip_filtering(job.ZIP) && dashboard.category_filtering(job.categories)">
 
-								
-								<div class="dashboard-info-box">
-									<div class="media">
-										<a class="pull-left" href="#">
-											<img class="media-object media-avatar" src="images/avatar_01_tn.png" width="34" height="34" alt="">
-										</a>
-										<div class="media-body">
-											<h4 class="media-heading">{{job.owner}}</h4>
-											<p class="description">
-												{{job.description}}
-											</p>
-										</div>
-									</div>
-									<div class="featured-img">
-										<img class="img img-responsive" src="images/b3.jpg" height="100" alt="">
-									</div>
-									<div class="meta-info">
-										<ul class="pull-right list-inline">
-											<li><a href=""><i class="fa fa-reply"></i></a></li>
-											<li><a href=""><i class="fa fa-heart-o"></i></a></li>
-											<li><a href="">54 m</a></li>
-											<li><a href=""><i class="fa fa-close" ng-click="dashboard.unsubscribe(job.id)"></i></a></li>
-										</ul>
-									</div>
-								</div><!-- end .dashboard-info-box -->
-							</div>							
-							
-						</div>
-						<div class="text-center mt30">
-							<p><a class="more-jobs" href="#">Load More</a></p>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
