@@ -266,6 +266,19 @@ body
     width: 40px;
     padding-top: 0%;
 }
+.mr-home-feature-media2 img {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    max-width: 100%;
+    width: 120px;
+    padding-top: 0%;
+}
+
+.colorize-bg {
+    margin-top:-50px;
+    background-color: #ccc;
+}
 .mr-home-feature-title h2 {
     font-size: 23px;
     line-height: 1.0;
