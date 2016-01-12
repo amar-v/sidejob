@@ -400,6 +400,23 @@ figure.list-thumb {
     border-radius: 0 0 5px 5px;
     padding: 8px 12px;
 }
+
+.footer-linkrow  {
+    text-align:center;   
+    padding: 15px 0;
+}
+
+.footer-linkrow  a {
+    margin-right: 8px;
+    display: inline-block;
+    color: #666;
+}
+.footer-linkrow  a:hover {
+    color: #444;
+    text-decoration: underline;
+}
+
+
 #want-tolearn-sec {
     margin: 50px 0;
     margin-bottom: 0;
@@ -418,6 +435,11 @@ figure.list-thumb {
     color: #fff;
     padding: 10px 40px;
 	text-decoration: none;
+    transition: all .2s;
+}
+.howit-work .button:hover {
+    background: #fff;
+    color: #222;
 }
 
 .container-brand-dark select {
@@ -442,8 +464,8 @@ figure.list-thumb {
     color: #fff;
 }
 .footer-container {
-    background: #1e1919 none repeat scroll 0 0;
-	padding:50px 0;
+    background: #fff;
+	padding:10px 0;
 	color:#fff;
 }
 
@@ -465,7 +487,7 @@ figure.list-thumb {
     text-decoration: none;
 	font-size:13px;
 }
-.list-layout li a:hover{color:#ddd;}
+.list-layout li a:hover{color:#dfdfdf;}
 .social-icons > ul {
     list-style: outside none none;
     padding: 0;
@@ -480,16 +502,20 @@ figure.list-thumb {
     margin: 5px;
     padding: 5px;
     width: 40px;
+    background: #111;
 }
 .social-icons a {
     color: #fff;
+}
+.social-icons a:hover {
+    color: #dfdfdf;
 }
 
 .footer-divider 
 {
   border-color: rgba(255, 255, 255, 0.2); margin:40px auto 20px auto;}
   .copyright-txt {
-    color: #999;
+      color: #666;
     font-size: 13px;
     margin: 15px 0;
     text-align: center;
