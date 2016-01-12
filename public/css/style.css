@@ -53,7 +53,7 @@
 
 body
 {
-	background-color:#f0f3f6;
+	background-color:#fff;
 	font-family:Montserrat,sans-serif;
 }
 .banner-cover
@@ -118,16 +118,20 @@ body
 }
 .home-Subtitle {
     color: #fff;
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 300;
     margin: 0 auto;
     max-width: 35em;
     text-align: center;
     text-shadow: 0 1px 7px rgba(0, 0, 0, 0.4);
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
+    font-family: sans-serif;
+}
+.home-Subtitle .boldit {
+    font-weight: 600;
 }
 .home-serach {
-    margin: 70px auto 0;
+    margin: 30px auto 0;
     max-width: 95%;
     text-align: center;
 }
@@ -152,13 +156,20 @@ body
 #check-outdate { width: 150px;}
 #check-indate { width: 150px;}
 .home-search-btn {
-    background: #ff5a5f none repeat scroll 0 0;
-    border-color: #ff141c #ff5a5f #e00007;
-    border-width: 1px;
+    background: #009cde;
+    border-width: 0px;
+    border-radius: 4px;
+    min-width: 350px;
+    max-width: 100%;
     color: #fff;
     height: 44px;
     margin-left: -6px;
     padding: 10px 16px;
+    transition: background .2s;
+}
+.home-search-btn:hover {
+    background: #0079ad;
+    
 }
 
 .hosting-opportunity-image {
@@ -271,13 +282,14 @@ body
     height: auto;
     margin: 0 auto;
     max-width: 100%;
-    width: 120px;
     padding-top: 0%;
+    margin: 10px auto;
+    max-height: 40px;
 }
 
 .colorize-bg {
     margin-top:-50px;
-    background-color: #ccc;
+    background-color: #f0f3f6;
 }
 .mr-home-feature-title h2 {
     font-size: 23px;
@@ -390,6 +402,7 @@ figure.list-thumb {
 }
 #want-tolearn-sec {
     margin: 50px 0;
+    margin-bottom: 0;
 }
 .feature-callout-cover {
     background: rgba(0, 0, 0, 0) url("../img/iphone-home-page.jpg") repeat scroll center center / cover ;
@@ -590,6 +603,10 @@ a,a:hover{
 }   
     
 
+hr{
+    background: #fff;
+    border-color: #fff;
+}
 hr.seperator{
     background: #999;
     height: 2px;
@@ -1853,3 +1870,34 @@ a:hover, a:focus {
 
 .pic{ width:190px; height:190px; opacity: 1; filter: alpha(opacity=100); background: url(http://www.corelangs.com/css/box/img/duck.png) no-repeat; } 
 .pic:hover { opacity: 0.3; filter: alpha(opacity=30); }
+
+
+
+
+/* TABS - Homepage */
+
+.egtab-handler {
+    padding: 15px 0 !important;   
+    border-bottom: 3px solid transparent;
+    border-right: 1px solid transparent;
+}
+
+.egtab-handler:hover {
+    background: #f6f8fa;
+    border-bottom: 3px solid #f6f8fa;
+    border-right: 1px solid #f6f8fa;
+    cursor: pointer;
+ }
+
+.egtab-handler.active {
+    background: #fff;
+    border-bottom: 3px solid #009cde;
+    border-right: 1px solid #ececec;
+ }
+
+.egtab-handler  p {
+    font-size: 18px;
+}
+
+.egtab-content { display: none; padding: 25px 5px; }
+.egtab-content p {max-width: 600px; margin:auto; }

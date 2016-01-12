@@ -462,4 +462,16 @@ console.log($scope.$parent.main)
 	}
 
 
-})
+});
+
+/* JS Snippet for Tabs (not sure where to put it?) */
+    
+    $(document).ready(function(){
+        $('body').on('click','.egtab-handler',function(){
+            $('.egtab-handler').removeClass('active');
+            var tabcontID = $(this).attr('data-egtabtarget');
+            $('.egtab-content').hide();
+            $('#'+tabcontID).show();
+            $(this).addClass('active');
+        });
+    });
