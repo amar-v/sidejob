@@ -285,7 +285,7 @@ app.get('/explore-item',function(req,res) {
     res.sendFile(__dirname+"/views/partial_explore_item.html");
 });
 
-app.post('/getprofileinfohard',function(req,res) {
+app.post('/getprofileinfo',function(req,res) {
     User.find(function(a) {
         console.log(a);
     })
@@ -311,7 +311,7 @@ app.post('/getworkimages',function(req,res) {
 })
 
 
-app.post('/getprofileinfo',function(req,res) {
+app.post('/getprofileinfo1',function(req,res) {
     User.find({_id:req.session.passport.user},function(err, user) {
         if (err) {
           return res.send(err);
