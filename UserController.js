@@ -34,7 +34,7 @@ UserController.prototype.uploadFile = function(req, res) {
         user.save();
     });
 
-    res.json({url: '/profileimages/' + filename})
+    res.json({url: req.headers.host + '/profileimages/' + filename})
    
 }
 
