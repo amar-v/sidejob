@@ -297,7 +297,8 @@ app.post('/getprofileinfo',function(req,res) {
         avatar: 'http://localhost:8001/profileimages/wSi3rtvaQJINs5Z3JMyY6-0w.jpg',
         address: 'San Francisco, CA',
         job: 'data scientist',
-        topskills: ['js','python','css','HTML']
+        topskills: ['js','python','css','HTML'],
+        summary: 'user biography'
 });
 })
 
@@ -325,8 +326,8 @@ app.post('/getprofileinfo1',function(req,res) {
             address: user[0].avatar,
             position: user[0].position,
             topskills: user[0].topskills,
-            summary: user[0].summary,
-            skills: user[0].skills,
+            summary: user[0].summary
+            
         };
         console.log(user);
         console.log(user_info)
