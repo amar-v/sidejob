@@ -113,7 +113,7 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 
 
 
-.controller("mainController",function(GetUserName,$scope,$anchorScroll,Upload,$timeout) {
+.controller("mainController",function(GetUserName, GetUserData, $scope,$anchorScroll,Upload,$timeout) {
 
 	var vm = this;
 
@@ -250,6 +250,13 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
     vm.num_of_applied_jobs = function() {
     	return vm.applied_jobs1.length;
     }
+
+
+	$scope.userLogo = '';
+	GetUserData.all()
+		.success(function(data){
+			$scope.userLogo = data.avatar;
+		});
 
 })
 
