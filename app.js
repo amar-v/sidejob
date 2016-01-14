@@ -291,7 +291,9 @@ app.post('/getprofileinfo',function(req,res) {
         firstname: 'John',
         lastname: 'Doe',
         email: 'johndoe@email.com',
-        avatar: 'http://localhost:8001/profileimages/wSi3rtvaQJINs5Z3JMyY6-0w.jpg'
+        avatar: 'http://localhost:8001/profileimages/wSi3rtvaQJINs5Z3JMyY6-0w.jpg',
+        address: 'San Francisco, CA',
+        job: 'data scientist'
 });
 })
 
