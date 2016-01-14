@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var util = require('../config/util.js');
 
 var UserSchema = mongoose.Schema({
+    user: String,
     firstName: String,
     lastName: String,
     email: String,
@@ -13,6 +14,8 @@ var UserSchema = mongoose.Schema({
     password: String,
     ZIP: String,
     avatar: String,
+    summary: String,
+    skills: String,
     conversations: [],
     dob: {
         day: String,

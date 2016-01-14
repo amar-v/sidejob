@@ -285,7 +285,7 @@ app.get('/explore-item',function(req,res) {
     res.sendFile(__dirname+"/views/partial_explore_item.html");
 });
 
-app.post('/getprofileinfo',function(req,res) {
+app.post('/getprofileinfohard',function(req,res) {
     User.find(function(a) {
         console.log(a);
     })
@@ -310,16 +310,58 @@ app.post('/getworkimages',function(req,res) {
     })
 })
 
-app.post('/getprofileinfo1',function(req,res) {
-    User.find({firstName:'test_user'},function(err, users) {
+
+app.get('/getprofileinfo',function(req,res) {
+    User.find({_id:req.session.passport.user},function(err, user) {
         if (err) {
           return res.send(err);
         }
 
-        console.log(users);
-        res.json(users);
+        var user_info = {
+            firstname: user[0].firstName,
+            lastName: user[0].lastName,
+            email: user[0].email,
+            avatar: user[0].avatar,
+            address: user[0].avatar,
+            job: user[0].job,
+            topskills: user[0].topskills,
+            summary: user[0].summary,
+            skills: user[0].skills,
+        };
+        console.log(user);
+        console.log(user_info)
+        res.json(user_info);
     });
 })
+
+app.get('/testing',function(req,res) {
+    res.json({a: req.session.passport.users})
+})
+
+app.post('/updateprofile',function(req,res) {
+    User.findOne({_id: req.session.passport.user},function(err,user) {
+
+        if(req.body.summary!=null || req.body.summary!=undefined) {
+            user.summary = req.body.summary;
+        }
+        else if(req.body.job!=null || req.body.job!=undefined) {
+            user.job = req.body.job;
+        }
+        else if(req.body.address!=null || req.body.address!=undefined) {
+            user.address = req.body.address;
+        }
+        else if(req.body.address!=null || req.body.address!=undefined) {
+            user.address = req.body.address;
+        }
+        else if(req.body.skills!=null || req.body.skills!=undefined) {
+            user.skills = req.body.skills;
+        }
+        
+        user.save();
+    });
+    res.json({msg:'updated'})
+})
+
 
 require('./config/errorHandlers.js')(app);
 
