@@ -277,7 +277,8 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 	$scope.dataEditVisible = {
 		'job': false,
 		'address': false,
-		'topSkills': false
+		'topSkills': false,
+		'summary': false
 	};
 
 
@@ -297,7 +298,8 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 			'address': data.address,
 			'job': data.job,
 			'avatar': data.avatar,
-			'topSkills': data.topskills
+			'topSkills': data.topskills,
+			'summary': data.summary
 		};
 	};
 
@@ -324,7 +326,7 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 		}
 	};
 
-
+	// Add new skill
 	$scope.newSkillValue = '';
 	$scope.addNewTopSkill = function (evt) {
 		var keyCode = evt.keyCode;
@@ -334,6 +336,23 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 			$scope.dataEditVisible['topSkills'] = false;
 			$scope.userData.topSkills.push($scope.newSkillValue);
 			$scope.newSkillValue = '';
+
+			SaveUserData.saveData($scope.userData)
+				.success(function (data) {
+					console.log(data);
+				});
+		}
+	};
+
+	// Edit summary
+	$scope.editSummary = function (evt) {
+		var keyCode = evt.keyCode;
+		var summaryValue = document.getElementById('summary-edit');
+
+		// Enter pressed
+		if (keyCode === 13) {
+			$scope.userData.summary = summaryValue.value;
+			$scope.dataEditVisible['summary'] = false;
 
 			SaveUserData.saveData($scope.userData)
 				.success(function (data) {
