@@ -293,7 +293,8 @@ app.post('/getprofileinfo',function(req,res) {
         email: 'johndoe@email.com',
         avatar: 'http://localhost:8001/profileimages/wSi3rtvaQJINs5Z3JMyY6-0w.jpg',
         address: 'San Francisco, CA',
-        job: 'data scientist'
+        job: 'data scientist',
+        topskills: ['js','python','css','HTML']
 });
 })
 

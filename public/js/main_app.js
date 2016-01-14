@@ -77,7 +77,7 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 	var dataService = {};
 
 	dataService.all = function(data) {
-		return 'test';
+		return $http.post('/getprofileinfo');
 	};
 
 	return dataService;
@@ -85,6 +85,17 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 })
 
 
+.factory('GetWorkImages', function ($http) {
+
+	var dataService = {};
+
+	dataService.all = function(data) {
+		return $http.post('/getworkimages');
+	};
+
+	return dataService;
+
+})
 
 
 
@@ -232,13 +243,10 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 	var vm = this;
 })
 
-.controller("profileController",function(GetUserData, $timeout,$window,$scope,Upload) {
+.controller("profileController",function(GetUserData, GetWorkImages, $timeout,$window,$scope,Upload) {
 
-	$scope.userData = {
-		'name': 'Phillip King',
-		'position': 'UI/UX Designer',
-		'address': 'San Francissco, CA'
-	};
+	$scope.userData = {};
+	$scope.workImages = [];
 
 	$scope.dataEditVisible = {
 		'name': false,
@@ -246,22 +254,45 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 		'address': false
 	};
 
-	$scope.userData.img = $window.location.origin + "/images/avatar_01_tn.png";
 
 	var vm = this;
 	console.log(vm);
-	vm.profile_image = $window.location.origin + "/images/avatar_01_tn.png";
+	//vm.profile_image = $window.location.origin + "/images/avatar_01_tn.png";
 	console.log($window.location.origin);
 
 	$scope.userName = {'name': 'Test'};
 
-	var a = GetUserData.all();
-	console.log('USER DATA :', a);
+	var setUserData = function (data) {
+		$scope.userData = {
+			'name': data.firstname + ' ' + data.lastname,
+			'address': data.address,
+			'position': data.job,
+			'avatar': data.avatar
+		};
+	};
 
-	$scope.userName = {}
+	var getUserData = function() {
+		console.log('user data Get');
+		GetUserData.all()
+			.success(function(data){
+				setUserData(data);
+				console.log(data);
+			});
+	}();
+
+
+	var getWorkImages = function () {
+
+		GetWorkImages.all()
+			.success(function (data) {
+				$scope.workImages = data;
+				console.log('images; ', $scope.workImages);
+			});
+	}();
+
 
 	vm.uploadFiles = function(file, errFiles) {
-		console.log("Upload")
+		console.log("Upload");
         vm.f = file;
         vm.errFile = errFiles && errFiles[0];
         if (file) {
@@ -273,16 +304,17 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
             file.upload.then(function (response) {
                 $timeout(function () {
                     file.result = response.data;
-                    console.log(file.result)
+                    console.log(file.result);
                     vm.profile_image = $window.location.origin + file.result.url;
-                    console.log(vm.profile_image)
+                    console.log(vm.profile_image);
                     $scope.$apply();
+
                 });
             }, function (response) {
-                if (response.status > 0)
+				if (response.status > 0)
                     vm.errorMsg = response.status + ': ' + response.data;
             }, function (evt) {
-                file.progress = Math.min(100, parseInt(100.0 * 
+				file.progress = Math.min(100, parseInt(100.0 *
                                          evt.loaded / evt.total));
             });
         }   

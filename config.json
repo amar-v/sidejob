@@ -1,9 +1,10 @@
 {
-	"port" : 3000,
-	"api" : {
-		"host" : "https://api.paypal.com/",
-		"port" : "",
-		"client_id" : "ASD-RZLxq3Zso3Cs_hanjCWsNS7xVBNdfoulXYwm8JeKlo994osiAUQzim6ckonJ9J3SHnCGZ29U-LtY",
-		"client_secret" : "EB2jRhfsUpx9WnqSfp-cRgYn-gsRckFx4ewuDkWDllYvK6EMEwYlXXywMixgpk7wHeE-Msvb68AG66if"
+	"port": 3000,
+	"api": {
+		"host": "https://api.paypal.com/",
+		"port": "",
+		"client_id": "ASD-RZLxq3Zso3Cs_hanjCWsNS7xVBNdfoulXYwm8JeKlo994osiAUQzim6ckonJ9J3SHnCGZ29U-LtY",
+		"client_secret": "EB2jRhfsUpx9WnqSfp-cRgYn-gsRckFx4ewuDkWDllYvK6EMEwYlXXywMixgpk7wHeE-Msvb68AG66if"
 	},
-	"mongo" : "mongodb://52.25.116.52:27017"
+	"mongo": "mongodb://52.25.116.52:27017"
+}

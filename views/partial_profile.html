@@ -5,7 +5,7 @@
 			<ul class="single-profile">
             	<li class="col-md-3 no-padd img-avatar">
             		<span class="avatar-profile">
-            			<img id="profile_img" class="cursor pic" alt="" ng-src="{{userData.img}}" title="Edit profile image" class="avatar avatar-70 photo avatar-default" height="200" width="200" type="file" ngf-select="profile.uploadFiles($file, $invalidFiles)"
+            			<img id="profile_img" class="cursor pic" alt="" ng-src="{{userData.avatar}}" title="Edit profile image" class="avatar avatar-70 photo avatar-default" height="200" width="200" type="file" ngf-select="profile.uploadFiles($file, $invalidFiles)"
 				          accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
             			</span>
             			
@@ -73,7 +73,19 @@
             	</div>
             </div>
             <!--// overview -->
-                            
+
+			<!--WORK SECTION-->
+			<div class="profile-overview">
+				<h3 class="title-single-profile">Work</h3>
+				<div  class="description-single-profile">
+					<div data-ng-repeat="image in workImages">
+
+					</div>
+
+				</div>
+			</div>
+			<!--WORK SECTION-->
+
 			<div class="profile-history bid-history">
 
  				<h4 class="title-big-info-project-items">REVIEWS (3)</h4>
