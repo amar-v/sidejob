@@ -89,8 +89,9 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 
 	var dataService = {};
 
-	dataService.all = function(data) {
-		return $http.post('/getprofileinfo', data);
+	dataService.saveData = function(data) {
+		console.log('Save: ', data);
+		return $http.post('/updateprofile', data);
 	};
 
 	return dataService;
@@ -256,7 +257,7 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 	var vm = this;
 })
 
-.controller("profileController",function(GetUserData, GetWorkImages, $timeout,$window,$scope,Upload) {
+.controller("profileController",function(GetUserData, GetWorkImages, SaveUserData, $timeout,$window,$scope,Upload) {
 
 	var vm = this;
 	/**
@@ -298,6 +299,10 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 		// Enter pressed
 		if (keyCode === 13) {
 			$scope.dataEditVisible[key] = false;
+			SaveUserData.saveData($scope.userData)
+				.success(function (data) {
+					console.log(data);
+				});
 		}
 	};
 

@@ -806,7 +806,7 @@ hr.seperator{
 .topics-item-box{
     margin-top: 20px;
     color: #ccc;
-    padding-top: 0 20px;
+    padding-top: 0;
 }
 .topics-item-box .item{
     margin-bottom: 15px;
