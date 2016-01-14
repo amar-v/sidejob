@@ -18,10 +18,10 @@
 					</div>
 
 					<div class="profile-info position-profile">
-						<div class="profile-edit" ng-show="dataEditVisible.position">
-							<input type="text" ng-model="userData.position" ng-value="userData.position" ng-keydown="profileEditAction($event, 'position')">
+						<div class="profile-edit" ng-show="dataEditVisible.job">
+							<input type="text" ng-model="userData.job" ng-value="userData.job" ng-keydown="profileEditAction($event, 'job')">
 						</div>
-						<span>{{userData.position}}</span> <span ng-click="dataEditVisible.position=true" class="edit-profile">[edit]</span>
+						<span>{{userData.job}}</span> <span ng-click="dataEditVisible.job=true" class="edit-profile">[edit]</span>
 					</div>
 
 					<div class="profile-info address-profile">
@@ -183,12 +183,16 @@
 		<div class="list-skill-profile">
 			<div class="top-skills-wrapper">
 				<h3 class="title">TOP SKILLS</h3>
-				<i class="fa fa-pencil-square-o"></i>
+				<i class="fa fa-pencil-square-o" ng-click=""></i>
 			</div>
 
         	<ul>
 				<li ng-repeat="skill in userData.topSkills">
 					<span class="skill-name-profile">{{skill}}</span>
+				</li>
+
+				<li>
+					<span class="skill-name-profile"></span>
 				</li>
                 	
         	</ul>
