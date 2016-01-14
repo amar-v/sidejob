@@ -5,6 +5,8 @@ var UserSchema = mongoose.Schema({
     firstName: String,
     lastName: String,
     email: String,
+    address: String,
+    job: String,
     phone: String,
     jobs_created: String,
     jobs_completed: String,

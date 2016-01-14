@@ -29,7 +29,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 io.on('connection', function(socket){
-    console.log(socket.request.session);
+    //console.log(socket.request.session);
   socket.on('chat message', function(msg){
     //Get and format time
     var dt = new Date();
@@ -118,7 +118,7 @@ multipartyMiddleware = multiparty({autoFiles:true,uploadDir:path.join(__dirname 
 // Requires controller
 UserController = require('./UserController');
 
-console.log("This is object " + multipartyMiddleware)
+//console.log("This is object " + multipartyMiddleware)
 // Example endpoint 
 app.post('/uploadprofile', multipartyMiddleware, UserController.uploadFile);
 
@@ -286,7 +286,10 @@ app.get('/explore-item',function(req,res) {
 });
 
 app.post('/getprofileinfo',function(req,res) {
-    console.log(User.find({name:'test'}));
+    User.find(function(a) {
+        console.log(a);
+    })
+    
     res.json({
         firstname: 'John',
         lastname: 'Doe',
@@ -296,6 +299,26 @@ app.post('/getprofileinfo',function(req,res) {
         job: 'data scientist',
         topskills: ['js','python','css','HTML']
 });
+})
+
+app.post('/getworkimages',function(req,res) {
+    res.json({
+        images: [
+            "http://localhost:8001/profileimages/5YfhfFnTlat1s5S3yt9PVwFK.jpg",
+            "http://localhost:8001/profileimages/wSi3rtvaQJINs5Z3JMyY6.jpg"
+        ]
+    })
+})
+
+app.post('/getprofileinfo1',function(req,res) {
+    User.find({firstName:'test_user'},function(err, users) {
+        if (err) {
+          return res.send(err);
+        }
+
+        console.log(users);
+        res.json(users);
+    });
 })
 
 require('./config/errorHandlers.js')(app);
