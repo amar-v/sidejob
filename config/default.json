@@ -1,5 +1,5 @@
 {
     "sidejob": {
-        "db": "mongodb://localhost/sidejob"
+        "db": "mongodb://52.25.116.52:27017/sidejob"
     }
 }

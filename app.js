@@ -285,6 +285,16 @@ app.get('/explore-item',function(req,res) {
     res.sendFile(__dirname+"/views/partial_explore_item.html");
 });
 
+app.post('/getprofileinfo',function(req,res) {
+    console.log(User.find({name:'test'}));
+    res.json({
+        firstname: 'John',
+        lastname: 'Doe',
+        email: 'johndoe@email.com',
+        avatar: 'http://localhost:8001/profileimages/wSi3rtvaQJINs5Z3JMyY6-0w.jpg'
+});
+})
+
 require('./config/errorHandlers.js')(app);
 
 // launch app server

@@ -6,5 +6,5 @@
 		"client_id" : "ASD-RZLxq3Zso3Cs_hanjCWsNS7xVBNdfoulXYwm8JeKlo994osiAUQzim6ckonJ9J3SHnCGZ29U-LtY",
 		"client_secret" : "EB2jRhfsUpx9WnqSfp-cRgYn-gsRckFx4ewuDkWDllYvK6EMEwYlXXywMixgpk7wHeE-Msvb68AG66if"
 	},
-	"mongo" : "mongodb://localhost:27017/pdchess64me"
+	"mongo" : "mongodb://52.25.116.52:27017"
 }
