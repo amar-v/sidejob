@@ -318,12 +318,12 @@ app.post('/getprofileinfo1',function(req,res) {
         }
 
         var user_info = {
-            firstname: user[0].firstName,
+            firstName: user[0].firstName,
             lastName: user[0].lastName,
             email: user[0].email,
             avatar: user[0].avatar,
             address: user[0].avatar,
-            job: user[0].job,
+            position: user[0].position,
             topskills: user[0].topskills,
             summary: user[0].summary,
             skills: user[0].skills,
@@ -344,8 +344,8 @@ app.post('/updateprofile',function(req,res) {
         if(req.body.summary!=null || req.body.summary!=undefined) {
             user.summary = req.body.summary;
         }
-        else if(req.body.job!=null || req.body.job!=undefined) {
-            user.job = req.body.job;
+        else if(req.body.position!=null || req.body.position!=undefined) {
+            user.position = req.body.position;
         }
         else if(req.body.address!=null || req.body.address!=undefined) {
             user.address = req.body.address;

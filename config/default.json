@@ -1,6 +1,8 @@
 {
     "sidejob": {
-        "db": "mongodb://52.25.116.52:27017/sidejob"
+        //"db": "mongodb://52.25.116.52:27017/sidejob"
         //"db": "mongodb://localhost/sidejob"
+       
+        "db": "ds045795.mongolab.com:45795/sidejob"
     }
 }
