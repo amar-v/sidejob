@@ -76,8 +76,21 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 
 	var dataService = {};
 
-	dataService.all = function(data) {
+	dataService.all = function() {
 		return $http.post('/getprofileinfo');
+	};
+
+	return dataService;
+
+})
+
+
+.factory('SaveUserData', function ($http) {
+
+	var dataService = {};
+
+	dataService.all = function(data) {
+		return $http.post('/getprofileinfo', data);
 	};
 
 	return dataService;
@@ -245,35 +258,21 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 
 .controller("profileController",function(GetUserData, GetWorkImages, $timeout,$window,$scope,Upload) {
 
-	$scope.userData = {};
-	$scope.workImages = [];
-	$scope.workGalleryVisible = false;
+	var vm = this;
+	/**
+	 * User data initialization
+	 * @type {{}}
+     */
 
+	$scope.userData = {};
 	$scope.dataEditVisible = {
-		'name': false,
 		'position': false,
 		'address': false
 	};
 
 
-	var vm = this;
-	console.log(vm);
-	//vm.profile_image = $window.location.origin + "/images/avatar_01_tn.png";
-	console.log($window.location.origin);
-
-	$scope.userName = {'name': 'Test'};
-
-	var setUserData = function (data) {
-		$scope.userData = {
-			'name': data.firstname + ' ' + data.lastname,
-			'address': data.address,
-			'position': data.job,
-			'avatar': data.avatar
-		};
-	};
-
+	// Get all data from database
 	var getUserData = function() {
-		console.log('user data Get');
 		GetUserData.all()
 			.success(function(data){
 				setUserData(data);
@@ -281,9 +280,36 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 			});
 	}();
 
+	// Set data from database
+	var setUserData = function (data) {
+		$scope.userData = {
+			'name': data.firstname + ' ' + data.lastname,
+			'address': data.address,
+			'position': data.job,
+			'avatar': data.avatar,
+			'topSkills': data.topskills
+		};
+	};
+
+	// Watch for changes in input fields
+	$scope.profileEditAction = function (evt, key) {
+		var keyCode = evt.keyCode;
+
+		// Enter pressed
+		if (keyCode === 13) {
+			$scope.dataEditVisible[key] = false;
+		}
+	};
+
+
+
 	/**
 	 * Work section
 	 * */
+	$scope.workImages = [];
+	$scope.workGalleryVisible = false;
+
+	// Get images from database
 	var getWorkImages = function () {
 
 		GetWorkImages.all()
@@ -322,7 +348,7 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 
 	};
 
-
+	// Upload image
 	vm.uploadFiles = function(file, errFiles) {
 		console.log("Upload");
         vm.f = file;

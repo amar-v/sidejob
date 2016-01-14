@@ -1671,10 +1671,6 @@ table.table-seperate{
     position: relative;
 }
 
-.info-profile input {
-    border: none;
-}
-
 .profile-edit {
     position: absolute;
 }
@@ -1734,6 +1730,20 @@ table.table-seperate{
     margin-top: 50px;
 }
 
+.top-skills-wrapper {
+    border-bottom: 1px solid #e4e4e4;
+}
+
+.top-skills-wrapper h3 {
+    display: inline-block;
+}
+
+.top-skills-wrapper i {
+    float: right;
+    cursor: pointer;
+    margin: 10px;
+}
+
 .list-skill-profile .title, .list-skill-profile ul{
     margin: 0px;
     padding: 10px 30px;
@@ -1742,13 +1752,12 @@ table.table-seperate{
     
 }
 
-.list-skill-profile, 
 .profile-overview, 
 .single-profile-top{
     border: 1px solid #e4e4e4;
 }
 
-.list-skill-profile .title, .profile-overview .title-single-profile{
+.profile-overview .title-single-profile{
     border-bottom: 1px solid #e4e4e4;    
 }
 

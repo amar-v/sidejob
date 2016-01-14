@@ -14,24 +14,21 @@
 	            <li class=" col-md-9 info-profile">
 
 					<div class="profile-info name-profile">
-						<div class="profile-edit" ng-show="dataEditVisible.name">
-							<input type="text" ng-value="userData.name">
-						</div>
-						<span>{{userData.name}}</span> <span ng-click="dataEditVisible.name = true" class="edit-profile">[edit]</span>
+						<span>{{userData.name}}</span>
 					</div>
 
 					<div class="profile-info position-profile">
 						<div class="profile-edit" ng-show="dataEditVisible.position">
-							<input type="text" ng-value="userData.position">
+							<input type="text" ng-model="userData.position" ng-value="userData.position" ng-keydown="profileEditAction($event, 'position')">
 						</div>
-						<span>{{userData.position}}</span> <span ng-click="dataEditVisible.position = true" class="edit-profile">[edit]</span>
+						<span>{{userData.position}}</span> <span ng-click="dataEditVisible.position=true" class="edit-profile">[edit]</span>
 					</div>
 
 					<div class="profile-info address-profile">
 						<div class="profile-edit" ng-show="dataEditVisible.address">
-							<input type="text" ng-value="userData.address">
+							<input type="text" ng-model="userData.address" ng-value="userData.address" ng-keydown="profileEditAction($event, 'address')">
 						</div>
-						<span>{{userData.address}}</span> <span ng-click="dataEditVisible.address = true" class="edit-profile">[edit]</span>
+						<span>{{userData.address}}</span> <span ng-click="dataEditVisible.address=true" class="edit-profile">[edit]</span>
 					</div>
 
 	                <span class="number-review-profile">
@@ -184,17 +181,15 @@
 	</div>
 	<div class="col-md-3">
 		<div class="list-skill-profile">
-			<h3 class="title">TOP SKILL</h3>
+			<div class="top-skills-wrapper">
+				<h3 class="title">TOP SKILLS</h3>
+				<i class="fa fa-pencil-square-o"></i>
+			</div>
+
         	<ul>
-                <li><span class="skill-name-profile">HTML5</span></li>
-    	
-                <li><span class="skill-name-profile">Javascript</span></li>
-    	
-                <li><span class="skill-name-profile">Jquery</span></li>
-    	
-                <li><span class="skill-name-profile">MySql</span></li>
-    	
-                <li><span class="skill-name-profile">PHP</span></li>
+				<li ng-repeat="skill in userData.topSkills">
+					<span class="skill-name-profile">{{skill}}</span>
+				</li>
                 	
         	</ul>
     	</div>
