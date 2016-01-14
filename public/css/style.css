@@ -1656,15 +1656,36 @@ table.table-seperate{
 
 .info-profile{
     padding: 20px;
+    position: relative;
 }
 
-.info-profile span.name-profile {
+.info-profile input {
+    border: none;
+}
+
+.profile-edit {
+    position: absolute;
+}
+
+.info-profile .name-profile {
     color: #2c3d4f;
     font-size: 30px;
     font-weight: 700;
     display: block;
     line-height: 1.1em;
     margin-bottom: 5px;
+}
+
+.profile-info .edit-profile {
+    font-size: 14px;
+    font-weight: normal;
+    padding: 10px;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.profile-info:hover .edit-profile {
+    visibility: visible;
 }
 
 .info-profile span.position-profile {

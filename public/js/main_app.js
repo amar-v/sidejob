@@ -72,6 +72,20 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 })
 
 
+.factory('GetUserData', function ($http) {
+
+	var dataService = {};
+
+	dataService.all = function(data) {
+		return 'test';
+	};
+
+	return dataService;
+
+})
+
+
+
 
 
 .controller("mainController",function(GetUserName,$scope,$anchorScroll,Upload,$timeout) {
@@ -218,10 +232,33 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 	var vm = this;
 })
 
-.controller("profileController",function($timeout,$window,$scope,Upload) {
+.controller("profileController",function(GetUserData, $timeout,$window,$scope,Upload) {
+
+	$scope.userData = {
+		'name': 'Phillip King',
+		'position': 'UI/UX Designer',
+		'address': 'San Francissco, CA'
+	};
+
+	$scope.dataEditVisible = {
+		'name': false,
+		'position': false,
+		'address': false
+	};
+
+	$scope.userData.img = $window.location.origin + "/images/avatar_01_tn.png";
+
 	var vm = this;
+	console.log(vm);
 	vm.profile_image = $window.location.origin + "/images/avatar_01_tn.png";
-	console.log($window.location.origin)
+	console.log($window.location.origin);
+
+	$scope.userName = {'name': 'Test'};
+
+	var a = GetUserData.all();
+	console.log('USER DATA :', a);
+
+	$scope.userName = {}
 
 	vm.uploadFiles = function(file, errFiles) {
 		console.log("Upload")

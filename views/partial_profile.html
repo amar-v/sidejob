@@ -5,16 +5,35 @@
 			<ul class="single-profile">
             	<li class="col-md-3 no-padd img-avatar">
             		<span class="avatar-profile">
-            			<img id="profile_img" class="cursor pic" alt="" ng-src="{{profile.profile_image}}" title="Edit profile image" class="avatar avatar-70 photo avatar-default" height="200" width="200" type="file" ngf-select="profile.uploadFiles($file, $invalidFiles)"
+            			<img id="profile_img" class="cursor pic" alt="" ng-src="{{userData.img}}" title="Edit profile image" class="avatar avatar-70 photo avatar-default" height="200" width="200" type="file" ngf-select="profile.uploadFiles($file, $invalidFiles)"
 				          accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
             			</span>
             			
             	</li>
             
 	            <li class=" col-md-9 info-profile">
-	                <span class="name-profile">Philip King</span>
-	                <span class="position-profile">UI/UX Designer</span>
-	                <span class="address-profile">San Francissco, CA</span>
+
+					<div class="profile-info name-profile">
+						<div class="profile-edit" ng-show="dataEditVisible.name">
+							<input type="text" ng-value="userData.name">
+						</div>
+						<span>{{userData.name}}</span> <span ng-click="dataEditVisible.name = true" class="edit-profile">[edit]</span>
+					</div>
+
+					<div class="profile-info position-profile">
+						<div class="profile-edit" ng-show="dataEditVisible.position">
+							<input type="text" ng-value="userData.position">
+						</div>
+						<span>{{userData.position}}</span> <span ng-click="dataEditVisible.position = true" class="edit-profile">[edit]</span>
+					</div>
+
+					<div class="profile-info address-profile">
+						<div class="profile-edit" ng-show="dataEditVisible.address">
+							<input type="text" ng-value="userData.address">
+						</div>
+						<span>{{userData.address}}</span> <span ng-click="dataEditVisible.address = true" class="edit-profile">[edit]</span>
+					</div>
+
 	                <span class="number-review-profile">
 	                	<div class="rate-it" data-score="" title="Not rated yet!">
 	                		<i data-alt="1" class="fa fa-star star-on-png" title="Not rated yet!"></i>&nbsp;
