@@ -252,6 +252,7 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
     }
 
 
+
 	$scope.userLogo = '';
 	GetUserData.all()
 		.success(function(data){
@@ -275,7 +276,8 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 	$scope.userData = {};
 	$scope.dataEditVisible = {
 		'job': false,
-		'address': false
+		'address': false,
+		'topSkills': false
 	};
 
 
@@ -315,6 +317,24 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 		// Enter pressed
 		if (keyCode === 13) {
 			$scope.dataEditVisible[key] = false;
+			SaveUserData.saveData($scope.userData)
+				.success(function (data) {
+					console.log(data);
+				});
+		}
+	};
+
+
+	$scope.newSkillValue = '';
+	$scope.addNewTopSkill = function (evt) {
+		var keyCode = evt.keyCode;
+
+		// Enter pressed
+		if (keyCode === 13) {
+			$scope.dataEditVisible['topSkills'] = false;
+			$scope.userData.topSkills.push($scope.newSkillValue);
+			$scope.newSkillValue = '';
+
 			SaveUserData.saveData($scope.userData)
 				.success(function (data) {
 					console.log(data);

@@ -1744,6 +1744,15 @@ table.table-seperate{
     margin: 10px;
 }
 
+.new-skill-wrapper {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.new-skill-wrapper input {
+    width: 87%;
+}
+
 .list-skill-profile .title, .list-skill-profile ul{
     margin: 0px;
     padding: 10px 30px;
