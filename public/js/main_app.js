@@ -247,6 +247,7 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 
 	$scope.userData = {};
 	$scope.workImages = [];
+	$scope.workGalleryVisible = false;
 
 	$scope.dataEditVisible = {
 		'name': false,
@@ -280,15 +281,48 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 			});
 	}();
 
-
+	/**
+	 * Work section
+	 * */
 	var getWorkImages = function () {
 
 		GetWorkImages.all()
 			.success(function (data) {
-				$scope.workImages = data;
-				console.log('images; ', $scope.workImages);
+				$scope.workImages = data.images;
 			});
 	}();
+
+	// Open gallery
+	$scope.openWorkGallery = function () {
+		$scope.workGalleryVisible = true;
+	};
+
+	// Close gallery
+	$scope.closeWorkGallery = function () {
+		$scope.workGalleryVisible = false;
+	};
+
+	// Move images
+	$scope.selectedImage = 0;
+	$scope.moveImages = function (side) {
+
+		console.log('move: ', side);
+
+		if (side === 'left') {
+			$scope.selectedImage--;
+			if ($scope.selectedImage < 0) {
+				$scope.selectedImage = $scope.workImages.length-1;
+			}
+		}
+
+		if (side === 'right') {
+			$scope.selectedImage++;
+			if ($scope.selectedImage === $scope.workImages.length) {
+				$scope.selectedImage = 0;
+			}
+		}
+
+	};
 
 
 	vm.uploadFiles = function(file, errFiles) {

@@ -76,11 +76,27 @@
 
 			<!--WORK SECTION-->
 			<div class="profile-overview">
-				<h3 class="title-single-profile">Work</h3>
-				<div  class="description-single-profile">
-					<div data-ng-repeat="image in workImages">
 
+				<div class="gallery-wrapper" ng-show="workGalleryVisible">
+					<div class="close-gallery" ng-click="closeWorkGallery()">x</div>
+
+					<div class="move-image-left" ng-click="moveImages('left')"> < </div>
+					<div class="move-image-right" ng-click="moveImages('right')"> > </div>
+
+					<div ng-repeat="img in workImages track by $index">
+						<img ng-show="$index==selectedImage" class="gallery-images" ng-src="{{img}}" alt="">
 					</div>
+				</div>
+
+				<div ng-click="openWorkGallery()">test</div>
+
+				<h3 class="title-single-profile">Work</h3>
+				<div  class="description-single-profile work-images-wrapper">
+					<div data-ng-repeat="image in workImages" class="work-images">
+						<img ng-src="{{image}}" alt="">
+					</div>
+
+					<div class="work-images-more" ng-if="workImages.length >= 4" ng-click="openWorkGallery()">See all images</div>
 
 				</div>
 			</div>
