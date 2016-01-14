@@ -5,6 +5,7 @@
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="/css/bootstrap.min.css" />
 <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/navbar2.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 
@@ -324,7 +325,20 @@
       
        <div class="container">
         <div class="row">
-          
+
+            <a class="hub-overlay-nav-left-trigger" href="" onclick="toggleFirstMenu()">
+                <span class="hub-menu-icon"></span>
+            </a>
+
+            <div class="sidebar-content" id="first-menu-content">
+            <ul class="sidebar-links">
+                <li> <a href="#/dashboard" ng-click="main.page='dashboard'">Home</a> </li>
+                <li> <a href="">Alerts</a> </li>
+                <li> <a href="#/message" ng-click="main.page='inbox'">Inbox</a> </li>
+                <li> <a href="">Your Jobs</a> </li>
+            </ul>
+        </div>
+
           <div class="col-xs-6">
             <a href="#" class="inverse navbar-brand">Sidejob <!-- <img class="img-responsive" src="images/nav-logo.png" height="20px"> --> </a>
           </div><!-- end .6 -->
@@ -377,7 +391,8 @@
           
 
     </div>
-  </div>  
+  </div>
+</footer>
 <script  src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/custom.js"></script>

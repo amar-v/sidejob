@@ -5,16 +5,32 @@
 			<ul class="single-profile">
             	<li class="col-md-3 no-padd img-avatar">
             		<span class="avatar-profile">
-            			<img id="profile_img" class="cursor pic" alt="" ng-src="{{profile.profile_image}}" title="Edit profile image" class="avatar avatar-70 photo avatar-default" height="200" width="200" type="file" ngf-select="profile.uploadFiles($file, $invalidFiles)"
+            			<img id="profile_img" class="cursor pic" alt="" ng-src="{{userData.avatar}}" title="Edit profile image" class="avatar avatar-70 photo avatar-default" height="200" width="200" type="file" ngf-select="profile.uploadFiles($file, $invalidFiles)"
 				          accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
             			</span>
             			
             	</li>
             
 	            <li class=" col-md-9 info-profile">
-	                <span class="name-profile">Philip King</span>
-	                <span class="position-profile">UI/UX Designer</span>
-	                <span class="address-profile">San Francissco, CA</span>
+
+					<div class="profile-info name-profile">
+						<span>{{userData.name}}</span>
+					</div>
+
+					<div class="profile-info position-profile">
+						<div class="profile-edit" ng-show="dataEditVisible.position">
+							<input type="text" ng-model="userData.position" ng-value="userData.position" ng-keydown="profileEditAction($event, 'position')">
+						</div>
+						<span>{{userData.position}}</span> <span ng-click="dataEditVisible.position=true" class="edit-profile">[edit]</span>
+					</div>
+
+					<div class="profile-info address-profile">
+						<div class="profile-edit" ng-show="dataEditVisible.address">
+							<input type="text" ng-model="userData.address" ng-value="userData.address" ng-keydown="profileEditAction($event, 'address')">
+						</div>
+						<span>{{userData.address}}</span> <span ng-click="dataEditVisible.address=true" class="edit-profile">[edit]</span>
+					</div>
+
 	                <span class="number-review-profile">
 	                	<div class="rate-it" data-score="" title="Not rated yet!">
 	                		<i data-alt="1" class="fa fa-star star-on-png" title="Not rated yet!"></i>&nbsp;
@@ -54,7 +70,35 @@
             	</div>
             </div>
             <!--// overview -->
-                            
+
+			<!--WORK SECTION-->
+			<div class="profile-overview">
+
+				<!--Work gallery-->
+				<div class="gallery-wrapper" ng-show="workGalleryVisible">
+					<div class="close-gallery" ng-click="closeWorkGallery()">x</div>
+
+					<div class="move-image-left" ng-click="moveImages('left')"> < </div>
+					<div class="move-image-right" ng-click="moveImages('right')"> > </div>
+
+					<div ng-repeat="img in workImages track by $index">
+						<img ng-show="$index==selectedImage" class="gallery-images" ng-src="{{img}}" alt="">
+					</div>
+				</div>
+
+
+				<h3 class="title-single-profile">Work</h3>
+				<div  class="description-single-profile work-images-wrapper">
+					<div data-ng-repeat="image in workImages" class="work-images">
+						<img ng-src="{{image}}" alt="">
+					</div>
+
+					<div class="work-images-more" ng-if="workImages.length >= 3" ng-click="openWorkGallery()">See all images</div>
+
+				</div>
+			</div>
+			<!--WORK SECTION-->
+
 			<div class="profile-history bid-history">
 
  				<h4 class="title-big-info-project-items">REVIEWS (3)</h4>
@@ -137,17 +181,15 @@
 	</div>
 	<div class="col-md-3">
 		<div class="list-skill-profile">
-			<h3 class="title">TOP SKILL</h3>
+			<div class="top-skills-wrapper">
+				<h3 class="title">TOP SKILLS</h3>
+				<i class="fa fa-pencil-square-o"></i>
+			</div>
+
         	<ul>
-                <li><span class="skill-name-profile">HTML5</span></li>
-    	
-                <li><span class="skill-name-profile">Javascript</span></li>
-    	
-                <li><span class="skill-name-profile">Jquery</span></li>
-    	
-                <li><span class="skill-name-profile">MySql</span></li>
-    	
-                <li><span class="skill-name-profile">PHP</span></li>
+				<li ng-repeat="skill in userData.topSkills">
+					<span class="skill-name-profile">{{skill}}</span>
+				</li>
                 	
         	</ul>
     	</div>

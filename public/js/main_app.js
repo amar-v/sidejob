@@ -72,6 +72,44 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 })
 
 
+.factory('GetUserData', function ($http) {
+
+	var dataService = {};
+
+	dataService.all = function() {
+		return $http.post('/getprofileinfo');
+	};
+
+	return dataService;
+
+})
+
+
+.factory('SaveUserData', function ($http) {
+
+	var dataService = {};
+
+	dataService.all = function(data) {
+		return $http.post('/getprofileinfo', data);
+	};
+
+	return dataService;
+
+})
+
+
+.factory('GetWorkImages', function ($http) {
+
+	var dataService = {};
+
+	dataService.all = function(data) {
+		return $http.post('/getworkimages');
+	};
+
+	return dataService;
+
+})
+
 
 
 .controller("mainController",function(GetUserName,$scope,$anchorScroll,Upload,$timeout) {
@@ -218,13 +256,101 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 	var vm = this;
 })
 
-.controller("profileController",function($timeout,$window,$scope,Upload) {
-	var vm = this;
-	vm.profile_image = $window.location.origin + "/images/avatar_01_tn.png";
-	console.log($window.location.origin)
+.controller("profileController",function(GetUserData, GetWorkImages, $timeout,$window,$scope,Upload) {
 
+	var vm = this;
+	/**
+	 * User data initialization
+	 * @type {{}}
+     */
+
+	$scope.userData = {};
+	$scope.dataEditVisible = {
+		'position': false,
+		'address': false
+	};
+
+
+	// Get all data from database
+	var getUserData = function() {
+		GetUserData.all()
+			.success(function(data){
+				setUserData(data);
+				console.log(data);
+			});
+	}();
+
+	// Set data from database
+	var setUserData = function (data) {
+		$scope.userData = {
+			'name': data.firstname + ' ' + data.lastname,
+			'address': data.address,
+			'position': data.job,
+			'avatar': data.avatar,
+			'topSkills': data.topskills
+		};
+	};
+
+	// Watch for changes in input fields
+	$scope.profileEditAction = function (evt, key) {
+		var keyCode = evt.keyCode;
+
+		// Enter pressed
+		if (keyCode === 13) {
+			$scope.dataEditVisible[key] = false;
+		}
+	};
+
+
+
+	/**
+	 * Work section
+	 * */
+	$scope.workImages = [];
+	$scope.workGalleryVisible = false;
+
+	// Get images from database
+	var getWorkImages = function () {
+
+		GetWorkImages.all()
+			.success(function (data) {
+				$scope.workImages = data.images;
+			});
+	}();
+
+	// Open gallery
+	$scope.openWorkGallery = function () {
+		$scope.workGalleryVisible = true;
+	};
+
+	// Close gallery
+	$scope.closeWorkGallery = function () {
+		$scope.workGalleryVisible = false;
+	};
+
+	// Move images
+	$scope.selectedImage = 0;
+	$scope.moveImages = function (side) {
+
+		if (side === 'left') {
+			$scope.selectedImage--;
+			if ($scope.selectedImage < 0) {
+				$scope.selectedImage = $scope.workImages.length-1;
+			}
+		}
+
+		if (side === 'right') {
+			$scope.selectedImage++;
+			if ($scope.selectedImage === $scope.workImages.length) {
+				$scope.selectedImage = 0;
+			}
+		}
+
+	};
+
+	// Upload image
 	vm.uploadFiles = function(file, errFiles) {
-		console.log("Upload")
+		console.log("Upload");
         vm.f = file;
         vm.errFile = errFiles && errFiles[0];
         if (file) {
@@ -236,16 +362,17 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
             file.upload.then(function (response) {
                 $timeout(function () {
                     file.result = response.data;
-                    console.log(file.result)
+                    console.log(file.result);
                     vm.profile_image = $window.location.origin + file.result.url;
-                    console.log(vm.profile_image)
+                    console.log(vm.profile_image);
                     $scope.$apply();
+
                 });
             }, function (response) {
-                if (response.status > 0)
+				if (response.status > 0)
                     vm.errorMsg = response.status + ': ' + response.data;
             }, function (evt) {
-                file.progress = Math.min(100, parseInt(100.0 * 
+				file.progress = Math.min(100, parseInt(100.0 *
                                          evt.loaded / evt.total));
             });
         }   

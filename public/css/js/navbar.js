@@ -15,7 +15,6 @@ function toggleSecondMenu(){
 			$('body').toggleClass('toggle-body');
 }
 
-
 // Merged morphsearch into navbar
 // Last modified: 2015-04-03
 
