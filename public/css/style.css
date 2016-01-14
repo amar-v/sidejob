@@ -400,6 +400,15 @@ figure.list-thumb {
     padding: 8px 12px;
 }
 
+.footer-main-messages {
+    margin-bottom: 35px;
+    border-top: 1px solid #ccc;
+}
+
+.footer-main-messages a {
+    margin: 0!important;
+}
+
 .footer-linkrow  {
     text-align:center;   
     padding: 15px 0;
@@ -1800,7 +1809,7 @@ table.table-seperate{
 
 .work-images-wrapper {
     position: relative;
-    height: 210px;
+    height: 290px;
     overflow: hidden;
 }
 

@@ -306,8 +306,6 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 	$scope.selectedImage = 0;
 	$scope.moveImages = function (side) {
 
-		console.log('move: ', side);
-
 		if (side === 'left') {
 			$scope.selectedImage--;
 			if ($scope.selectedImage < 0) {

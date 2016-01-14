@@ -13,6 +13,9 @@
 	<link rel="stylesheet" href="css/chat-ui.css">
 	<link rel="stylesheet" href="css/style.css">
 
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-route.js"></script>
@@ -116,7 +119,6 @@
 
 </div><!--end container-->
 	<footer class="chat-footer">
-		
 		<div ng-repeat="user in main.users" id="{{user.name + user.id}}" class="chat-box chat-messages">
 			<div class="chat-box-handle" onclick="$(this).closest('.chat-box').toggleClass('open')">
 				<span class="status status-on"></span>
@@ -166,6 +168,37 @@
 		</div>
 	</footer>
 
+	<footer class="footer-main-outer footer-main-messages">
+		<div class="footer-container">
+			<div class="container">
+				<div class="row footer-linkrow">
+
+					<a class="link-contrast" href="#">About</a>
+					<a class="link-contrast" href="#">Blog</a>
+					<a class="link-contrast" href="#">Jobs</a>
+					<a class="link-contrast" href="#">Terms</a>
+					<a class="link-contrast" href="#">Privacy</a>
+					<a class="link-contrast" href="#">Help &amp; Support</a>
+
+
+					<div class="clearfix"></div>
+				</div>
+
+				<section class="foot-social-icon">
+					<div class="social-icons">
+						<ul>
+							<li><a href="#"><i class="fa fa-md fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-md fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-md fa-instagram"></i></a></li>
+						</ul>
+					</div>
+					<p class="copyright-txt">&copy; 2016 SideJob</p>
+				</section>
+
+
+			</div>
+		</div>
+	</footer>
 
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script src="/js/socket.io.js"></script>
