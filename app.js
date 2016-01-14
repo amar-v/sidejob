@@ -311,7 +311,7 @@ app.post('/getworkimages',function(req,res) {
 })
 
 
-app.get('/getprofileinfo',function(req,res) {
+app.post('/getprofileinfo',function(req,res) {
     User.find({_id:req.session.passport.user},function(err, user) {
         if (err) {
           return res.send(err);
