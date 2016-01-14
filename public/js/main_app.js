@@ -274,7 +274,7 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 
 	$scope.userData = {};
 	$scope.dataEditVisible = {
-		'position': false,
+		'job': false,
 		'address': false
 	};
 
@@ -293,11 +293,20 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 		$scope.userData = {
 			'name': data.firstname + ' ' + data.lastname,
 			'address': data.address,
-			'position': data.job,
+			'job': data.job,
 			'avatar': data.avatar,
 			'topSkills': data.topskills
 		};
 	};
+
+	function setUserImage (data) {
+		$scope.userData.avatar = data.url;
+
+		SaveUserData.saveData($scope.userData)
+			.success(function (data) {
+				console.log(data);
+			});
+	}
 
 	// Watch for changes in input fields
 	$scope.profileEditAction = function (evt, key) {
@@ -360,6 +369,10 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 
 	};
 
+	function testFun (url) {
+		console.log('wAAAT', url)
+	}
+
 	// Upload image
 	vm.uploadFiles = function(file, errFiles) {
 		console.log("Upload");
@@ -375,7 +388,8 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
                 $timeout(function () {
                     file.result = response.data;
                     console.log(file.result);
-                    vm.profile_image = $window.location.origin + file.result.url;
+					setUserImage(file.result);
+                    vm.profile_image =  file.result.url;
                     console.log(vm.profile_image);
                     $scope.$apply();
 
@@ -600,6 +614,11 @@ console.log($scope.$parent.main)
 		return found;
 	}
 
+	$scope.userLogo = '';
+	GetUserData.all()
+		.success(function(data){
+			$scope.userLogo = data.avatar;
+		});
 
 });
 
