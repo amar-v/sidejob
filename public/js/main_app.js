@@ -123,15 +123,25 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 	//page tab
 	vm.page = "dashboard";
 
-	$scope.userData;
-
 	vm.userName = "";
 
-	GetUserName.all()
+/*	GetUserName.all()
 	.success(function(data){
 		vm.userName = data.user;
 		console.log(vm.userName)
-	})
+	})*/
+
+
+	// Get all data from database
+	var getUserData = function() {
+		GetUserData.all()
+			.success(function(data){
+				vm.userName = data.firstname;
+				$scope.userLogo = data.avatar;
+				console.log(data);
+				//$scope.$apply();
+			});
+	}();
 
 	vm.closeChatWindow = function(id) {
 		$(id).hide();
@@ -255,11 +265,11 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 
 
 
-	$scope.userLogo = '';
+/*	$scope.userLogo = '';
 	GetUserData.all()
 		.success(function(data){
 			$scope.userLogo = data.avatar;
-		});
+		});*/
 
 })
 
@@ -467,7 +477,7 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 
 })
 
-.controller("dashboardController",function(GetZIPs,$scope) {
+.controller("dashboardController",function(GetZIPs,GetUserData,$scope) {
 
 	var vm = this;
 

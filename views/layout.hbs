@@ -334,6 +334,16 @@
             <span class="hub-menu-icon"></span>
        </div>
 
+      {{#if user}}
+       <div class="sidebar-content" id="first-menu-content">
+           <ul class="sidebar-links">
+               <li> <a href="/">Home</a> </li>
+               <li> <a href="" data-toggle="modal" >Alerts</a> </li>
+               <li> <a href="/message" data-toggle="modal" >Inbox</a> </li>
+               <li> <a href="">Help</a> </li>
+           </ul>
+       </div>
+      {{else}}
        <div class="sidebar-content" id="first-menu-content">
            <ul class="sidebar-links">
                <li> <a href="">Home</a> </li>
@@ -342,6 +352,7 @@
                <li> <a href="">Help</a> </li>
            </ul>
        </div>
+      {{/if}}
 
        <div class="container">
         <div class="row">
@@ -353,10 +364,10 @@
           </div><!-- end .6 -->
           <div class="col-xs-6">
             {{#if user}}
-            <a href="/account" id="home-page-logo" class="profile-anchor"><img class="profile-anchor" ng-src="{{userLogo}}" alt="profile pic" /></a>
+            <a href="/account" id="home-page-logo" class="profile-anchor"><img class="profile-anchor" src="{{user.avatar}}" alt="profile pic" /></a>
 	          <a href="/logout" class="header-user">Logout</a>
             
-            <a href="/account" class="header-user">Hello {{user.firstName}}</a>
+            <a href="/message#/profile" class="header-user">Hello {{user.firstName}}</a>
 	          
             {{else}}
             <a href="#" class="header-btn signup" data-toggle="modal" href="#" data-target="#signup">Sign Up</a>

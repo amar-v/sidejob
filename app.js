@@ -317,18 +317,20 @@ app.post('/getprofileinfo',function(req,res) {
         if (err) {
           return res.send(err);
         }
-
-        var user_info = {
-            firstname: user[0].firstName,
-            lastname: user[0].lastName,
-            email: user[0].email,
-            avatar: 'http://' + req.headers.host + '/profileimages/' + user[0].avatar,
-            address: user[0].address,
-            position: user[0].position,
-            topskills: user[0].topskills,
-            summary: user[0].summary
-            
-        };
+        if(user[0]!=undefined) {
+            var user_info = {
+                firstname: user[0].firstName,
+                lastname: user[0].lastName,
+                email: user[0].email,
+                avatar: 'http://' + req.headers.host + '/profileimages/' + user[0].avatar,
+                address: user[0].address,
+                position: user[0].position,
+                topskills: user[0].skills,
+                summary: user[0].summary
+                
+            };
+        }
+        
         console.log(user);
         console.log(user_info)
         res.json(user_info);
@@ -351,8 +353,8 @@ app.post('/updateprofile',function(req,res) {
         else if(req.body.address!=null || req.body.address!=undefined) {
             user.address = req.body.address;
         }
-        else if(req.body.skills!=null || req.body.skills!=undefined) {
-            user.skills = req.body.skills;
+        else if(req.body.topskills!=null || req.body.topskills!=undefined) {
+            user.skills = req.body.topskills;
         }
 
         
