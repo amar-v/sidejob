@@ -21,14 +21,14 @@
 						<div class="profile-edit" ng-show="dataEditVisible.job">
 							<input type="text" ng-model="userData.job" ng-value="userData.job" ng-keydown="profileEditAction($event, 'job')">
 						</div>
-						<span>{{userData.job}}</span> <span ng-click="dataEditVisible.job=true" class="edit-profile">[edit]</span>
+						<span>{{userData.job}}</span> <span ng-click="dataEditVisible.job=true" class="edit-profile"><i class="fa fa-pencil-square-o"></i></span>
 					</div>
 
 					<div class="profile-info address-profile">
 						<div class="profile-edit" ng-show="dataEditVisible.address">
 							<input type="text" ng-model="userData.address" ng-value="userData.address" ng-keydown="profileEditAction($event, 'address')">
 						</div>
-						<span>{{userData.address}}</span> <span ng-click="dataEditVisible.address=true" class="edit-profile">[edit]</span>
+						<span>{{userData.address}}</span> <span ng-click="dataEditVisible.address=true" class="edit-profile"><i class="fa fa-pencil-square-o"></i></span>
 					</div>
 
 	                <span class="number-review-profile">
@@ -60,12 +60,17 @@
             <div class="profile-overview">
             	<h3 class="title-single-profile">ABOUT ME</h3>
             	<div  class="description-single-profile">
-            		<h3> SUMMARY</h3>
-            		<span>
-            			I have more than 3 years of experience in CSS, HTML and PHP. I love to work in a very professional way and this is what my clients love about me. I can handle both large and small projects effectively.
-                		I have more than 3 years of experience in CSS, HTML and PHP. I love to work in a very professional way and this is what my clients love about me. I can handle both large and small projects effectively.
-                		I have more than 3 years of experience in CSS, HTML and PHP. I love to work in a very professional way and this is what my clients love about me. I can handle both large and small projects effectively.
-            		</span>
+					<div class="top-skills-wrapper">
+						<h3 class="title">SUMMARY</h3>
+						<i class="fa fa-pencil-square-o" ng-click="dataEditVisible.summary=true;"></i>
+					</div>
+
+            		<span ng-show="!dataEditVisible.summary">
+						{{userData.summary}}
+					</span>
+					<textarea id="summary-edit" ng-show="dataEditVisible.summary" class="summary-edit" ng-keydown="editSummary($event)" rows="10">
+
+					</textarea>
             		
             	</div>
             </div>
