@@ -303,6 +303,7 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 			'topSkills': data.topskills,
 			'summary': data.summary
 		};
+		$scope.$parent.userLogo = data.avatar;
 	};
 
 	function setUserImage (data) {

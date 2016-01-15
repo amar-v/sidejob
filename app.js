@@ -285,7 +285,7 @@ app.get('/explore-item',function(req,res) {
     res.sendFile(__dirname+"/views/partial_explore_item.html");
 });
 
-app.post('/getprofileinfo',function(req,res) {
+app.post('/getprofileinfo1',function(req,res) {
     User.find(function(a) {
         console.log(a);
     })
@@ -305,25 +305,25 @@ app.post('/getprofileinfo',function(req,res) {
 app.post('/getworkimages',function(req,res) {
     res.json({
         images: [
-            "http://localhost:8001/profileimages/5YfhfFnTlat1s5S3yt9PVwFK.jpg",
-            "http://localhost:8001/profileimages/wSi3rtvaQJINs5Z3JMyY6.jpg"
+            "http://localhost:8001/profileimages/qmD6IphQN3nGu4-Tmp2ZgvPp.jpg",
+            "http://localhost:8001/profileimages/wSi3rtvaQJINs5Z3JMyY6-0w.jpg"
         ]
     })
 })
 
 
-app.post('/getprofileinfo1',function(req,res) {
+app.post('/getprofileinfo',function(req,res) {
     User.find({_id:req.session.passport.user},function(err, user) {
         if (err) {
           return res.send(err);
         }
 
         var user_info = {
-            firstName: user[0].firstName,
-            lastName: user[0].lastName,
+            firstname: user[0].firstName,
+            lastname: user[0].lastName,
             email: user[0].email,
-            avatar: user[0].avatar,
-            address: user[0].avatar,
+            avatar: 'http://' + req.headers.host + '/profileimages/' + user[0].avatar,
+            address: user[0].address,
             position: user[0].position,
             topskills: user[0].topskills,
             summary: user[0].summary
@@ -345,11 +345,8 @@ app.post('/updateprofile',function(req,res) {
         if(req.body.summary!=null || req.body.summary!=undefined) {
             user.summary = req.body.summary;
         }
-        else if(req.body.position!=null || req.body.position!=undefined) {
-            user.position = req.body.position;
-        }
-        else if(req.body.address!=null || req.body.address!=undefined) {
-            user.address = req.body.address;
+        else if(req.body.job!=null || req.body.job!=undefined) {
+            user.job = req.body.job;
         }
         else if(req.body.address!=null || req.body.address!=undefined) {
             user.address = req.body.address;
@@ -357,6 +354,7 @@ app.post('/updateprofile',function(req,res) {
         else if(req.body.skills!=null || req.body.skills!=undefined) {
             user.skills = req.body.skills;
         }
+
         
         user.save();
     });
