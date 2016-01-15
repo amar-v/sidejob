@@ -113,7 +113,7 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 
 
 
-.controller("mainController",function(GetUserName, GetUserData, $scope,$anchorScroll,Upload,$timeout) {
+.controller("mainController",function(GetUserName, GetUserData, $scope,$anchorScroll,Upload,$timeout, $scope) {
 
 	var vm = this;
 
@@ -122,6 +122,8 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
     vm.user_ = user;
 	//page tab
 	vm.page = "dashboard";
+
+	$scope.userData;
 
 	vm.userName = "";
 
@@ -411,12 +413,19 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 					setUserImage(file.result);
                     vm.profile_image =  file.result.url;
                     console.log(vm.profile_image);
+
+                    $scope.userData.avatar = vm.profile_image;
+                	$scope.$parent.userLogo = vm.profile_image;
+                	console.log($scope)
+                	console.log($scope.userData.avatar)
+
                     $scope.$apply();
 
                 });
             }, function (response) {
 				if (response.status > 0)
                     vm.errorMsg = response.status + ': ' + response.data;
+                	
             }, function (evt) {
 				file.progress = Math.min(100, parseInt(100.0 *
                                          evt.loaded / evt.total));
