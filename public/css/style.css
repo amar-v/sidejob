@@ -8,6 +8,7 @@
 .sidebar-links li{
     float: left;
     width: 100%;
+    height: 46px;
 }
 .sidebar-links li a{    
     padding:13px 20px;
