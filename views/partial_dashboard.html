@@ -8,9 +8,11 @@
 		<div class="container-fluid">
 			<div class="col-md-3">
 				<div class="filter-box">
-					<div class="filter-row">
-						<span class="filter-title">Filter</span>
-						<span class="filter-icon pull-right"><i class="fa fa-edit"></i></span>
+					<div class="filter-content">
+						<div class="filter-content-section">
+							<h4 class="title">Need Help?</h4>
+							<p class="text-center"><a class="post-job-btn" href="#">Post a Job</a></p>
+						</div>
 					</div>
 					<div class="clearfix"></div>
 					<div class="filter-content">
@@ -73,31 +75,24 @@
 
 								
 								<div class="dashboard-info-box">
-									<div class="media">
-										<a class="pull-left" href="#">
-											<img class="media-object media-avatar" src="images/avatar_01_tn.png" width="34" height="34" alt="">
-										</a>
-										<div class="media-body">
-											<h4 class="media-heading">{{job.owner}}</h4>
-											<p class="description">
-												{{job.description}}
-											</p>
-										</div>
-									</div>
 									<div class="featured-img">
 										<img class="img img-responsive" src="images/b3.jpg" height="100" alt="">
+										<img class="media-avatar" src="images/avatar_01_tn.png" width="34" height="34" alt="">
 									</div>
 									<div class="meta-info">
-										<ul class="pull-right list-inline">
-											<li><a href=""><i class="fa fa-reply"></i></a></li>
-											<li><a href=""><i class="fa fa-heart-o"></i></a></li>
-											<li><a href="">54 m</a></li>
-											<li><a href=""><i class="fa fa-close" ng-click="dashboard.reject(job.id)"></i></a></li>
-											<li><a href=""><i class="fa fa-check" ng-click="dashboard.apply(job.id)"></i></a></li>
-										</ul>
+											<p class="description-new">
+												{{job.description}}
+											</p>
+										<div class="row list-inline">
+											<!---<div><a href=""><i class="fa fa-heart-o"></i></a></li>-->
+											<div class="col-xs-3"><a href="" class="eg-time">54 m</a></div>
+											<div class="col-xs-4 text-center"><a href=""><i class="fa fa-close" style="color: red" ng-click="dashboard.reject(job.id)"></i>Not Interested</a></div>
+											<div class="col-xs-4 text-center"><a href=""><i class="fa fa-check" style="color: green" ng-click="dashboard.apply(job.id)"></i>Approve</a></div>
+										</div>
 									</div>
 								</div><!-- end .dashboard-info-box -->
 							</div>
+
 								<!--<div class="clearfix"></div>-->
 							<!-- <div class="col-md-4 col-sm-6">
 								<div class="dashboard-info-box">

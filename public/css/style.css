@@ -1106,8 +1106,7 @@ section.banner{
 
 
 .filter-box{
-    padding: 15px;
-    border: 1px solid #D8E2E8;
+    padding: 45px;
     border-radius: 8px;
     margin-bottom: 30px;
     /* margin-top: 10px; */
@@ -1124,10 +1123,11 @@ section.banner{
 }
 .filter-box .filter-content .filter-content-section{
     font-size: 13px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 .filter-box .filter-content .filter-content-section .title{
-    font-size: 17px;
+    color: #111;
+    font-size: 20px;
 }
 .filter-box .filter-content .filter-content-section .col-b{
     color: #333;
@@ -1184,6 +1184,13 @@ table.table-seperate{
 
 .list-table .row-icon{
 
+}
+
+.description-new{
+    max-width: 75%;
+    color: #111;
+    padding: 6px 0;
+    margin-bottom: 2px;
 }
 
 .description-box{}
@@ -1493,14 +1500,26 @@ table.table-seperate{
      text-decoration: none;
 }
 
-.meta-info ul{
-    margin-top: 10px;
-    width: 100%;
+
+.meta-info .list-inline .fa {
+    font-size: 18px;
+    display: block;
 }
+.meta-info .list-inline {
+    font-size: 14px;
+}
+
+.meta-info .eg-time {
+    font-size: 18px;
+    margin-top: 16px;
+    display: inline-block;
+}
+
+
 .meta-info ul a:hover{
     transition:0.4s;
 }
-
+.featured-img {position: relative;}
 .featured-img img{
     border-radius: 8px;
    box-shadow: 0 0 4px #444;
@@ -1511,9 +1530,14 @@ table.table-seperate{
 }
 
 .media-avatar{
-    border-radius: 100%;
-    box-shadow: 0 0 2px #444;
-    margin:3px 0 0 3px;
+    position: absolute;
+    bottom: -30px;
+    right: 20px;
+    height: 60px;
+    opacity: 1 !important;
+    width: 60px;
+    border-radius: 50% !important;
+    border: 0px solid transparent;
     
 }
 .media-avatar:hover{
@@ -2054,6 +2078,24 @@ a:hover, a:focus {
 
 
 
+.post-job-btn {
+    color: #fff;
+    font-size: 16px;
+    display: inline-block;
+    padding: 2px 22px;
+    border: 0px solid #fff;
+    border-radius: 20px;
+    background: #458fce;
+}
+
+.post-job-btn:hover,
+.post-job-btn:active,
+.post-job-btn:visited{
+    background: #458fce;
+    color: #fff;
+    opacity: 0.8;
+    text-decoration: none !important;
+ }
 
 /* TABS - Homepage */
 
@@ -2082,3 +2124,29 @@ a:hover, a:focus {
 
 .egtab-content { display: none; padding: 25px 5px; }
 .egtab-content p {max-width: 600px; margin:auto; }
+
+
+.egtab-content  .col-md-4 {
+    margin-bottom: 35px;
+}
+
+@media(max-width: 992px) {
+   .egtab-handler  p {
+        font-size: 14px;
+    } 
+    
+    .egtab-handler {
+        padding: 5px 0 !important;   
+        border-bottom: 2px solid transparent;
+        border-right: 1px solid transparent;
+    } 
+
+    .egtab-handler:hover {
+        border-bottom: 2px solid #f6f8fa;
+     }
+    
+    .mr-home-feature-media2 img {
+        max-height: 27px;
+    }
+
+}
