@@ -310,7 +310,7 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 			'address': data.address,
 			'job': data.job,
 			'avatar': data.avatar,
-			'topSkills': data.topskills,
+			'topSkills': data.topskills || [],
 			'summary': data.summary
 		};
 		$scope.$parent.userLogo = data.avatar;
@@ -346,14 +346,26 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 
 		// Enter pressed
 		if (keyCode === 13) {
-			$scope.dataEditVisible['topSkills'] = false;
-			$scope.userData.topSkills.push($scope.newSkillValue);
-			$scope.newSkillValue = '';
 
+			$scope.dataEditVisible['topSkills'] = false;
+			var skills = $scope.newSkillValue.split(",");	//create array from string
+			skills.forEach(function(element) {element.trim()});	//delete white spaces
+			console.log(skills)
+
+			if($scope.userData.topSkills==undefined || $scope.userData.topSkills==null || $scope.userData.topSkills=="") {
+				$scope.userData.topSkills = [];
+			}
+
+			skills.forEach(function(element) {
+			$scope.userData.topSkills.push(element);	
+			});
+			
+			$scope.newSkillValue = '';
+			console.log($scope.userData);
 			SaveUserData.saveData($scope.userData)
-				.success(function (data) {
-					console.log(data);
-				});
+			.success(function (data) {
+				console.log(data);
+			});
 		}
 	};
 

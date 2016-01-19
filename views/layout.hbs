@@ -364,7 +364,7 @@
           </div><!-- end .6 -->
           <div class="col-xs-6">
             {{#if user}}
-            <a href="/account" id="home-page-logo" class="profile-anchor"><img class="profile-anchor" src="{{user.avatar}}" alt="profile pic" /></a>
+            <!--<a href="/account" id="home-page-logo" class="profile-anchor"><img class="profile-anchor" src="{{user.avatar}}" alt="profile pic" /></a>-->
 	          <a href="/logout" class="header-user">Logout</a>
             
             <a href="/message#/profile" class="header-user">Hello {{user.firstName}}</a>
@@ -401,9 +401,9 @@
           <section class="foot-social-icon">
               <div class="social-icons">
                 <ul>
-                    <li><a href="#"><i class="fa fa-md fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-md fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-md fa-instagram"></i></a></li> 
+                    <li><a href="#" class="non-margin"><i class="fa fa-md fa-facebook"></i></a></li>
+                    <li><a href="#" class="non-margin"><i class="fa fa-md fa-twitter"></i></a></li>
+                    <li><a href="#" class="non-margin"><i class="fa fa-md fa-instagram"></i></a></li> 
                  </ul>
               </div>
              <p class="copyright-txt">&copy; 2016 SideJob</p>      

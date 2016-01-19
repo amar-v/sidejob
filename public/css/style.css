@@ -131,7 +131,7 @@ body
 }
 .home-Subtitle .boldit {
     font-weight: 600;
-    color: #aaa
+    color: #fff
 }
 .home-serach {
     margin: 30px auto 0;
@@ -200,12 +200,12 @@ body
     margin-top: 0px;    /*75px*/
 }
 .explore-work-title {
-    color: #717a8f;
+    color: #000;
     font-size: 28px;
     text-align: center;
 }
 .explore-subtitle {
-    color: #717a8f;
+    color: #000;
     font-size: 16px;
     margin: 0 0 15px;
     text-align: center;
@@ -434,7 +434,8 @@ figure.list-thumb {
     margin-bottom: 0;
 }
 .feature-callout-cover {
-    background: rgba(0, 0, 0, 0) url("../img/iphone-home-page.jpg") repeat scroll center center / cover ;
+    /*background: rgba(0, 0, 0, 0) url("../img/iphone-home-page.jpg") repeat scroll center center / cover ;*/
+    background-color: #eee;
     padding: 10px;
 }
 .howit-work {
@@ -2037,6 +2038,15 @@ a:hover, a:focus {
 
 .fixation {
     font-size: 1rem;
+}
+
+.non-margin {
+    margin: 0;
+}
+
+.top-margin20 {
+    margin-top: 20px;
+    margin-bottom: 0;
 }
 
 .pic{ width:190px; height:190px; opacity: 1; filter: alpha(opacity=100); background: url(http://www.corelangs.com/css/box/img/duck.png) no-repeat; } 

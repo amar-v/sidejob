@@ -343,18 +343,22 @@ app.get('/testing',function(req,res) {
 
 app.post('/updateprofile',function(req,res) {
     User.findOne({_id: req.session.passport.user},function(err,user) {
-
-        if(req.body.summary!=null || req.body.summary!=undefined) {
+        console.log(req.body)
+        if(req.body.summary!=null && req.body.summary!=undefined) {
+            console.log(req.body.summary)
             user.summary = req.body.summary;
         }
-        else if(req.body.job!=null || req.body.job!=undefined) {
+        if(req.body.job!=null && req.body.job!=undefined) {
+            console.log(req.body.job)
             user.job = req.body.job;
         }
-        else if(req.body.address!=null || req.body.address!=undefined) {
+        if(req.body.address!=null && req.body.address!=undefined) {
+            console.log(req.body.address)
             user.address = req.body.address;
         }
-        else if(req.body.topskills!=null || req.body.topskills!=undefined) {
-            user.skills = req.body.topskills;
+        if(req.body.topSkills!=null && req.body.topSkills!=undefined) {
+            console.log(req.body.topSkills)
+            user.skills = req.body.topSkills;
         }
 
         
