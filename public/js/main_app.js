@@ -503,7 +503,7 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 			id:1,
 			title: "Sidejob",
 			owner: "Sam Jones",
-			description: "How to get inspire the right way Design modo",
+			description: "This is first filtering",
 			categories: ["Personal","Automotive","Beauty"],
 			ZIP: 10000
 		},

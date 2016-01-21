@@ -63,7 +63,7 @@
 				<div class="post-holder">
 					<div class="searchbox">
 						<div class="input-group custom-search-holder">
-							<input type="text" class="form-control custom-search" ng-model="dashboard.search_filter" ng-change="dashboard.search()" placeholder="What services are you looking for...">
+							<input type="text" class="form-control custom-search" ng-model="dashboard.search_filter" placeholder="What services are you looking for...">
 							<span class="input-group-btn">
 								<button class="btn btn-post" type="button">SEARCH</button>
 							</span>
@@ -71,7 +71,8 @@
 					</div>
 					<div class="content" ng-if="dashboard.tab=='urgent'">
 						<div class="row">
-							<div class="col-md-4 col-sm-6" ng-repeat="job in dashboard.jobs" ng-show="dashboard.zip_filtering(job.ZIP) && dashboard.category_filtering(job.categories)" ng-hide="dashboard.isAppliedOrRejected(job.id)">
+
+							<div class="col-md-4 col-sm-6" ng-repeat="job in dashboard.jobs" ng-show="dashboard.zip_filtering(job.ZIP) && dashboard.category_filtering(job.categories)" ng-hide="dashboard.isAppliedOrRejected(job.id) || (job.description.toUpperCase().search(dashboard.search_filter.toUpperCase())==-1 && !dashboard.search_filter=='')">
 
 								
 								<div class="dashboard-info-box">
