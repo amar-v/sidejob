@@ -258,12 +258,6 @@ job1.save(function(err, thor) {
   console.dir(job1);
 });*/
 
-app.get('/getjobs', function(req,res) {
-    Job.find({user:req.user.email},function(err,job) {  //update email getter for security reasons
-        res.json(job);
-    })
-});
-
 app.get('/partial',function(req,res) {
     res.sendFile(__dirname+"/views/partial_message.html");
 });
@@ -366,6 +360,45 @@ app.post('/updateprofile',function(req,res) {
     });
     res.json({msg:'updated'})
 })
+
+
+app.post('/createjob', function(req,res) {
+    var job = new Job({
+        user: 'test__12345@gmail.com',
+        title: req.body.title,
+        description: req.body.description,
+        ZIP: req.body.ZIP,
+        category: req.body.categories,
+        date: {
+            day: '01',
+            month: '04',
+            year: '2015'
+        }
+    });
+
+    job.save(function(err, thor) {
+      if (err) return console.error(err);
+      console.dir(job1);
+    });
+    res.json({msg:'success'});
+})
+
+app.get('/getjobs', function(req,res) {
+    //res.json("CURRENT USER " + req.session.passport.user)
+    /*Job.find({user:req.session.passport.user},function(err,job) {  //update email getter for security reasons
+        console.log("CURRENT USER " + req.session.passport.user)
+        res.json(job);
+    })*/
+    Job.find(function(err,job) {
+        if (err) {
+            res.json({msg:'Error'});
+        }
+        else {
+            res.json(job);
+        }
+        
+    })
+});
 
 
 require('./config/errorHandlers.js')(app);

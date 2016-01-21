@@ -11,7 +11,7 @@
 					<div class="filter-content">
 						<div class="filter-content-section">
 							<h4 class="title">Need Help?</h4>
-							<p class="text-center"><a class="post-job-btn" href="#">Post a Job</a></p>
+							<p class="text-center"><a class="post-job-btn" ng-click="dashboard.postJobModal()" href="#">Post a Job</a></p>
 						</div>
 					</div>
 					<div class="clearfix"></div>
@@ -211,3 +211,34 @@
 		</div>
 
 	</section>
+
+
+	<div class="modal fade topiraj" id="postjob_modal" tabindex="-1" role="dialog" aria-labelledby="postjob">
+       <div class="modal-dialog modal-sm" role="document">
+           <div class="modal-content">
+               <div class="modal-body">
+                   <div class="clearfix">
+                          <form>
+                               <div> 
+                                   <input type="text" class="form-control" id="title" placeholder="Title" />
+                                   <br>
+                                   <input type="text" class="form-control" id="description" placeholder="Description" />
+                                   <br>
+                                   <input type="text" class="form-control" id="description" placeholder="Owner" />
+                                   <br>
+                                   <input type="text" class="form-control" id="description" placeholder="Categories" />
+                                   <br>
+                                   <input type="text" class="form-control" id="description" placeholder="ZIP Code" />
+                               </div>
+                           </form>
+                           
+                   </div>
+
+               </div>
+                   <div class="modal-footer">
+                       <button  type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>
+                       <button  type="button" class="btn btn-primary" data-dismiss="modal" ng-model="rename_clip" ng-click="renameClip()">Save</button>
+                   </div>
+           </div>
+       </div>
+    </div>

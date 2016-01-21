@@ -2073,6 +2073,10 @@ a:hover, a:focus {
     margin-bottom: 0;
 }
 
+.topiraj {
+    top: 50px;
+}
+
 .pic{ width:190px; height:190px; opacity: 1; filter: alpha(opacity=100); background: url(http://www.corelangs.com/css/box/img/duck.png) no-repeat; } 
 .pic:hover { opacity: 0.3; filter: alpha(opacity=30); }
 

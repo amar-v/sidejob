@@ -111,9 +111,21 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 
 })
 
+.factory('GetJobs', function ($http) {
+
+	var dataService = {};
+
+	dataService.all = function(data) {
+		return $http.get('/getjobs');
+	};
+
+	return dataService;
+
+})
 
 
-.controller("mainController",function(GetUserName, GetUserData, $scope,$anchorScroll,Upload,$timeout, $scope) {
+
+.controller("mainController",function(GetUserName, GetUserData, GetJobs, $scope,$anchorScroll,Upload,$timeout, $scope) {
 
 	var vm = this;
 
@@ -489,7 +501,7 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 
 })
 
-.controller("dashboardController",function(GetZIPs,GetUserData,$scope) {
+.controller("dashboardController",function(GetZIPs,GetUserData,GetJobs,$scope) {
 
 	var vm = this;
 
@@ -498,7 +510,7 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 	//categories
 	vm.categories = ["Personal","Automotive","Beauty","Repair","Technical","Creative","Event","Financial","Household","Legal","Lessons","Pets","Web"];
 
-	vm.jobs = [
+/*	vm.jobs = [
 		{
 			id:1,
 			title: "Sidejob",
@@ -539,7 +551,17 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 			categories: ["Creative","Event","Financial"],
 			ZIP: 10002
 		}
-	];
+	];*/
+
+	vm.getJobs = function() {
+		GetJobs.all()
+		.success(function(data) {
+			vm.jobs = data;
+			console.log(vm.jobs)
+			vm.filter_applied_jobs();
+		})
+	}
+	vm.getJobs();
 
 	vm.applied = [];
 	vm.rejected = [];
@@ -635,7 +657,6 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 	}
 
 console.log($scope.$parent.main)
-	vm.filter_applied_jobs();
 
 	vm.apply = function(id) {
 		var found = false;
@@ -702,9 +723,14 @@ console.log($scope.$parent.main)
 
 	$scope.userLogo = '';
 	GetUserData.all()
-		.success(function(data){
-			$scope.userLogo = data.avatar;
-		});
+	.success(function(data){
+		$scope.userLogo = data.avatar;
+	});
+
+	vm.postJobModal = function() {
+		$('#postjob_modal').modal('show');
+		console.log("modal show")
+	}
 
 });
 
