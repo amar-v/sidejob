@@ -565,6 +565,20 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 		}
 	}
 
+	$scope.toggleFilters = function () {
+		$('#first-filter').toggle(200);
+	}
+
+	vm.search_filter = '';
+	vm.search = function(name) {
+		if(name.search(vm.search_filter)!=-1) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
 	vm.category_filter="";
 
 	vm.category_filtering = function(categories) {
@@ -619,6 +633,7 @@ angular.module("mainApp",['ngRoute','ngFileUpload'])
 		console.log(vm.applied_jobs);
 		console.log($scope.$parent.main)
 	}
+
 console.log($scope.$parent.main)
 	vm.filter_applied_jobs();
 

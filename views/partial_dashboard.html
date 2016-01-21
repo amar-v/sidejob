@@ -18,9 +18,9 @@
 					<div class="filter-content">
 						<div class="filter-content-section">
 							<h4 class="title">Service</h4>
-							<p class="cursor" > <a href="" onclick="toggleFilters()">+ Show categories</a> </p>
+							<p class="cursor"> <a href="" ng-click="toggleFilters()">+ Show categories</a> </p>
 							<ul class="categories filter-list" id="first-filter">
-								<li class="cursor" ng-repeat="category in dashboard.categories" ng-click="dashboard.category_filter=category;dashboard.type(category);">{{category}}</li>
+								<li class="cursor show" ng-repeat="category in dashboard.categories" ng-click="dashboard.category_filter=category;dashboard.type(category);">{{category}}</li>
 							</ul>
 						</div>
 						<div class="filter-content-section">
@@ -63,7 +63,7 @@
 				<div class="post-holder">
 					<div class="searchbox">
 						<div class="input-group custom-search-holder">
-							<input type="text" class="form-control custom-search" placeholder="What services are you looking for...">
+							<input type="text" class="form-control custom-search" ng-model="dashboard.search_filter" ng-change="dashboard.search()" placeholder="What services are you looking for...">
 							<span class="input-group-btn">
 								<button class="btn btn-post" type="button">SEARCH</button>
 							</span>
